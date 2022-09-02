@@ -1,0 +1,31 @@
+﻿Anthon Wirback
+Natalie Stein
+Leo Mirzajanzadeh
+Lukas Gyllensvaan
+Oskar Ranhage
+
+
+Social contract
+
+
+This contract has the purpose to create a stable workflow, reduce conflict and create a great team spirit. This will be done by adhering to the following agreements we have made. 
+
+
+Meetings
+* Be in time for our meeting.
+* There will be 3 meetings per week at campus, sometimes more or less depending on the current workload.
+* If you can't get to campus you can join in an alternate way, such as via the internet, but on site is prefered.
+* If you're running late for a meeting or get sick, let the group know in advance.
+
+
+General teambuilding n stuffOSS
+* Good communication, make sure to check discord and updates on github regularly.
+* Be respectful and show consideration to your team members.
+* One day each week we’ll have a teambuilding session.
+* Each week the role of Scrum Master will be rotated.
+
+
+Work
+* The standard will be one person per task unless more people are required. Task goals will primarily be set on a weekly basis.
+* Tasks will be assigned during the last meeting of the previous week.
+* If a person feel like they won’t be able to complete their task, the person should inform the group and ask for help in good time!
