@@ -1,2 +1,2 @@
-# HothProdject
+# HothProject
 Agile software project management:
