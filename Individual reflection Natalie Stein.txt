@@ -28,7 +28,7 @@ What is my contribution towards the team’s deliveries?
 When solving the puzzle and lego-task we got separate tasks to do. My task was to look for corner-pieces while doing the puzzle, and to look for the requested pieces while building with lego. I think it was a good idea to split the tasks. Instead of having all people working on one big task, we made it easier to complete the task by giving one small task to each person.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
-Week 2:
+Week 2: 9/9-2022
 What do I want to learn or understand better?
 I still want to learn gitHub a bit more. I would also like to keep learning about scrum, and how to work after "scrum" as a team. 
 
