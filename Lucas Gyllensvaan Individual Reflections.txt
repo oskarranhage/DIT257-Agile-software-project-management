@@ -16,11 +16,15 @@ Everyone in the group has assigned tasks and I contribute to the group by doing 
 
 Week 2:
 
+what do I want to learn or understand better?
+I want to learn how the group can work better following the multi layer cake model. At first we split the different components of the project into assignments and each member of the group was responsible for one of these components (horizontal slicing). However as I recently learned this is inefficient due to the fact that the client will not be able to review our work until the later sprints, when we have assembled all of the components into the final product. Since there is no presentation layer for the client, the project will have little value. We should therefore focus on developing our project by using the vertically slicing method, which I want to learn more about.     
+how can I help someone else, or the entire team, to learn something new?
+By using the sprint review or other retrospectives to reflect and contemplate, I ensure helping team members and reaching better teamwork within my group. Because when we reflect and review each other's efforts we can get constructive criticism, which helps us grow. As long as it’s not mean criticism, like “You did nothing good this sprint”, this doesn’t help anyone. However if it’s pointers and tips on how someone can perform even better, that person will often better themselves, me included. 
+what is my contribution towards the team’s use of Scrum?
+We have worked in sprints and have had a sprint review where we reviewed our 
+what is my contribution towards the team’s deliveries?
+All of the members of the group have contributed towards the team by coming up with our project and planning how it will accomplish securing some of the UN goals. We will mostly focus on goal 4 with its targets, as previously mentioned in our representation (8th of september). I have contributed by bringing forth ideas, different variations of learning games that we plan to add to our application in the future, and in doing so expanding the functionality of the application. Furthermore, I have already thought of some solutions to how we can implement portions of our project. Such as for example how a user is able to create their own questions with either multiple choices or where you have to insert the correct answer into a textfield etc.  
 
-* what do I want to learn or understand better?
-* how can I help someone else, or the entire team, to learn something new?
-* what is my contribution towards the team’s use of Scrum?
-* what is my contribution towards the team’s deliveries?
 
 
 
