@@ -2,7 +2,7 @@
 DIT257
 Individual reflection 
 
-
+Questions for each week:
 * What do I want to learn or understand better?
 * How can I help someone else, or the entire team, to learn something new?
 * What is my contribution towards the team’s use of Scrum?
@@ -26,3 +26,37 @@ After reflecting on last week's tasks I realized that I need to be better at pla
 
 What is my contribution towards the team’s deliveries?
 When solving the puzzle and lego-task we got separate tasks to do. My task was to look for corner-pieces while doing the puzzle, and to look for the requested pieces while building with lego. I think it was a good idea to split the tasks. Instead of having all people working on one big task, we made it easier to complete the task by giving one small task to each person.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Week 2:
+What do I want to learn or understand better?
+I still want to learn gitHub a bit more. I would also like to keep learning about scrum, and how to work after "scrum" as a team. 
+
+
+How can I help someone else, or the entire team, to learn something new?
+To be a good listener and communicator. Try to listen to my teammates questions and try to help whenever I can. 
+
+
+What is my contribution towards the team’s use of scrum?
+Last week we did mostly planning of our project and worked on our pitch-presentation. My contribution last week towards the team’s use of scrum, 
+was that I (and all my teammates) actively worked together to solve our tasks. We discussed and planned our project. I wrote a part of our presentation, and 
+I was present the day we presented.
+
+
+What is my contribution towards the team’s deliveries?
+My tasks this week (except for participating in planning and presentation) was also to do a mockup design in Figma, which I have completed. 
+
+------------------------------------------------------------
+Week 3:
+
+Week 4:
+
+Week 5:
+
+Week 6:
+
+
+
+
+
+
