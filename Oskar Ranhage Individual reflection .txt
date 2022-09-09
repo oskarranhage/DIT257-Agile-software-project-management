@@ -20,10 +20,23 @@ I also was in the discussion on what user story we should pick and how we would 
 
 Week 2:
 * what do I want to learn or understand better?
-* how can I help someone else, or the entire team, to learn something new?
-* what is my contribution towards the team’s use of Scrum?
-* what is my contribution towards the team’s deliveries?
 
+I want to learn to work with the multi layer cake model, and how we will aply it twoards our Application.
+And becoming more adept with Github.
+
+* how can I help someone else, or the entire team, to learn something new?
+I still want to help my team understand Github better so that we will be more efficent and better work as a team.
+By having our meatings 3 or more times a weak, been good reflect as a group and its been a good opportunity, to share and learn from each other.
+and having alot of inperson meatings we get to know each other better and get along better.
+
+* what is my contribution towards the team’s use of Scrum?
+We have meetings atleast 3 times a week and mondays week we used to discuss what we wanted to do as a prodject. we started creating a slide for the presentation.
+we always meet in person because its easier to work togther that way and discuss thing.(this will change when the application sprints start)
+In the meetings i stay active, and the big thing this week was creating a presentation, and we worked togther as by creating a google doc and writing a script togheter, and fineshing the slides.
+
+* what is my contribution towards the team’s deliveries?
+My Contribution this week hase been writing in the script aswell as creating a post in the discussion section on canvas, where we wrote a discription of the work aswel as,we hade a meeting Friday 09/09 where we createde a business model canvas togheter. and worked with mockup of what we wanted the application to look like.
+like desiding structure and colour usage.
 
 
 
