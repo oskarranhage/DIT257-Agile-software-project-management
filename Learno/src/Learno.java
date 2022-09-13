@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
-public class Main {
+public class Learno {
     Scanner input = new Scanner(System.in);
 
     public static void main() {
-        new Main().writeAFlashCard();
+        new Learno().writeAFlashCard();
     }
 
     void writeAFlashCard() {
