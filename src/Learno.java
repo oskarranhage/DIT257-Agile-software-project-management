@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Learno {
     Scanner input = new Scanner(System.in);
 
-    public static void main() {
+    public static void main(String[] arg) {
         new Learno().writeAFlashCard();
     }
 
