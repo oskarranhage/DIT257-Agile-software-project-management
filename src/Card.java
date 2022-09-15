@@ -1,8 +1,8 @@
-public class FlashCards {
-    private final String question;
-    private final String answer;
+public class Card {
+    private String question;
+    private String answer;
 
-    FlashCards(String question, String answer) {
+    Card(String question, String answer) {
         this.question = question;
         this.answer = answer;
     }
