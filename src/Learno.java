@@ -1,19 +1,23 @@
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
-public class Learno {
+public class Learno extends Application {
 
     Scanner sc = new Scanner(System.in);
     Random rand = new Random();
 
-    public static void main(String[] arg) {
+    public static void main(String[] args) {
+        launch(args);
 
         //new Learno().createAFlashCard();
         //new Learno().createASpellingCard();
@@ -24,25 +28,39 @@ public class Learno {
         //set1.run();                             // Run the set, calling the run() method in FlashSet
 
         //createSetMenu();
-        Set set = new FlashSet();
+        Set set = new FlashSet(new Controller());
         set.readFile("test2.txt");
         set.run();
     }
 
+    @Override
+    public void start(Stage stage) throws Exception {
+
+        ResourceBundle bundle = java.util.ResourceBundle.getBundle("");
+
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("agilProject.fxml")), bundle);
+
+        Scene scene = new Scene(root, 800, 500);
+
+        stage.setTitle(bundle.getString("Learno"));
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public static void createSetMenu() {
         Scanner sc = new Scanner(System.in);
-        Boolean temp = true;
+        boolean temp = true;
         StringBuilder sb = new StringBuilder();
         System.out.println("What is the name of this set?");
         String name = sc.nextLine();
-        sb.append(name + "\n");
+        sb.append(name).append("\n");
         while(temp){
             System.out.println("What is the question? Enter it here: ");
             String userQuestion = sc.nextLine();
-            sb.append(userQuestion + ".");
+            sb.append(userQuestion).append(".");
             System.out.println("What is the answer? Enter it here: ");
             String userAnswer = sc.nextLine();
-            sb.append(userAnswer + "\n");
+            sb.append(userAnswer).append("\n");
             System.out.println("Do you want to continue? (n)");
             String ans = sc.nextLine();
             if (ans.equals("n")) {
@@ -143,8 +161,8 @@ public class Learno {
 
         int amountOfAlternatives = alternativeAnswers.length;
         int int_random = rand.nextInt(amountOfAlternatives);
-        for (int i = 0; i < alternativeAnswers.length; i++) {
-            System.out.println(alternativeAnswers[i]);
+        for (String alternativeAnswer : alternativeAnswers) {
+            System.out.println(alternativeAnswer);
         }
         //Tried to randomize the order of printing out alternatives
         /*int amountOfAlternatives = alternativeAnswers.length;

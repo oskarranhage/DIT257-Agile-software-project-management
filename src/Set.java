@@ -7,6 +7,8 @@ import java.util.Arrays;
 public abstract class Set implements Runnable{
     String name;
     ArrayList<Card> cards = new ArrayList<Card>();
+    Controller controller;
+
     void addCard(Card c){
         this.cards.add(c);
     }
