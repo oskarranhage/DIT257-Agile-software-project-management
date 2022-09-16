@@ -28,3 +28,19 @@ I had an idea about how the project work should be distributed but it didn't fol
 
 What is my contribution towards the team’s deliveries?
 I kept the group orginized and focused during the making of the business plan. I also did the extensions part of the presentation. I "blanked" so didn't say much about how the application could be expanded upon.
+
+
+
+Week 3
+ 
+What do I want to learn or understand better?
+I want to learn to distribute our workload better as well as improving the time planning of my own work. 
+
+How can I help someone else, or the entire team, to learn something new?
+---
+
+What is my contribution towards the team’s use of Scrum?
+I think I at points engaged and the group at meetings and got them to focus on the tasks at hand. I've contributed to make the group and the work more structured.
+
+What is my contribution towards the team’s deliveries?
+I worked on connecting the backend to the design in Scenebuilder. 
