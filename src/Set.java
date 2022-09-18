@@ -2,12 +2,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public abstract class Set implements Runnable{
     String name;
     ArrayList<Card> cards = new ArrayList<Card>();
-    Controller controller;
+    FXController controller;
 
     void addCard(Card c){
         this.cards.add(c);

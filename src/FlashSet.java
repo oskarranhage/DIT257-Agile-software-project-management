@@ -1,24 +1,21 @@
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class FlashSet extends Set {
     private Scanner scn = new Scanner(System.in);
-    private Controller controller;
+    private FXController controller;
 
-    FlashSet(Controller controller){
+    FlashSet(FXController controller){
         super.controller = controller;
     }
 
-    FlashSet(String name, Controller controller) {
+    FlashSet(String name, FXController controller) {
         super.name = name;
         super.controller = controller;
     }
 
-    FlashSet(String name, ArrayList<Card> cards, Controller controller) {
+    FlashSet(String name, ArrayList<Card> cards, FXController controller) {
         super.name = name;
         super.cards = cards;
         super.controller = controller;

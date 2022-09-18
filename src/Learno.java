@@ -28,21 +28,18 @@ public class Learno extends Application {
         //set1.run();                             // Run the set, calling the run() method in FlashSet
 
         //createSetMenu();
-        Set set = new FlashSet(new Controller());
+        Set set = new FlashSet(new FXController());
         set.readFile("test2.txt");
         set.run();
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-
-        ResourceBundle bundle = java.util.ResourceBundle.getBundle("");
-
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("agilProject.fxml")), bundle);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("agilproj.fxml")));
 
         Scene scene = new Scene(root, 800, 500);
 
-        stage.setTitle(bundle.getString("Learno"));
+        stage.setTitle("Learno");
         stage.setScene(scene);
         stage.show();
     }
