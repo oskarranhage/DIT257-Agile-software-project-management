@@ -28,7 +28,7 @@ public class Learno {
         //set1.run();                             // Run the set, calling the run() method in FlashSet
 
         //createSetMenu();
-        Set set = new FlashSet(new FXController());
+        Set set = new FlashSet();
         set.readFile("test2.txt");
         set.run();
     }
