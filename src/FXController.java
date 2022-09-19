@@ -9,7 +9,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class FXController implements Initializable {
+public class FXController {
     /**
      * Play flashcards
      * The F at the end of each variable is short for "Flashcard"
@@ -70,10 +70,10 @@ public class FXController implements Initializable {
     @FXML private AnchorPane myFoldersView;
     @FXML private AnchorPane mySetsView;
 
-    @Override
+    /*@Override
     public void initialize(URL url, ResourceBundle rb) {
         setInstructionF("Click on a card to turn it");
-    }
+    }*/
 
     /** -------------- Play flashcard methods -------------- */
     public void setQnATextF(String s){ QnALabelF.setText(s); }
