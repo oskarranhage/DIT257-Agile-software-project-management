@@ -11,7 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
-public class Learno extends Application {
+public class Learno {
 
     Scanner sc = new Scanner(System.in);
     Random rand = new Random();
@@ -33,7 +33,7 @@ public class Learno extends Application {
         set.run();
     }
 
-    @Override
+    /*@Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("agilproj.fxml")));
 
@@ -42,7 +42,7 @@ public class Learno extends Application {
         stage.setTitle("Learno");
         stage.setScene(scene);
         stage.show();
-    }
+    }*/
 
     public static void createSetMenu() {
         Scanner sc = new Scanner(System.in);
