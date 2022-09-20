@@ -11,10 +11,12 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
-public class Learno {
+public class Learno extends Application {
 
     Scanner sc = new Scanner(System.in);
     Random rand = new Random();
+    static String filePathAnthon = "C:\\Users\\Anthon\\Desktop\\untitled\\src\\";
+    static String filePath = filePathAnthon;
 
     public static void main(String[] args) {
         launch(args);
@@ -28,21 +30,17 @@ public class Learno {
         //set1.run();                             // Run the set, calling the run() method in FlashSet
 
         //createSetMenu();
-        Set set = new FlashSet();
-        set.readFile("test2.txt");
-        set.run();
     }
 
-    /*@Override
+    @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("agilproj.fxml")));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("agilproj.fxml"));
 
-        Scene scene = new Scene(root, 800, 500);
+        Scene scene = new Scene(root);
 
-        stage.setTitle("Learno");
         stage.setScene(scene);
         stage.show();
-    }*/
+    }
 
     public static void createSetMenu() {
         Scanner sc = new Scanner(System.in);
@@ -69,7 +67,7 @@ public class Learno {
 
     public static void makeFile(String name, String string) {
         try{
-            File mySet = new File ("C:\\Users\\Alex\\Downloads\\DIT257-Agile-software-project-management-main\\DIT257-Agile-software-project-management-main\\Sets\\" + name + ".txt");
+            File mySet = new File (filePath + name + ".txt");
             if (mySet.createNewFile()) {
                 System.out.println("File created: " + mySet.getName());
             } else {
@@ -79,7 +77,7 @@ public class Learno {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-        Path path = Path.of("C:\\Users\\Alex\\Downloads\\DIT257-Agile-software-project-management-main\\DIT257-Agile-software-project-management-main\\Sets\\" + name + ".txt");
+        Path path = Path.of(filePath + name + ".txt");
         try {
             Files.writeString(path, string, StandardCharsets.UTF_8);
         }
