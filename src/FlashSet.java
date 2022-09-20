@@ -4,21 +4,16 @@ import java.util.Scanner;
 
 public class FlashSet extends Set {
     private Scanner scn = new Scanner(System.in);
-    private FXController controller;
 
-    FlashSet(FXController controller){
-        super.controller = controller;
-    }
+    FlashSet(){}
 
-    FlashSet(String name, FXController controller) {
+    FlashSet(String name) {
         super.name = name;
-        super.controller = controller;
     }
 
-    FlashSet(String name, ArrayList<Card> cards, FXController controller) {
+    FlashSet(String name, ArrayList<Card> cards) {
         super.name = name;
         super.cards = cards;
-        super.controller = controller;
     }
 
     public void run() {
@@ -48,16 +43,12 @@ public class FlashSet extends Set {
         System.out.println("Congratulations! You finished the set. :)");
     }
 
-    public void setCurrentSetText(){
-        controller.setCurrentSetF(super.name);
-    }
-
-    public void setQuestionText(Card card){
+    /*public void setQuestionText(Card card){
         controller.setQnATextF(card.getQuestion());
     }
 
     public void setAnswerText(Card card){
         controller.setQnATextF(card.getAnswer());
-    }
+    }*/
 }
 
