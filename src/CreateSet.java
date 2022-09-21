@@ -17,8 +17,6 @@ public class CreateSet {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-
-
     }
 
     public void writeToFile(String name, String string) {
