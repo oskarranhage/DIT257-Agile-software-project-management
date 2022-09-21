@@ -1,66 +1,74 @@
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
+
 import javax.swing.text.html.ImageView;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static java.lang.System.out;
+
 public class FXController implements Initializable {
+    private DataBase db;
     /**
      * Play flashcards
      * The F at the end of each variable is short for "Flashcard"
      */
     @FXML private AnchorPane playFlashcardView;
-    @FXML private Pane backButtonF;
-    @FXML private Pane nextButtonF;
-    @FXML private Pane previousButtonF;
-    @FXML private Label QnALabelF;
-    @FXML private Label instructionF;
-    @FXML private Label currentSetLabelF;
+    @FXML private Button backButtonF;
+    @FXML private Button nextButtonF;
+    @FXML private Button previousButtonF;
+    @FXML private Text QnATextF;
+    @FXML private Text currentSetTextF;
 
+    private int atCardInd = 0;
+    private FlashSet currentFlashSet;
+    private boolean atQuestion;
     /**
      * Play MultipleChoice
      * The MC at the end of each variable is short for "MultipleChoice"
      */
 
     @FXML private AnchorPane playMultipleChoiceView;
-    @FXML private Pane backButtonMC;
-    @FXML private Pane nextButtonMC;
-    @FXML private Pane previousButtonMC;
-    @FXML private Label questionMC;
+    @FXML private Button backButtonMC;
+    @FXML private Button nextButtonMC;
+    @FXML private Button previousButtonMC;
+    @FXML private Text questionMC;
     @FXML private RadioButton answer1;
     @FXML private RadioButton answer2;
     @FXML private RadioButton answer3;
     @FXML private RadioButton answer4;
-    //@FXML private Label answer1Label;
-    //@FXML private Label answer2Label;
-    //@FXML private Label answer3Label;
-    //@FXML private Label answer4Label;
-    //@FXML private List<Label> answerLabels = List.of(answer1Label, answer2Label, answer3Label, answer4Label);
-    private List<RadioButton> answerChoices;
-    { assert false; answerChoices = List.of(answer1, answer2, answer3, answer4); }
+    //@FXML private Text answer1Text;
+    //@FXML private Text answer2Text;
+    //@FXML private Text answer3Text;
+    //@FXML private Text answer4Text;
+    //@FXML private List<Text> answerTexts = List.of(answer1Text, answer2Text, answer3Text, answer4Text);
+    //private List<RadioButton> answerChoices; { assert false; answerChoices = List.of(answer1, answer2, answer3, answer4); }
 
-    @FXML private Label confirmAnswerMC;
-    @FXML private Label guessResultMC;
+    @FXML private Text confirmAnswerMC;
+    @FXML private Text guessResultMC;
 
     /**
      * Start Menu
      * The SM the end of each variable is short for "Start Menu"
      */
     @FXML private AnchorPane startMenu;
-    @FXML private Pane createFolderButtonSM;
-    @FXML private Pane createSetButtonSM;
-    @FXML private Pane escapeHatchSM;
-    @FXML private ImageView plusIcon1SM;
-    @FXML private ImageView plusIcon2SM;
-    @FXML private Label myFoldersLabelSM;
-    @FXML private Label mySetsLabelSM;
-    @FXML private Label newFolderLabelSM;
-    @FXML private Label newSetsLabelSM;
+    @FXML private Button createFolderButtonSM;
+    @FXML private Button createSetButtonSM;
+    @FXML private Circle escapeHatchSM;
+    @FXML private Text plusIcon1SM;
+    @FXML private Button plusIcon2SM;
+    @FXML private Text myFoldersTextSM;
+    @FXML private Text mySetsTextSM;
+    @FXML private Text newFolderTextSM;
+    @FXML private Text newSetsTextSM;
 
     /**
      * Other pages
@@ -69,31 +77,66 @@ public class FXController implements Initializable {
     @FXML private AnchorPane createSetView;
     @FXML private AnchorPane myFoldersView;
     @FXML private AnchorPane mySetsView;
+    @FXML private AnchorPane chooseTechnique;
+
+    public FXController() throws IOException {
+    }
+
+    //private final Model model = Model.getInstance();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        setInstructionF("Click on a card to turn it");
+        try {
+            db = new DataBase();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        openStartMenu();
     }
 
     /** -------------- Play flashcard methods -------------- */
-    public void setQnATextF(String s){ QnALabelF.setText(s); }
 
-    public void setInstructionF(String s){ instructionF.setText(s); }
+    public void setUpFlashcardPlay(){
+        currentFlashSet = db.getFlashSets().get(0);
+        atCardInd = 0;
+        atQuestion = true;
+        currentSetTextF.setText("You are running " + currentFlashSet.name + " as a flash set.");
+        QnATextF.setText(currentFlashSet.cards.get(atCardInd).getQuestion());
+    }
 
-    public void setCurrentSetF(String s){ currentSetLabelF.setText("You are running " + s + " as a flash set."); }
+    public void nextFlashCard(){
+        if (currentFlashSet.cards.size()-1 != atCardInd){
+            atCardInd += 1;
+            atQuestion = true;
+            QnATextF.setText(currentFlashSet.cards.get(atCardInd).getQuestion());
+        }
+    }
 
+    public void previousFlashCard(){
+        if (atCardInd != 0){
+            atCardInd -= 1;
+            atQuestion = true;
+            QnATextF.setText(currentFlashSet.cards.get(atCardInd).getQuestion());
+        }
+    }
 
+    public void showAnswer(){
+        if(atQuestion){
+             atQuestion = false;
+             QnATextF.setText(currentFlashSet.cards.get(atCardInd).getAnswer());
+        }
+    }
     /** -------------- Play Multiple Choice methods -------------- */
-    public void setAnswers(List<String> answers){
+    /*public void setAnswers(List<String> answers){
         for (int i = 0; i < answers.size(); i++) {
             answerChoices.get(i).setSelected(false);
             answerChoices.get(i).setText(answers.get(i));
         }
-    }
+    }*/
 
-    /*public void setAnswerLabels(List<String> answers){
+    /*public void setAnswerTexts(List<String> answers){
         for (int i = 0; i < answers.size(); i++) {
-            answerLabels.get(i).setText(answers.get(i));
+            answerTexts.get(i).setText(answers.get(i));
         }
     }*/
 
@@ -106,22 +149,23 @@ public class FXController implements Initializable {
         guessResultMC.toFront();
     }
 
-    public void selectAnswer(RadioButton choice){
+    /*public void selectAnswer(RadioButton choice){
         for (RadioButton rb : answerChoices) {
             rb.setSelected(rb.getText().equals(choice.getText()));
         }
-    }
+    }*/
 
-    public void selectFirstAnswer(){ selectAnswer(answer1); }
+    /*public void selectFirstAnswer(){ selectAnswer(answer1); }
     public void selectSecondAnswer(){ selectAnswer(answer2); }
     public void selectThirdAnswer(){ selectAnswer(answer3); }
-    public void selectFourthAnswer(){ selectAnswer(answer4); }
+    public void selectFourthAnswer(){ selectAnswer(answer4); }*/
 
-    public void setCurrentSetMC(String s){ currentSetLabelF.setText("You are running " + s + " as a multiple choice set."); }
+    public void setCurrentSetMC(String s){ currentSetTextF.setText("You are running " + s + " as a multiple choice set."); }
 
 
     /** -------------- Methods to open pages -------------- */
     public void openPlayFlashcard(){
+        setUpFlashcardPlay();
         playFlashcardView.toFront();
     }
     public void openPlayMultipleChoice(){ playMultipleChoiceView.toFront(); }
@@ -130,6 +174,7 @@ public class FXController implements Initializable {
     public void openCreateSet(){ createSetView.toFront(); }
     public void openMyFolders(){ myFoldersView.toFront(); }
     public void openMySets(){ mySetsView.toFront(); }
+    public void openChooseTechnique(){ chooseTechnique.toFront(); }
 
 }
 
