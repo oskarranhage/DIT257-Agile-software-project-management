@@ -32,11 +32,15 @@ All of the members of the group have contributed towards the team by coming up w
 
 Week 3:
 
+what do I want to learn or understand better?
+I want to learn to be able to follow the agile practices better as previously mentioned in the week before. 
+how can I help someone else, or the entire team, to learn something new?
+Give out links. Making sure everyone’s opinion is brought forth and helping others understand things.
+what is my contribution towards the team’s use of Scrum?
+We have had meetings and worked in a sprint and we have had a sprint review. I attend the meetings and make sure that people are heard.
+what is my contribution towards the team’s deliveries?
+This sprint I have coded it so that it’s possible to create a new flashcard (a card where you are given a question and can reveal the right answer by pressing a tangent at your keyboard). A spelling card (where you are given a question and then have to type in the correct answer). A multiple choice card (where you are given a question and alternative answers, and have to pick the correct answer out of the alternatives). When you create a new card the constructor requires you to insert a question and an answer. But if it’s a multiple choice card the constructor also requires you to put in a String array, where every String is an alternative answer. 
 
-* what do I want to learn or understand better?
-* how can I help someone else, or the entire team, to learn something new?
-* what is my contribution towards the team’s use of Scrum?
-* what is my contribution towards the team’s deliveries?
 
 
 Week 4:

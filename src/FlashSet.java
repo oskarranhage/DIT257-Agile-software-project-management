@@ -1,27 +1,17 @@
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class FlashSet extends Set {
     private Scanner scn = new Scanner(System.in);
-    private Controller controller;
 
-    FlashSet(Controller controller){
-        super.controller = controller;
-    }
-
-    FlashSet(String name, Controller controller) {
+    FlashSet(String name) {
         super.name = name;
-        super.controller = controller;
     }
 
-    FlashSet(String name, ArrayList<Card> cards, Controller controller) {
+    FlashSet(String name, ArrayList<Card> cards) {
         super.name = name;
         super.cards = cards;
-        super.controller = controller;
     }
 
     public void run() {
@@ -49,18 +39,6 @@ public class FlashSet extends Set {
             count++;
         }
         System.out.println("Congratulations! You finished the set. :)");
-    }
-
-    public void setCurrentSetText(){
-        controller.setCurrentSetF(super.name);
-    }
-
-    public void setQuestionText(Card card){
-        controller.setQnATextF(card.getQuestion());
-    }
-
-    public void setAnswerText(Card card){
-        controller.setQnATextF(card.getAnswer());
     }
 }
 

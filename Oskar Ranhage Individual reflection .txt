@@ -42,9 +42,13 @@ like desiding structure and colour usage.
 
 Week 2:
 * what do I want to learn or understand better?
+I want to learn how to merge diffrent branches in Git, continue learing Git, become more adept in using it, learn to code better.
 * how can I help someone else, or the entire team, to learn something new?
+I will teach My team how to use the Git branches and merging into a one Main branch.
 * what is my contribution towards the team’s use of Scrum?
+Im part in the meetings, created the scrum board and some of its stories. aswell as created a opertunity for only Backend developers to meet and divide the task of a Story
 * what is my contribution towards the team’s deliveries?
+This week I help Alex with programin servela methods and creating a Method that created a Text File. Creation of the Scrum Board and all its parts.
 
 
 Week 3:
