@@ -95,7 +95,17 @@ However we think we also need better structure in our meetings, pointers that we
 All the meetings we have are sort of ineffective and have siphoned all the time available for us to work and complete all the stories. 
  
 *the sprint review and how it relates to your scope and customer value (Did you have a PO, if yes, who?, if no, how did you carry out the review? Did the review result in a re-prioritisation of user stories?
-How did the reviews relate to your DoD? Did the feedback change your way of working?)?:
+How did the reviews relate to your DoD? Did the feedback change your way of working?)?: 
+We have a PO whose name is Anthon, and he is very pleased with the product as a whole, however he lacks a representation layer so it’s been difficult for him to review our work. 
+The code also doesn’t have enough comments to help others understand it, which makes it harder for all members including the PO. 
+We will therefore comment on all the changes that we do in our code henceforth and thus this feedback has changed the way we work. 
+We have not changed the priority of user stories, but we have added new user stories that we forgot to add, and these became priority number one, because they were needed pronto. 
+The new user stories were needed to be completed before everything else in order for the program to work the way it’s supposed to. 
+All members of the group have a similar understanding of what the complete product will look like, we have for the most part the same vision for our product. 
+We have a pretty good layout for our scrum board, if a product backlog item does not meet the requirements for the DoD (Definition of Done), it won’t progress further to the “in review” state. 
+If the item does meet the requirements it will progress further, probably all the way to the “done” state, where it’s completely finished. 
+In our reviews we talked about the user stories we had worked upon in the previous sprint, and decided if they met the requirements of the DoD or not. 
+If they did they will be reviewed by the PO or a TA, if they did not they are still in progress of being completed. 
 
 *best practices for learning and using new tools and technologies (IDEs, version control, scrum boards etc.; do not only describe which tools you used but focus on how you developed the expertise to use them)
 relation to literature and guest lectures (how do your reflections relate to what others have to say?)?:
