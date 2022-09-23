@@ -84,6 +84,13 @@ The role of the scrum master needs to be defined more clearly in the social cont
 *Design decisions and product structure*:
 
 *How your design decisions (e.g., choice of APIs, architecture patterns, behaviour) support customer value?:
+WEEK 4:
+This week our main focus was restructuring our code into a MVC model, which will help our PO in easier seeing progress, as well as for the coders being able to demo separate parts. 
+This will help us in the future when we add features that our PO wants later on and gives us a structure that will be followed during all of the sprints, to achieve this we used a UML Diagram. 
+Frontend and backend is still an integral part of our work, splitting it up into several parts so that we can effectively produce a demoable product. 
+Our use of colors in the program is chosen so the customer will feel safe while learning. How we structure the frontend of the application is with an easy to understand menus with rounded buttons for a relaxed feeling for when the program is used. 
+We want to make it easily traversable when going through the application.This can be something we change depending on how the application feels when we use it
+
 
 *Which technical documentation you use and why (e.g. use cases, interaction diagrams, class diagrams, domain models or component diagrams, text documents):?
 
