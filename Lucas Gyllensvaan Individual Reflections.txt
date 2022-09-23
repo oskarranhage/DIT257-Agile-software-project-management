@@ -44,11 +44,15 @@ This sprint I have coded it so that it’s possible to create a new flashcard (a
 
 
 Week 4:
-* what do I want to learn or understand better?
-* how can I help someone else, or the entire team, to learn something new?
-* what is my contribution towards the team’s use of Scrum?
-* what is my contribution towards the team’s deliveries?
-
+what do I want to learn or understand better?
+I have yet to understand how the team should work vertically in the multi layer cake model, is it allowed that we work on different things in the backend and frontend? Some of us worked on the model of the MVC (Model, View, Controller) for this sprint, one team member worked on a database class for storing text files and its content, the others worked on how to display the sets with cards in the program. I would argue that we have worked more horizontally than vertically, but I don’t really see how we could have done this otherwise and still maintain efficiency. Is the idea that we all should have worked on the MVC for example, and when that’s done take care of the next assignment for this sprint that we had planned to complete?
+  
+how can I help someone else, or the entire team, to learn something new?
+Review others' work and give constructive criticism to help them grow and improve. Bring forth others opinions by making sure everyone feels included. 
+what is my contribution towards the team’s use of Scrum?
+We have had meetings that I have attended, a sprint review and we have worked in a sprint this week.
+what is my contribution towards the team’s deliveries?
+This sprint I have worked to improve the existing code by following the MVC design pattern, I’ve changed the structure of the “old” code to a newer version that eliminates unnecessary dependencies etc. We had two different classes to create two different types of cards. I have removed one class and added another constructor with different parameters than the other one to the same card class, depending on the parameters it creates either this type of card or the other one via overload. I have inserted the create card methods in the card class. I have made it so that FlashSet, TextSet and MultipleChoiceSet all extend the Set class and have their own overridden run methods, where they all ask you a question and depending on which set it is you insert an answer in different ways. I have created a new class SetFactory, which contains methods for creating the different sets etc. The green painted part of the current UML shows how everything looks now, not including the others contribution, they took care of other parts of the code. 
 
 
 
