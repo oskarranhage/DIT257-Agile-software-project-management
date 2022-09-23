@@ -34,14 +34,14 @@ Customer Value and Scope
 
 *The chosen scope of the application under development including the priority of features and for whom you are creating value?:
 
-How we chose the scope of our application under the Scrum board meeting decided that the priority should be a playable version of flashcards, that would give our primary customer middle schoolers a tool that they can use in all of their courses.
+W.3 How we chose the scope of our application under the Scrum board meeting decided that the priority should be a playable version of flashcards, that would give our primary customer middle schoolers a tool that they can use in all of their courses.
 Later focusing on adding more functionality like a Spelling test, and multiple choice answers.
 
 *The success criteria for the team in terms of what you want to achieve within the project (this can include the application, but also your learning outcomes, your teamwork, or your effort)?:
 
-Your user stories in terms of using a standard pattern, acceptance criteria, task breakdown and effort estimation and how this influenced the way you worked and created value?:
+*Your user stories in terms of using a standard pattern, acceptance criteria, task breakdown and effort estimation and how this influenced the way you worked and created value?:
 
-Our user stories were written according to examples and descriptions shown in the book (2nd edition - director's cut) Scrum and XP from trenches by Henrik Kniberg meaning each user story included these things : Id, name, prioritization, estimated time, how to demo and notes. 
+W.3 Our user stories were written according to examples and descriptions shown in the book (2nd edition - director's cut) Scrum and XP from trenches by Henrik Kniberg meaning each user story included these things : Id, name, prioritization, estimated time, how to demo and notes. 
 The acceptance criteria for each story is in this case the how to demo part. We ran into some difficulties later on though because our stories had been written in quite broad terms. 
 In the future we would like to have smaller stories that are divided into specific tasks and that most are reasonable to complete in the timespan of a sprint. 
 This will be achieved by changing and adding more specific stories throughout the project when needed and adding them into the scrum board.
@@ -58,7 +58,7 @@ This will be achieved by changing and adding more specific stories throughout th
 
 *The time you have spent on the course and how it relates to what you delivered (so keep track of your hours so you can describe the current situation)
 
-We’ve spent a lot of time on meetings this first sprint. We had 3 meetings in total that were held on Monday, Wednesday and Friday respectively.
+W.3 We’ve spent a lot of time on meetings this first sprint. We had 3 meetings in total that were held on Monday, Wednesday and Friday respectively.
 Our planned 15 minute meeting we had this wednesday went overtime and went on for closer to 1 hour, the other 2 meetings went on for over two hours and yet we feel like we didn’t plan enough. 
 Looking back, this is probably because of the lack of structure in our meetings. 
 We’ve worked with overall goals in mind that we’ve communicated to each other verbally which has made things a bit unclear sometimes. 
@@ -72,7 +72,7 @@ The role of the scrum master needs to be defined more clearly in the social cont
 
 *Which technical documentation you use and why (e.g. use cases, interaction diagrams, class diagrams, domain models or component diagrams, text documents):?
 
-We used a web application called Lucidchart to model an UML diagram over our Learno program. This UML is not yet complete and will be updated throughout the project. It’s a good way to work since it allows easy access to the UML for everyone to view and edit the UML.
+W.3 We used a web application called Lucidchart to model an UML diagram over our Learno program. This UML is not yet complete and will be updated throughout the project. It’s a good way to work since it allows easy access to the UML for everyone to view and edit the UML.
 how you use and update your documentation throughout the sprints
 This sprint, we used Lucidchart to come up with a starting point for the project. It was changed a lot throughout the sprint.
 In the future we would like to follow design patterns when setting up the structure of the program. This can be achieved by having a meeting at the start of the sprint where we go over the project plan in Lucidchart. 
@@ -83,14 +83,14 @@ Application of Scrum:
 
 *the roles you have used within the team and their impact on your work?:
 
-We have given one member of the group a role of Scrum Master, that person has not been able to do anything substantial because we worked collectively as the “scrum master”,
+W.3 We have given one member of the group a role of Scrum Master, that person has not been able to do anything substantial because we worked collectively as the “scrum master”,
 in the future we would like the scrum master to take a more active role by being in charge of each meeting. 
 This can be achieved by updating the social contract to include tasks like being responsible for the adherence to protocol during meetings for the scrum master. 
 We also split up in frontend and backend developers, and it worked fine but because of the poor structure on the stories gave us more workload on some members of the team.
  
 *the agile practices you have used and their impact on your work:?
 
-We’ve been working in sprints and been using sprint reviews and other retrospectives to reflect, and in doing so it has applied better structure to our project. 
+W.3 We’ve been working in sprints and been using sprint reviews and other retrospectives to reflect, and in doing so it has applied better structure to our project. 
 However we think we also need better structure in our meetings, pointers that we can follow and talk about in our for example sprint review, this will save us time. 
 All the meetings we have are sort of ineffective and have siphoned all the time available for us to work and complete all the stories. 
  
