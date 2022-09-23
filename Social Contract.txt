@@ -30,3 +30,20 @@ Work
 * The standard will be one person per task unless more people are required. Task goals will primarily be set on a weekly basis.
 * Tasks will be assigned during the last meeting of the previous week.
 * If a person feel like they won’t be able to complete their task, the person should inform the group and ask for help in good time!
+
+
+SOCIAL CONTRACT UPDATE 16/9 WEEK 3
+We want to add Meeting Section in our Contract that describes how our meetings should be used, 
+Why we need them and creating a structure so that every meeting becomes efficient and purposeful.
+Raise your hand to speak. This will help get everyone talking equally.
+In the case of major decisions, each member, one at a time, must say what they think
+Points we can relate to during the meetings. One for Monday and one for Friday.
+Do not deal with other things during meetings, pay attention, respect each other!
+The scrum master holds the meeting and is responsible for the protocol being created and followed. We create the protocol together at the end of the previous meetings.
+
+We have decided that we have meetings on Mondays, Wednesdays and Fridays. Wednesday meetings mainly take place over discord. If necessary, we also have meetings on Tuesdays
+
+
+
+
+
