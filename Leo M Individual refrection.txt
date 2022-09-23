@@ -46,16 +46,16 @@ I helped with writing the team reflection for this week.
 
 Week 4:
 * What do I want to learn or understand better?: 
-
+I want to fully understand how the File and Path calsses work so that I don't write reduntant code.
 
 * How can I help someone else, or the entire team, to learn something new?: 
-
+My answer's the same as previous.
 
 * What is my contribution towards the team’s use of Scrum?: 
-
+This week I contributed by helping the group stick to the scrumboard struckture during work.
 
 * What is my contribution towards the team’s deliveries?: 
-
+As we distributed the work, I made a klass which holds the workable data in the program. Along with writing the team reflection.
 
 Week 5:
 * What do I want to learn or understand better?: 
