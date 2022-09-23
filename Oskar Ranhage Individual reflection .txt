@@ -53,9 +53,13 @@ This week I help Alex with programin servela methods and creating a Method that 
 
 Week 3:
 * what do I want to learn or understand better?
+Because of sickness i still want to be better at using git, and usage of the branches.
 * how can I help someone else, or the entire team, to learn something new?
+i want to teach my team how to use got effectivly.
 * what is my contribution towards the team’s use of Scrum?
+This week i contributed with being present during the meetings, working with the scrumboard and writing notes on the userstorys that we picked so that it would be easier to se what needs to be done
 * what is my contribution towards the team’s deliveries?
+this week i was part in developing the MVC model, creating a UML diagram and then creating the editFile method inside the logic.
 
 
 Week 4:
