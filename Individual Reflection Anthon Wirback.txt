@@ -44,3 +44,19 @@ I think I at points engaged and the group at meetings and got them to focus on t
 
 What is my contribution towards the team’s deliveries?
 I worked on connecting the backend to the design in Scenebuilder. 
+
+
+
+Week 4
+ 
+What do I want to learn or understand better?
+I want to learn vertical and horizontal better and improve our work with git
+
+How can I help someone else, or the entire team, to learn something new?
+---
+
+What is my contribution towards the team’s use of Scrum?
+I've contributed to changes in future sprints and meetings that will make it easier for us. 
+
+What is my contribution towards the team’s deliveries?
+I translated all code to Java FX and in doing so made what the backend created work with the view. I did all my assigned work this week.
