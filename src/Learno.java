@@ -1,37 +1,37 @@
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 import java.io.File;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
-public class Learno {
+public class Learno extends Application {
 
+
+    static String basePath = new File("").getAbsolutePath();
+    private final static Path setFilePath = Path.of(basePath + "/Sets/");
     static Scanner sc = new Scanner(System.in);
     Random rand = new Random();
-    static String filePathAnthon = "C:\\Users\\Anthon\\Desktop\\untitled\\src\\";
-    static String filePath = filePathAnthon;
 
     public static void main(String[] args) {
+        //launch(args);
 
         //new Learno().createAFlashCard();
         //new Learno().createASpellingCard();
         //new Learno().createAMultipleCard();
 
-        //Set set1 = new FlashSet();              // create an empty FlashSet.
-        //set1.readFile("./sets/set1.txt");// Read the designated file into the FlashSet
-        //set1.run();                             // Run the set, calling the run() method in FlashSet
-
-        while(true) {
+        while (true) {
             System.out.println("Choose action.");
             System.out.println("1. Create set");
             System.out.println("2. Play set");
             String input = sc.nextLine();
             System.out.println(input);
-            if(input.equals("1")) {
+            if (input.equals("1")) {
                 createSetMenu();
-            }
-            else if (input.equals("2")) {
+            } else if (input.equals("2")) {
                 System.out.println("Type the name of the set you want to play.");
                 String inputSetName = sc.nextLine();
                 Set set = new FlashSet("");
@@ -39,9 +39,11 @@ public class Learno {
                 set.run();
             }
         }
-
-
         //createSetMenu();
+
+        //Set set1 = new FlashSet();              // create an empty FlashSet.
+        //set1.readFile("./sets/set1.txt");// Read the designated file into the FlashSet
+        //set1.run();                             // Run the set, calling the run() method in FlashSet
     }
 
     @Override
@@ -55,68 +57,8 @@ public class Learno {
     }
 
     public static void createSetMenu() {
-        Scanner sc = new Scanner(System.in);
-        boolean temp = true;
-        StringBuilder sb = new StringBuilder();
-        System.out.println("What is the name of this set?");
-        String name = sc.nextLine();
-        Boolean success = makeFile(name);
-        if(success){
-            sb.append(name).append("\n");
-            while(temp){
-                System.out.println("What is the question? Enter it here: ");
-                String userQuestion = sc.nextLine();
-                sb.append(userQuestion).append(".");
-                System.out.println("What is the answer? Enter it here: ");
-                String userAnswer = sc.nextLine();
-                sb.append(userAnswer).append("\n");
-                System.out.println("Do you want to continue? (n)");
-                String ans = sc.nextLine();
-                if (ans.equals("n")) {
-                    temp = false;
-                }
-            }
-            writeFile(name,sb.toString());
-        }
+        FileManager.writeFile();
     }
-
-    public static boolean makeFile(String name) {
-        try{
-            File mySet = new File ("C:\\Users\\Alex\\IdeaProjects\\DIT257-Agile-software-project-management\\Sets\\" + name + ".txt");
-            File mySet = new File (filePath + name + ".txt");
-            if (mySet.createNewFile()) {
-                System.out.println("File created: " + mySet.getName());
-                return true;
-            } else {
-                System.out.println("File already exists.");
-                return false;
-            }
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-            return false;
-        }
-    }
-    public static void writeFile(String name, String content) {
-        Path path = Path.of("C:\\Users\\Alex\\IdeaProjects\\DIT257-Agile-software-project-management\\Sets\\" + name + ".txt");
-        Path path = Path.of(filePath + name + ".txt");
-        try {
-            Files.writeString(path, content, StandardCharsets.UTF_8);
-        }
-        catch (IOException ex) {
-            System.out.print("Invalid Path");
-        }
-
-    }
-
-
-
-
-
-
-
-
-
 
     public void createAFlashCard () {
 
@@ -134,7 +76,6 @@ public class Learno {
 
 
     public void createASpellingCard () {
-
         System.out.println("What is the question? Enter it here: ");
         String userQuestion = sc.nextLine();
         System.out.println("What is the answer? Enter it here: ");

@@ -1,11 +1,13 @@
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public abstract class Set implements Runnable{
     String name;
+    String basePath = new File("").getAbsolutePath();
+    private final Path setFilePath = Path.of(basePath + "/Sets/");
     ArrayList<Card> cards = new ArrayList<Card>();
 
     void addCard(Card c){
@@ -16,7 +18,7 @@ public abstract class Set implements Runnable{
     }
     @Override
     public void readFile(String fileName) {
-        Path filepath = Path.of("C:\\Users\\Alex\\IdeaProjects\\DIT257-Agile-software-project-management\\Sets\\" + fileName + ".txt"); // "./sets/set1.txt"
+        Path filepath = Path.of(setFilePath + "/" + fileName + ".txt"); // "./sets/set1.txt"
         String content = "Empty";
         try {
             content = Files.readString(filepath);
