@@ -1,9 +1,3 @@
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -11,15 +5,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
-public class Learno extends Application {
+public class Learno {
 
-    Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
     Random rand = new Random();
     static String filePathAnthon = "C:\\Users\\Anthon\\Desktop\\untitled\\src\\";
     static String filePath = filePathAnthon;
 
     public static void main(String[] args) {
-        launch(args);
 
         //new Learno().createAFlashCard();
         //new Learno().createASpellingCard();
@@ -28,6 +21,25 @@ public class Learno extends Application {
         //Set set1 = new FlashSet();              // create an empty FlashSet.
         //set1.readFile("./sets/set1.txt");// Read the designated file into the FlashSet
         //set1.run();                             // Run the set, calling the run() method in FlashSet
+
+        while(true) {
+            System.out.println("Choose action.");
+            System.out.println("1. Create set");
+            System.out.println("2. Play set");
+            String input = sc.nextLine();
+            System.out.println(input);
+            if(input.equals("1")) {
+                createSetMenu();
+            }
+            else if (input.equals("2")) {
+                System.out.println("Type the name of the set you want to play.");
+                String inputSetName = sc.nextLine();
+                Set set = new FlashSet("");
+                set.readFile(inputSetName);
+                set.run();
+            }
+        }
+
 
         //createSetMenu();
     }
@@ -48,38 +60,48 @@ public class Learno extends Application {
         StringBuilder sb = new StringBuilder();
         System.out.println("What is the name of this set?");
         String name = sc.nextLine();
-        sb.append(name).append("\n");
-        while(temp){
-            System.out.println("What is the question? Enter it here: ");
-            String userQuestion = sc.nextLine();
-            sb.append(userQuestion).append(".");
-            System.out.println("What is the answer? Enter it here: ");
-            String userAnswer = sc.nextLine();
-            sb.append(userAnswer).append("\n");
-            System.out.println("Do you want to continue? (n)");
-            String ans = sc.nextLine();
-            if (ans.equals("n")) {
-                temp = false;
+        Boolean success = makeFile(name);
+        if(success){
+            sb.append(name).append("\n");
+            while(temp){
+                System.out.println("What is the question? Enter it here: ");
+                String userQuestion = sc.nextLine();
+                sb.append(userQuestion).append(".");
+                System.out.println("What is the answer? Enter it here: ");
+                String userAnswer = sc.nextLine();
+                sb.append(userAnswer).append("\n");
+                System.out.println("Do you want to continue? (n)");
+                String ans = sc.nextLine();
+                if (ans.equals("n")) {
+                    temp = false;
+                }
             }
+            writeFile(name,sb.toString());
         }
-        makeFile(name,sb.toString());
     }
 
-    public static void makeFile(String name, String string) {
+    public static boolean makeFile(String name) {
         try{
+            File mySet = new File ("C:\\Users\\Alex\\IdeaProjects\\DIT257-Agile-software-project-management\\Sets\\" + name + ".txt");
             File mySet = new File (filePath + name + ".txt");
             if (mySet.createNewFile()) {
                 System.out.println("File created: " + mySet.getName());
+                return true;
             } else {
                 System.out.println("File already exists.");
+                return false;
             }
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
+            return false;
         }
+    }
+    public static void writeFile(String name, String content) {
+        Path path = Path.of("C:\\Users\\Alex\\IdeaProjects\\DIT257-Agile-software-project-management\\Sets\\" + name + ".txt");
         Path path = Path.of(filePath + name + ".txt");
         try {
-            Files.writeString(path, string, StandardCharsets.UTF_8);
+            Files.writeString(path, content, StandardCharsets.UTF_8);
         }
         catch (IOException ex) {
             System.out.print("Invalid Path");

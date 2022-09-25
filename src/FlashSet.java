@@ -1,11 +1,12 @@
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class FlashSet extends Set {
     private Scanner scn = new Scanner(System.in);
-
-    FlashSet(){}
 
     FlashSet(String name) {
         super.name = name;
@@ -42,13 +43,5 @@ public class FlashSet extends Set {
         }
         System.out.println("Congratulations! You finished the set. :)");
     }
-
-    /*public void setQuestionText(Card card){
-        controller.setQnATextF(card.getQuestion());
-    }
-
-    public void setAnswerText(Card card){
-        controller.setQnATextF(card.getAnswer());
-    }*/
 }
 

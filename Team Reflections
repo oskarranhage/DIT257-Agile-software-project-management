@@ -2,11 +2,11 @@
 SPRINT REVIEW 1:
 
 How did the sprint go?
-It did not go as well as we hoped, but we finished most of the user stories, we failed in dividing the stories enough so some of the tasks 
-became too “large” and gave some of the stories the wrong priority. The backend stories were also a little too large in scope, and we should 
-have gone smaller for the first sprint, we nonetheless got a functional program that lets us play and create flashcard sets. We had a lot of 
-meetings and that was great, but the meeting where we created stories was difficult because we didn’t know how large the workload would be 
-before we started. For example, when we created a File Management Story, we realized during the coding that we could have split it up into 
+It did not go as well as we hoped, but we finished most of the user stories, we failed in dividing the stories enough so some of the tasks
+became too “large” and gave some of the stories the wrong priority. The backend stories were also a little too large in scope, and we should
+have gone smaller for the first sprint, we nonetheless got a functional program that lets us play and create flashcard sets. We had a lot of
+meetings and that was great, but the meeting where we created stories was difficult because we didn’t know how large the workload would be
+before we started. For example, when we created a File Management Story, we realized during the coding that we could have split it up into
 several stories. They also weren't descriptive enough and that led to more confusion.
 
 Did we complete our tasks?
@@ -25,7 +25,7 @@ The front end part was manageable, and in future sprints we could probably add o
 
 What needs to change until the next sprint?
 We need a better structure for our meetings, for example a couple of pointers that we follow for the meetings we have on monday and friday. 
-We need to set up smaller goals that we can sequentially complete, instead of promising to deliver a complete program with many steps within 
+We need to set up smaller goals that we can sequentially complete, instead of promising to deliver a complete program with many steps within
 one sprint.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
@@ -41,22 +41,22 @@ Confusion on how MVC works.
 People doing each others work.
 
 Did we complete our tasks?
-No, some people managed to complete their part, but overall we did not accomplish what we set up to do. 
+No, some people managed to complete their part, but overall we did not accomplish what we set up to do.
 
 Did the members cooperate well?
-Yes and no. Cooperation within the frontend group went well, but the same can’t be said for the backend group, and between the two groups. 
+Yes and no. Cooperation within the frontend group went well, but the same can’t be said for the backend group, and between the two groups.
 We planned together how to structure the program but when it came to programming little to no communication was done.
 
 Was the workload sufficinent and/or manageable?
-It was fairly sufficient, but the backend team divided all the work between them the day before the deadline. This happened because several 
-members had gotten sick and were unable to attend the initially planned meeting, so we had to postpone the work to a later date. As well as 
+It was fairly sufficient, but the backend team divided all the work between them the day before the deadline. This happened because several
+members had gotten sick and were unable to attend the initially planned meeting, so we had to postpone the work to a later date. As well as
 certain problems, in the code, erupting after the last sprint, leading to delayed work.
 
 What needs to change until the next sprint?
 We need more structure in our meetings, a couple of pointers to follow and talk about prepared for each meeting.
 The backend programmers should work in two pairs instead of as a unit  of four.
-Natalie and Anthon should communicate when they start and finish work in Scene Builder since working on it separately at the same time may 
-result in loss of changes. Communicate with each other during coding if changes need to be made. This is done via discord in the new channel 
+Natalie and Anthon should communicate when they start and finish work in Scene Builder since working on it separately at the same time may
+result in loss of changes. Communicate with each other during coding if changes need to be made. This is done via discord in the new channel
 "updates".
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
@@ -67,27 +67,27 @@ Team Reflection:
 
 *The chosen scope of the application under development including the priority of features and for whom you are creating value?:
 
-WEEK 3: How we chose the scope of our application under the Scrum board meeting decided that the priority should be a playable version of 
-flashcards, that would give our primary customer middle schoolers a tool that they can use in all of their courses. Later focusing on adding 
+WEEK 3: How we chose the scope of our application under the Scrum board meeting decided that the priority should be a playable version of
+flashcards, that would give our primary customer middle schoolers a tool that they can use in all of their courses. Later focusing on adding
 more functionality like a Spelling test, and multiple choice answers.
 
-*The success criteria for the team in terms of what you want to achieve within the project (this can include the application, but also your 
+*The success criteria for the team in terms of what you want to achieve within the project (this can include the application, but also your
 learning outcomes, your teamwork, or your effort)?:
 
 WEEK 4:
-The success criteria for this project is to have the program runnable and function as intended. Display the studying methods (for example flashcards), have it intractable as well as create and edit sets. When it comes to the part of the projekt that doesn’t regard the program itself i.e. learning, teamwork and effort. 
-Learning: Throughout the project we would like to learn more about how to work in an Agile way. 
+The success criteria for this project is to have the program runnable and function as intended. Display the studying methods (for example flashcards), have it intractable as well as create and edit sets. When it comes to the part of the projekt that doesn’t regard the program itself i.e. learning, teamwork and effort.
+Learning: Throughout the project we would like to learn more about how to work in an Agile way.
 Teamwork: Of course we would like to improve our teamwork. Which would include a workspace where everyone gets a chance to give their view on the subject and their say on it.
 Effort: The amount of effort we would like to use for this project is enough for us to be proud of what we’ve done.
 
-*Your user stories in terms of using a standard pattern, acceptance criteria, task breakdown and effort estimation and how this influenced the 
+*Your user stories in terms of using a standard pattern, acceptance criteria, task breakdown and effort estimation and how this influenced the
 way you worked and created value?:
 
-WEEK 3: Our user stories were written according to examples and descriptions shown in the book (2nd edition - director's cut) Scrum and XP from 
-trenches by Henrik Kniberg meaning each user story included these things : Id, name, prioritization, estimated time, how to demo and notes. The 
-acceptance criteria for each story is in this case the how to demo part. We ran into some difficulties later on though because our stories had 
-been written in quite broad terms. In the future we would like to have smaller stories that are divided into specific tasks and that most are 
-reasonable to complete in the timespan of a sprint. This will be achieved by changing and adding more specific stories throughout the project 
+WEEK 3: Our user stories were written according to examples and descriptions shown in the book (2nd edition - director's cut) Scrum and XP from
+trenches by Henrik Kniberg meaning each user story included these things : Id, name, prioritization, estimated time, how to demo and notes. The
+acceptance criteria for each story is in this case the how to demo part. We ran into some difficulties later on though because our stories had
+been written in quite broad terms. In the future we would like to have smaller stories that are divided into specific tasks and that most are
+reasonable to complete in the timespan of a sprint. This will be achieved by changing and adding more specific stories throughout the project
 when needed and adding them into the scrum board.
 
 *Your acceptance tests, such as how they were performed, with whom, and which value they provided for you and the other stakeholders:?
@@ -98,81 +98,81 @@ when needed and adding them into the scrum board.
 
 *Social Contract and Effort*
 
-*Your social contract (Links to an external site.), i.e., the rules that define how you work together as a team, how it influenced your work, 
-*and how it evolved during the project (this means, of course, you should create one in the first week and continuously update it when the 
+*Your social contract (Links to an external site.), i.e., the rules that define how you work together as a team, how it influenced your work,
+*and how it evolved during the project (this means, of course, you should create one in the first week and continuously update it when the
 need arrives)
 
 WEEK 4:
-We created a social contract the first week. In the end of last week we noticed that we needed to add some things to the contract to help us 
+We created a social contract the first week. In the end of last week we noticed that we needed to add some things to the contract to help us
 work better as a team:
-- We want to add a “Meeting Section” in our Contract that describes how our meetings should be used, why we need them and creating a structure 
-so that every meeting becomes efficient and purposeful. 
-- Raise your hand to speak. This will help get everyone talking equally. In the case of major decisions, each member, one at a time, must say 
-what they think 
-- Points we can relate to during the meetings. One for Monday and one for Friday. 
-- Do not deal with other things during meetings, pay attention, respect each other! 
-- The scrum master holds the meeting and is responsible for the protocol being created and followed. 
-- We create the protocol together at the end of the previous meetings. 
-- We have decided that we have meetings on Mondays, Wednesdays and Fridays. Wednesday meetings mainly take place over discord. If necessary, 
-we also have meetings on Tuesdays. We have tried to follow these new rules in the contract, but we still think that we can make our meetings 
-more efficient. We have made points that we can relate to during the meetings, but we should write them down in a protocol so that we have 
-them in one specific place. We think that the meeting schedule has worked well, meetings on monday, wednesday and friday. However, we do 
-think that we need to update the social contract one more time. We believe that the backend-group needs one more planned meeting on tuesdays. 
+- We want to add a “Meeting Section” in our Contract that describes how our meetings should be used, why we need them and creating a structure
+so that every meeting becomes efficient and purposeful.
+- Raise your hand to speak. This will help get everyone talking equally. In the case of major decisions, each member, one at a time, must say
+what they think
+- Points we can relate to during the meetings. One for Monday and one for Friday.
+- Do not deal with other things during meetings, pay attention, respect each other!
+- The scrum master holds the meeting and is responsible for the protocol being created and followed.
+- We create the protocol together at the end of the previous meetings.
+- We have decided that we have meetings on Mondays, Wednesdays and Fridays. Wednesday meetings mainly take place over discord. If necessary,
+we also have meetings on Tuesdays. We have tried to follow these new rules in the contract, but we still think that we can make our meetings
+more efficient. We have made points that we can relate to during the meetings, but we should write them down in a protocol so that we have
+them in one specific place. We think that the meeting schedule has worked well, meetings on monday, wednesday and friday. However, we do
+think that we need to update the social contract one more time. We believe that the backend-group needs one more planned meeting on tuesdays.
 
-*There is a survey (Links to an external site.) you can use for evaluating how the team is perceiving the process and if it is used by several 
+*There is a survey (Links to an external site.) you can use for evaluating how the team is perceiving the process and if it is used by several
 teams it will also help you
 to assess if your team is following a general pattern or not.:?
 
-*The time you have spent on the course and how it relates to what you delivered (so keep track of your hours so you can describe the current 
+*The time you have spent on the course and how it relates to what you delivered (so keep track of your hours so you can describe the current
 situation)
 
 WEEK 3:
 We’ve spent a lot of time on meetings this first sprint. We had 3 meetings in total that were held on Monday, Wednesday and Friday respectively.
-Our planned 15 minute meeting we had this wednesday went overtime and went on for closer to 1 hour, the other 2 meetings went on for over two 
-hours and yet we feel like we didn’t plan enough. Looking back, this is probably because of the lack of structure in our meetings. We’ve worked 
-with overall goals in mind that we’ve communicated to each other verbally which has made things a bit unclear sometimes. In the future we would 
-like to be more prepared before each meeting. This can be achieved through designating a leader to each meeting (the scrum master) that is 
-responsible for making sure the social contract is adhered to properly. The role of the scrum master needs to be defined more clearly in the 
+Our planned 15 minute meeting we had this wednesday went overtime and went on for closer to 1 hour, the other 2 meetings went on for over two
+hours and yet we feel like we didn’t plan enough. Looking back, this is probably because of the lack of structure in our meetings. We’ve worked
+with overall goals in mind that we’ve communicated to each other verbally which has made things a bit unclear sometimes. In the future we would
+like to be more prepared before each meeting. This can be achieved through designating a leader to each meeting (the scrum master) that is
+responsible for making sure the social contract is adhered to properly. The role of the scrum master needs to be defined more clearly in the
 social contract.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 *Design decisions and product structure*
 
 *How your design decisions (e.g., choice of APIs, architecture patterns, behaviour) support customer value?:
 WEEK 4:
-This week our main focus was restructuring our code into a MVC model, which will help our PO in easier seeing progress, as well as for the 
-coders being able to demo separate parts. This will help us in the future when we add features that our PO wants later on and gives us a 
-structure that will be followed during all of the sprints, to achieve this we used a UML Diagram. Frontend and backend is still an integral 
-part of our work, splitting it up into several parts so that we can effectively produce a demoable product. Our use of colors in the program 
-is chosen so the customer will feel safe while learning. How we structure the frontend of the application is with an easy to understand menus 
-with rounded buttons for a relaxed feeling for when the program is used. We want to make it easily traversable when going through the 
+This week our main focus was restructuring our code into a MVC model, which will help our PO in easier seeing progress, as well as for the
+coders being able to demo separate parts. This will help us in the future when we add features that our PO wants later on and gives us a
+structure that will be followed during all of the sprints, to achieve this we used a UML Diagram. Frontend and backend is still an integral
+part of our work, splitting it up into several parts so that we can effectively produce a demoable product. Our use of colors in the program
+is chosen so the customer will feel safe while learning. How we structure the frontend of the application is with an easy to understand menus
+with rounded buttons for a relaxed feeling for when the program is used. We want to make it easily traversable when going through the
 application. This can be something we change depending on how the application feels when we use it
 
 
-*Which technical documentation you use and why (e.g. use cases, interaction diagrams, class diagrams, domain models or component diagrams, 
+*Which technical documentation you use and why (e.g. use cases, interaction diagrams, class diagrams, domain models or component diagrams,
 text documents):?
 
 WEEK 3:
-We used a web application called Lucidchart to model an UML diagram over our Learno program. This UML is not yet complete and will be updated 
+We used a web application called Lucidchart to model an UML diagram over our Learno program. This UML is not yet complete and will be updated
 throughout the project. It’s a good way to work since it allows easy access to the UML for everyone to view and edit the UML.
 
 *how you use and update your documentation throughout the sprints
 
 WEEK 3:
 This sprint, we used Lucidchart to come up with a starting point for the project. It was changed a lot throughout the sprint.
-In the future we would like to follow design patterns when setting up the structure of the program. This can be achieved by having a meeting 
-at the start of the sprint where we go over the project plan in Lucidchart. 
+In the future we would like to follow design patterns when setting up the structure of the program. This can be achieved by having a meeting
+at the start of the sprint where we go over the project plan in Lucidchart.
 
 *how you ensure code quality and enforce coding standards?:
 
 WEEK 4:
-We currently have a rule when pushing code to git that the code should be runnable. When it comes to the code we have at the end of the sprint, 
-however, we currently have no written rules in place to ensure quality. We do however strive towards following general object oriented 
-programming standards such as high coupling, low coherence, using design patterns in our solutions and of course the SOLID principles. The lack 
-of comments inside the code has made it hard for us to understand code that others in the group have written. We would like to have clean code 
-that is easy for anyone to understand and is runnable. To achieve easily understood code we need to enforce the rule of 100% javadoc coverage 
-at the end of each sprint. When working and pushing to git throughout the sprint, however, we should strive towards simple comments on each new 
-implemented method and variable, but during the sprint it doesn’t have to be perfect. To ensure clean code we should reflect upon the SOLID 
-principles. If a solution seems too long or complex, we should try to simplify the solution. 
+We currently have a rule when pushing code to git that the code should be runnable. When it comes to the code we have at the end of the sprint,
+however, we currently have no written rules in place to ensure quality. We do however strive towards following general object oriented
+programming standards such as high coupling, low coherence, using design patterns in our solutions and of course the SOLID principles. The lack
+of comments inside the code has made it hard for us to understand code that others in the group have written. We would like to have clean code
+that is easy for anyone to understand and is runnable. To achieve easily understood code we need to enforce the rule of 100% javadoc coverage
+at the end of each sprint. When working and pushing to git throughout the sprint, however, we should strive towards simple comments on each new
+implemented method and variable, but during the sprint it doesn’t have to be perfect. To ensure clean code we should reflect upon the SOLID
+principles. If a solution seems too long or complex, we should try to simplify the solution.
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
@@ -182,39 +182,39 @@ principles. If a solution seems too long or complex, we should try to simplify t
 *the roles you have used within the team and their impact on your work?:
 
 WEEK 3:
-We have given one member of the group a role of Scrum Master, that person has not been able to do anything substantial because we worked 
-collectively as the “scrum master”, in the future we would like the scrum master to take a more active role by being in charge of each meeting. 
-This can be achieved by updating the social contract to include tasks like being responsible for the adherence to protocol during meetings for 
-the scrum master. We also split up in frontend and backend developers, and it worked fine but because of the poor structure on the stories gave 
+We have given one member of the group a role of Scrum Master, that person has not been able to do anything substantial because we worked
+collectively as the “scrum master”, in the future we would like the scrum master to take a more active role by being in charge of each meeting.
+This can be achieved by updating the social contract to include tasks like being responsible for the adherence to protocol during meetings for
+the scrum master. We also split up in frontend and backend developers, and it worked fine but because of the poor structure on the stories gave
 us more workload on some members of the team.
- 
+
 *the agile practices you have used and their impact on your work:?
 
 WEEK 3:
-We’ve been working in sprints and been using sprint reviews and other retrospectives to reflect, and in doing so it has applied better structure 
-to our project. However we think we also need better structure in our meetings, pointers that we can follow and talk about in our for example 
-sprint review, this will save us time. All the meetings we have are sort of ineffective and have siphoned all the time available for us to work 
-and complete all the stories. 
- 
-*the sprint review and how it relates to your scope and customer value (Did you have a PO, if yes, who?, if no, how did you carry out the 
-review? Did the review result in a re-prioritisation of user stories? How did the reviews relate to your DoD? Did the feedback change your 
-way of working?)?: 
+We’ve been working in sprints and been using sprint reviews and other retrospectives to reflect, and in doing so it has applied better structure
+to our project. However we think we also need better structure in our meetings, pointers that we can follow and talk about in our for example
+sprint review, this will save us time. All the meetings we have are sort of ineffective and have siphoned all the time available for us to work
+and complete all the stories.
+
+*the sprint review and how it relates to your scope and customer value (Did you have a PO, if yes, who?, if no, how did you carry out the
+review? Did the review result in a re-prioritisation of user stories? How did the reviews relate to your DoD? Did the feedback change your
+way of working?)?:
 
 WEEK 4:
-We have a PO whose name is Anthon, and he is very pleased with the product as a whole, however he lacks a representation layer so it’s been 
-difficult for him to review our work. The code also doesn’t have enough comments to help others understand it, which makes it harder for all 
-members including the PO. We will therefore comment on all the changes that we do in our code henceforth and thus this feedback has changed 
-the way we work. We have not changed the priority of user stories, but we have added new user stories that we forgot to add, and these became 
-priority number one, because they were needed pronto. The new user stories were needed to be completed before everything else in order for the 
-program to work the way it’s supposed to. All members of the group have a similar understanding of what the complete product will look like, 
-we have for the most part the same vision for our product. We have a pretty good layout for our scrum board, if a product backlog item does 
-not meet the requirements for the DoD (Definition of Done), it won’t progress further to the “in review” state. If the item does meet the 
-requirements it will progress further, probably all the way to the “done” state, where it’s completely finished. In our reviews we talked about 
-the user stories we had worked upon in the previous sprint, and decided if they met the requirements of the DoD or not. If they did they will 
-be reviewed by the PO or a TA, if they did not they are still in progress of being completed. 
+We have a PO whose name is Anthon, and he is very pleased with the product as a whole, however he lacks a representation layer so it’s been
+difficult for him to review our work. The code also doesn’t have enough comments to help others understand it, which makes it harder for all
+members including the PO. We will therefore comment on all the changes that we do in our code henceforth and thus this feedback has changed
+the way we work. We have not changed the priority of user stories, but we have added new user stories that we forgot to add, and these became
+priority number one, because they were needed pronto. The new user stories were needed to be completed before everything else in order for the
+program to work the way it’s supposed to. All members of the group have a similar understanding of what the complete product will look like,
+we have for the most part the same vision for our product. We have a pretty good layout for our scrum board, if a product backlog item does
+not meet the requirements for the DoD (Definition of Done), it won’t progress further to the “in review” state. If the item does meet the
+requirements it will progress further, probably all the way to the “done” state, where it’s completely finished. In our reviews we talked about
+the user stories we had worked upon in the previous sprint, and decided if they met the requirements of the DoD or not. If they did they will
+be reviewed by the PO or a TA, if they did not they are still in progress of being completed.
 
-*best practices for learning and using new tools and technologies (IDEs, version control, scrum boards etc.; do not only describe which tools 
-you used but focus on how you developed the expertise to use them) relation to literature and guest lectures (how do your reflections relate 
+*best practices for learning and using new tools and technologies (IDEs, version control, scrum boards etc.; do not only describe which tools
+you used but focus on how you developed the expertise to use them) relation to literature and guest lectures (how do your reflections relate
 to what others have to say?)?:
 
 *relation to literature and guest lectures (how do your reflections relate to what others have to say?):
