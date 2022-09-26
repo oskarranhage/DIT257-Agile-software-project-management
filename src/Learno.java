@@ -5,6 +5,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
@@ -32,11 +35,27 @@ public class Learno extends Application {
             if (input.equals("1")) {
                 createSetMenu();
             } else if (input.equals("2")) {
-                System.out.println("Type the name of the set you want to play.");
+                /*System.out.println("Type the name of the set you want to play.");
                 String inputSetName = sc.nextLine();
                 Set set = new FlashSet("");
                 set.readFile(inputSetName);
-                set.run();
+                set.run();*/
+
+                System.out.println("What set do you wan't to play?\n");
+                System.out.println("Press 'f' for flashSet, 't' for textSet, 'm' for multipleChoiceSet");
+                String whichSet = sc.nextLine();
+                if (whichSet.equals("f")) {
+                    SetFactory.createFlashSet();
+                }
+                else if (whichSet.equals("t")) {
+                    SetFactory.createTextSet();
+                }
+                else if (whichSet.equals("m")) {
+                    SetFactory.createMultipleChoiceSet();
+                }
+                else {
+                    System.out.println(whichSet + " is not an available set.");
+                }
             }
         }
         //createSetMenu();
@@ -56,8 +75,60 @@ public class Learno extends Application {
         stage.show();
     }
 
-    public static void createSetMenu() {
+    /*public static void createSetMenu() {
         FileManager.writeFile();
+    }*/
+
+    public static void createSetMenu() {
+        Scanner sc = new Scanner(System.in);
+        boolean temp = true;
+        StringBuilder sb = new StringBuilder();
+        System.out.println("What is the name of this set?");
+        String name = sc.nextLine();
+        Boolean success = makeFile(name);
+        if(success){
+            sb.append(name).append("\n");
+            while(temp){
+                System.out.println("What is the question? Enter it here: ");
+                String userQuestion = sc.nextLine();
+                sb.append(userQuestion).append(".");
+                System.out.println("What is the answer? Enter it here: ");
+                String userAnswer = sc.nextLine();
+                sb.append(userAnswer).append("\n");
+                System.out.println("Do you want to continue? (n)");
+                String ans = sc.nextLine();
+                if (ans.equals("n")) {
+                    temp = false;
+                }
+            }
+            writeFile(name,sb.toString());
+        }
+    }
+
+    public static boolean makeFile(String name) {
+        try{
+            File mySet = new File ("C:\\OOP\\DIT257-Learno updated\\Sets\\" + name + ".txt");
+            if (mySet.createNewFile()) {
+                System.out.println("File created: " + mySet.getName());
+                return true;
+            } else {
+                System.out.println("File already exists.");
+                return false;
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public static void writeFile(String name, String content) {
+        Path path = Path.of("C:\\OOP\\DIT257-Learno updated\\Sets\\" + name + ".txt");
+        try {
+            Files.writeString(path, content, StandardCharsets.UTF_8);
+        }
+        catch (IOException ex) {
+            System.out.print("Invalid Path");
+        }
     }
 
     public void createAFlashCard () {
