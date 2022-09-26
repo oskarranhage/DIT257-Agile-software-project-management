@@ -32,9 +32,9 @@ I kept the group orginized and focused during the making of the business plan. I
 
 
 Week 3
- 
+
 What do I want to learn or understand better?
-I want to learn to distribute our workload better as well as improving the time planning of my own work. 
+I want to learn to distribute our workload better as well as improving the time planning of my own work.
 
 How can I help someone else, or the entire team, to learn something new?
 ---
@@ -43,12 +43,12 @@ What is my contribution towards the team’s use of Scrum?
 I think I at points engaged and the group at meetings and got them to focus on the tasks at hand. I've contributed to make the group and the work more structured.
 
 What is my contribution towards the team’s deliveries?
-I worked on connecting the backend to the design in Scenebuilder. 
+I worked on connecting the backend to the design in Scenebuilder.
 
 
 
 Week 4
- 
+
 What do I want to learn or understand better?
 I want to learn vertical and horizontal better and improve our work with git
 
@@ -56,7 +56,7 @@ How can I help someone else, or the entire team, to learn something new?
 ---
 
 What is my contribution towards the team’s use of Scrum?
-I've contributed to changes in future sprints and meetings that will make it easier for us. 
+I've contributed to changes in future sprints and meetings that will make it easier for us.
 
 What is my contribution towards the team’s deliveries?
 I translated all code to Java FX and in doing so made what the backend created work with the view. I did all my assigned work this week.

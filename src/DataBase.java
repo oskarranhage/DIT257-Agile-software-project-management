@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -5,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataBase {
-    static String filePathAnthon = "C:\\Users\\Anthon\\Desktop\\untitled\\src\\";
-    static String filePath = filePathAnthon;
+    String basePath = new File("").getAbsolutePath();
+    private final Path setFilePath = Path.of(basePath + "/Sets/");
 
     private List<FlashSet> flashSets = new ArrayList<>();
 
@@ -15,7 +16,7 @@ public class DataBase {
     }
 
     public void readFlashCardFile() throws IOException {
-        Path filepath = Path.of(filePath + "test2.txt"); // "./sets/set1.txt"
+        Path filepath = Path.of(setFilePath + "/" + "test2.txt"); // "./sets/set1.txt"
         String content = Files.readString(filepath);
         String[] lines = content.split("\r?\n|\r");
 
