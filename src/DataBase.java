@@ -13,7 +13,7 @@ public class DataBase {
 
     // Directory for the folder of sets in File and Path data types.
     private final Path setFolderPath = Path.of(new File("").getAbsolutePath() + "/Sets/");
-    private final File setFolder = setFolderPath.toFile();
+    private final File setFolderFile = setFolderPath.toFile();
 
     // Constructor initialises the workable data
     public DataBase() {
@@ -21,7 +21,7 @@ public class DataBase {
     }
 
     private void initialise() {
-        for (File fileEntry : setFolder.listFiles()) {
+        for (File fileEntry : setFolderFile.listFiles()) {
             String fileName = fileEntry.getName();
 
             String[] nameStructure = fileName.split("\\.", 3); // 1: Type, 2: Name, 3: txt
@@ -76,7 +76,7 @@ public class DataBase {
     }
 
     public void updateAllFlashCardSets() {
-        for (File fileEntry : setFolder.listFiles()) {
+        for (File fileEntry : setFolderFile.listFiles()) {
             String fileName = fileEntry.getName();
 
             String[] nameStructure = fileName.split("\\.", 3);
@@ -100,5 +100,5 @@ public class DataBase {
     }
 
     public Path getSetFolderPath() { return setFolderPath; }
-    public File getSetFolder() { return setFolder; }
+    public File getSetFolderFile() { return setFolderFile; }
 }

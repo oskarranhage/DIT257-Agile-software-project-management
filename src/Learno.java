@@ -1,10 +1,8 @@
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import javax.xml.crypto.Data;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -120,7 +118,7 @@ public class Learno {
         }
     }
     public static void writeFile(String name, String content) {
-        Path path = Path.of(db.getSetFolder() + "/fs." + name + ".txt");
+        Path path = Path.of(db.getSetFolderFile() + "/fs." + name + ".txt");
         try {
             Files.writeString(path, content, StandardCharsets.UTF_8);
         }
