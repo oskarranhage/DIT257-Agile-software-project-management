@@ -8,7 +8,7 @@ public abstract class Set implements Runnable{
     String name;
     String basePath = new File("").getAbsolutePath();
     private final Path setFilePath = Path.of(basePath + "/Sets/");
-    ArrayList<Card> cards = new ArrayList<Card>();
+    ArrayList<Card> cards = new ArrayList<>();
 
     void addCard(Card c){
         this.cards.add(c);
@@ -18,7 +18,7 @@ public abstract class Set implements Runnable{
     }
     @Override
     public void readFile(String fileName) {
-        Path filepath = Path.of(setFilePath + "/" + fileName + ".txt"); // "./sets/set1.txt"
+        Path filepath = Path.of(setFilePath + "/fs." + fileName + ".txt"); // "./sets/set1.txt"
         String content = "Empty";
         try {
             content = Files.readString(filepath);
@@ -32,5 +32,7 @@ public abstract class Set implements Runnable{
             addCard(new Card(cardRepresent[0],cardRepresent[1]));
         }
     }
+
+    public String getName() { return name; }
 }
 

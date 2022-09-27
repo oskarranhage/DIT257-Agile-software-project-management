@@ -4,6 +4,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import javax.xml.crypto.Data;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -11,11 +12,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
-public class Learno extends Application {
-
-
-    static String basePath = new File("").getAbsolutePath();
-    private final static Path setFilePath = Path.of(basePath + "/Sets/");
+public class Learno {
+    public static DataBase db = new DataBase();
     static Scanner sc = new Scanner(System.in);
     Random rand = new Random();
 
@@ -41,7 +39,7 @@ public class Learno extends Application {
                 set.readFile(inputSetName);
                 set.run();*/
 
-                System.out.println("What set do you wan't to play?\n");
+                System.out.println("What set do you want to play?\n");
                 System.out.println("Press 'f' for flashSet, 't' for textSet, 'm' for multipleChoiceSet");
                 String whichSet = sc.nextLine();
                 if (whichSet.equals("f")) {
@@ -65,7 +63,7 @@ public class Learno extends Application {
         //set1.run();                             // Run the set, calling the run() method in FlashSet
     }
 
-    @Override
+    //@Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("agilproj.fxml"));
 
@@ -107,7 +105,7 @@ public class Learno extends Application {
 
     public static boolean makeFile(String name) {
         try{
-            File mySet = new File ("C:\\OOP\\DIT257-Learno updated\\Sets\\" + name + ".txt");
+            File mySet = new File (db.getSetFolderPath() + "/fs." + name + ".txt");
             if (mySet.createNewFile()) {
                 System.out.println("File created: " + mySet.getName());
                 return true;
@@ -122,7 +120,7 @@ public class Learno extends Application {
         }
     }
     public static void writeFile(String name, String content) {
-        Path path = Path.of("C:\\OOP\\DIT257-Learno updated\\Sets\\" + name + ".txt");
+        Path path = Path.of(db.getSetFolder() + "/fs." + name + ".txt");
         try {
             Files.writeString(path, content, StandardCharsets.UTF_8);
         }

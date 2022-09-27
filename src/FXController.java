@@ -30,7 +30,7 @@ public class FXController implements Initializable {
     @FXML private Text currentSetTextF;
 
     private int atCardInd = 0;
-    private FlashSet currentFlashSet;
+    private Set currentFlashSet;
     private boolean atQuestion;
     /**
      * Play MultipleChoice
@@ -86,11 +86,7 @@ public class FXController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
-            db = new DataBase();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        db = new DataBase();
     }
 
     /** -------------- Play flashcard methods -------------- */
