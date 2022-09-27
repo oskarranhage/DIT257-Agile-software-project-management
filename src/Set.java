@@ -16,6 +16,7 @@ public abstract class Set implements Runnable{
     void removeCard(Card c){
         this.cards.remove(c);
     }
+
     @Override
     public void readFile(String fileName) {
         Path filepath = Path.of(setFilePath + "/" + fileName + ".txt"); // "./sets/set1.txt"
@@ -32,5 +33,7 @@ public abstract class Set implements Runnable{
             addCard(new Card(cardRepresent[0],cardRepresent[1]));
         }
     }
+
+    public String getName() { return name; }
 }
 

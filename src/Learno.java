@@ -11,13 +11,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
-public class Learno extends Application {
+public class Learno extends Application{
 
-
-    static String basePath = new File("").getAbsolutePath();
-    private final static Path setFilePath = Path.of(basePath + "/Sets/");
+    public static DataBase db = new DataBase();
     static Scanner sc = new Scanner(System.in);
     Random rand = new Random();
+
+    //static String basePath = new File("").getAbsolutePath();
+    //private final static Path setFilePath = Path.of(basePath + "/Sets/");
 
     public static void main(String[] args) {
         //launch(args);
@@ -107,7 +108,7 @@ public class Learno extends Application {
 
     public static boolean makeFile(String name) {
         try{
-            File mySet = new File ("C:\\OOP\\DIT257-Learno updated\\Sets\\" + name + ".txt");
+            File mySet = new File (db.getSetFolderPath() + "/fs." + name + ".txt");
             if (mySet.createNewFile()) {
                 System.out.println("File created: " + mySet.getName());
                 return true;
@@ -122,7 +123,8 @@ public class Learno extends Application {
         }
     }
     public static void writeFile(String name, String content) {
-        Path path = Path.of("C:\\OOP\\DIT257-Learno updated\\Sets\\" + name + ".txt");
+        //Path path = Path.of("C:\\OOP\\DIT257-Learno updated\\Sets\\" + name + ".txt");
+        Path path = Path.of(db.getSetFolderFile() + "/fs." + name + ".txt");
         try {
             Files.writeString(path, content, StandardCharsets.UTF_8);
         }
