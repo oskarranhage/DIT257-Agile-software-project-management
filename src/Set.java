@@ -18,7 +18,7 @@ public abstract class Set implements Runnable{
     }
     @Override
     public void readFile(String fileName) {
-        Path filepath = Path.of(setFilePath + "/fs." + fileName + ".txt"); // "./sets/set1.txt"
+        Path filepath = Path.of(setFilePath + "/fc." + fileName + ".txt"); // "./sets/set1.txt"
         String content = "Empty";
         try {
             content = Files.readString(filepath);

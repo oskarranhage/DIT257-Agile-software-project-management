@@ -103,7 +103,7 @@ public class Learno {
 
     public static boolean makeFile(String name) {
         try{
-            File mySet = new File (db.getSetFolderPath() + "/fs." + name + ".txt");
+            File mySet = new File (db.getSetFolderPath() + "/fc." + name + ".txt");
             if (mySet.createNewFile()) {
                 System.out.println("File created: " + mySet.getName());
                 return true;
@@ -118,7 +118,7 @@ public class Learno {
         }
     }
     public static void writeFile(String name, String content) {
-        Path path = Path.of(db.getSetFolderFile() + "/fs." + name + ".txt");
+        Path path = Path.of(db.getSetFolderFile() + "/fc." + name + ".txt");
         try {
             Files.writeString(path, content, StandardCharsets.UTF_8);
         }

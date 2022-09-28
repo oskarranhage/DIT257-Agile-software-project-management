@@ -3,14 +3,15 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class DataBase {
 
     //Lists of the different types of sets
-    private Map<String, Set> flashSets;           // A list of all sets of flashcards
-    private Map<String, Set> multiChoiceSets;     // A list of all sets of multiple choice cards
-    private Map<String, Set> spellingSets;        // A list of all sets of spelling cards
+    private HashMap<String, Set> fc = new HashMap<>();      // A list of all sets of flashcards
+    private HashMap<String, Set> mc = new HashMap<>();      // A list of all sets of multiple choice cards
+    private HashMap<String, Set> s = new HashMap<>();       // A list of all sets of spelling cards
 
     // Directory for the folder of sets in File and Path data types.
     private final Path setFolderPath = Path.of(new File("").getAbsolutePath() + "/Sets/");
@@ -30,11 +31,11 @@ public class DataBase {
             switch (nameStructure[0]) { // fc = FlashCard, mc = Multiple Choice, s = Spelling
                 case "fc":
                     Set fcSetTmp = new FlashSet(nameStructure[1], new ArrayList<>());
-                    flashSets.put(nameStructure[1], readFile(setFolderPath.resolve(fileName), fcSetTmp));
+                    fc.put(nameStructure[1], readFile(setFolderPath.resolve(fileName), fcSetTmp));
                     break;
                 case "mc":
                     Set mcSetTmp = new MultipleChoiceSet(nameStructure[1], new ArrayList<>());
-                    multiChoiceSets.put(nameStructure[1], readFile(setFolderPath.resolve(fileName), mcSetTmp));
+                    mc.put(nameStructure[1], readFile(setFolderPath.resolve(fileName), mcSetTmp));
                     break;
                 case "s":
                     //Set sSetTmp = new SpellingSet(nameStructure[1], new ArrayList<>());
@@ -71,42 +72,76 @@ public class DataBase {
     // Updates methods for the lists of sets
 
     public void updateAll() {
-        flashSets.clear();
-        multiChoiceSets.clear();
-        spellingSets.clear();
+        fc.clear();
+        mc.clear();
+        s.clear();
 
         initialise();
     }
 
-    // ------- For flashSets -------
+    // ------- For Map Sets -------
+
+    public void updateAllFlashSets() {
+        updateAllSets(fc);
+    }
+
+    public void updateAllMultiSets() {
+        updateAllSets(mc);
+    }
+
+    public void updateAllSpellingSets() {
+        updateAllSets(s);
+    }
+
+    // ------- For Singular Sets -------
+
+    public void updateAFlashSet(String filename) {
+        updateASet(filename, fc);
+    }
+
+    public void updateAMultiSet(String filename) {
+        updateASet(filename, mc);
+    }
+
+    public void updateASpellingSet(String filename) {
+        updateASet(filename, s);
+    }
+
+    // ------- General -------
 
     // Given a filename update its corresponding set
-    public void updateAFlashCardSet(String fileName) {
-        for (int i = 0; i < flashSets.size(); i++) {
-            Set setInFocus = flashSets.get(fileName);
+    public void updateASet(String fileName, HashMap<String, Set> mapTmp) {
+        for (int i = 0; i < fc.size(); i++) {
+            Set setInFocus = fc.get(fileName);
             if (setInFocus.getName().equals(fileName)) {
                 Set setTmp = new FlashSet(fileName, new ArrayList<>());
-                flashSets.replace(fileName, readFile(setFolderPath.resolve("/fs." + fileName + ".txt"), setTmp));
+                mapTmp.replace(fileName, readFile(setFolderPath.resolve("/" + mapTmp.toString() + "." + fileName + ".txt"), setTmp));
             }
         }
     }
 
-    public void updateAllFlashCardSets() {
+    public void updateAllSets(Map<String, Set> mapTmp) {
         for (File fileEntry : setFolderFile.listFiles()) {
             String fileName = fileEntry.getName();
 
             String[] nameStructure = fileName.split("\\.", 3);
 
-            if (nameStructure[0].equals("fc")) {
+            if (nameStructure[0].equals(mapTmp.toString())) {
                 Set flashSetTmp = new FlashSet(nameStructure[1], new ArrayList<>());
-                flashSets.put(nameStructure[1], readFile(setFolderPath.resolve(fileName), flashSetTmp));
+                mapTmp.put(nameStructure[1], readFile(setFolderPath.resolve(fileName), flashSetTmp));
             }
         }
     }
 
-    public Map<String, Set> getFlashSets() {
-        return flashSets;
-    }
+    // ------- Getters -------
+
+    public Set getFlashSet(String setname) { return fc.get(setname); }
+    public Set getMultiSet(String setname) { return mc.get(setname); }
+    public Set getSpellingSet(String setname) { return s.get(setname); }
+
+    public HashMap<String, Set> getFlashSets() { return fc; }
+    public HashMap<String, Set> getMultiSets() { return mc; }
+    public HashMap<String, Set> getSpellingSets() { return s; }
 
     public Path getSetFolderPath() { return setFolderPath; }
     public File getSetFolderFile() { return setFolderFile; }
