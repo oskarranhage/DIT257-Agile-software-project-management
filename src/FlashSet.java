@@ -13,7 +13,7 @@ public class FlashSet extends Set {
         super.cards = cards;
     }
 
-    @Override
+    //@Override
     public void run() {
         System.out.println("You are running " + super.name + " as a flash set.");
         System.out.println("Press enter to view the first card, view answer by pressing enter again.");

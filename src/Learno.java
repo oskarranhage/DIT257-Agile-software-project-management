@@ -11,14 +11,15 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
-public class Learno extends Application{
+public class Learno {
 
+    //public static Set set;
     public static DataBase db = new DataBase();
     static Scanner sc = new Scanner(System.in);
     Random rand = new Random();
 
-    //static String basePath = new File("").getAbsolutePath();
-    //private final static Path setFilePath = Path.of(basePath + "/Sets/");
+    static String basePath = new File("").getAbsolutePath();
+    private final static Path setFilePath = Path.of(basePath + "/Sets/");
 
     public static void main(String[] args) {
         //launch(args);
@@ -43,9 +44,18 @@ public class Learno extends Application{
                 set.run();*/
 
                 System.out.println("What set do you wan't to play?\n");
-                System.out.println("Press 'f' for flashSet, 't' for textSet, 'm' for multipleChoiceSet");
-                String whichSet = sc.nextLine();
-                if (whichSet.equals("f")) {
+                //System.out.println("Press 'f' for flashSet, 't' for textSet, 'm' for multipleChoiceSet");
+                //String whichSet = sc.nextLine();
+                String inputSetName = sc.nextLine();
+                //Set set = new FlashSet("");
+
+                Set yo = db.getFlashSet(inputSetName);
+                yo.run();
+
+                //Path filepath = Path.of(db.getSetFolderFile() + "/" + inputSetName + ".txt");
+                //db.readFile(filepath, set);
+                //set.run();
+                /*if (whichSet.equals("f")) {
                     SetFactory.createFlashSet();
                 }
                 else if (whichSet.equals("t")) {
@@ -56,7 +66,7 @@ public class Learno extends Application{
                 }
                 else {
                     System.out.println(whichSet + " is not an available set.");
-                }
+                }*/
             }
         }
         //createSetMenu();
@@ -66,7 +76,7 @@ public class Learno extends Application{
         //set1.run();                             // Run the set, calling the run() method in FlashSet
     }
 
-    @Override
+    /*@Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("agilproj.fxml"));
 
@@ -74,7 +84,7 @@ public class Learno extends Application{
 
         stage.setScene(scene);
         stage.show();
-    }
+    }*/
 
     /*public static void createSetMenu() {
         FileManager.writeFile();
@@ -108,7 +118,7 @@ public class Learno extends Application{
 
     public static boolean makeFile(String name) {
         try{
-            File mySet = new File (db.getSetFolderPath() + "/fs." + name + ".txt");
+            File mySet = new File (db.getSetFolderPath() + "/fc." + name + ".txt");
             if (mySet.createNewFile()) {
                 System.out.println("File created: " + mySet.getName());
                 return true;
@@ -124,7 +134,7 @@ public class Learno extends Application{
     }
     public static void writeFile(String name, String content) {
         //Path path = Path.of("C:\\OOP\\DIT257-Learno updated\\Sets\\" + name + ".txt");
-        Path path = Path.of(db.getSetFolderFile() + "/fs." + name + ".txt");
+        Path path = Path.of(db.getSetFolderFile() + "/fc." + name + ".txt");
         try {
             Files.writeString(path, content, StandardCharsets.UTF_8);
         }

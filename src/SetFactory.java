@@ -12,11 +12,10 @@ public class SetFactory {
     //Set multiSet = new MultipleChoiceSet(name, cards);
 
 
-    public static void createFlashSet() {
+    /*public static void createFlashSet() {
         System.out.println("Type the name of the set you want to play.");
         String nameOfSet = sc.nextLine();
-        Set flashSet = new FlashSet("");
-        flashSet.readFile(nameOfSet);
+        Set flashSet = Learno.db.getFlashSet(inputSetName);
         flashSet.run();
     }
 
@@ -34,7 +33,7 @@ public class SetFactory {
         Set multipleChoiceSet = new MultipleChoiceSet("");
         multipleChoiceSet.readFile(nameOfSet);
         multipleChoiceSet.run();
-    }
+    }*/
 
 
 

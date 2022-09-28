@@ -4,10 +4,12 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 
-public abstract class Set implements Runnable{
+public abstract class Set {
     String name;
-    String basePath = new File("").getAbsolutePath();
-    private final Path setFilePath = Path.of(basePath + "/Sets/");
+    //Set set;
+    //String basePath = new File("").getAbsolutePath();
+    //private final Path setFilePath = Path.of(basePath + "/Sets/");
+    //public static DataBase db = new DataBase();
     ArrayList<Card> cards = new ArrayList<Card>();
 
     void addCard(Card c){
@@ -17,9 +19,15 @@ public abstract class Set implements Runnable{
         this.cards.remove(c);
     }
 
-    @Override
+    public void run() {
+
+    }
+
+    /*@Override
     public void readFile(String fileName) {
-        Path filepath = Path.of(setFilePath + "/" + fileName + ".txt"); // "./sets/set1.txt"
+
+        //db.readFile(db.getSetFolderPath(), set);
+        /*Path filepath = Path.of(db.getSetFolderFile() + "/" + fileName + ".txt"); // "./sets/set1.txt"
         String content = "Empty";
         try {
             content = Files.readString(filepath);
@@ -31,8 +39,8 @@ public abstract class Set implements Runnable{
         for (int i = 1; i < lines.length ; i++) {
             String[] cardRepresent = lines[i].split("\\.");
             addCard(new Card(cardRepresent[0],cardRepresent[1]));
-        }
-    }
+        }*/
+    //}
 
     public String getName() { return name; }
 }

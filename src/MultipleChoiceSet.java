@@ -16,7 +16,7 @@ public class MultipleChoiceSet extends Set {
         super.cards = cards;
     }
 
-    @Override
+    //@Override
     public void run() {
         System.out.println("You are running " + super.name + " as a multipleChoice set.");
         System.out.println("Type in the correct alternative answer.");
