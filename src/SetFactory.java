@@ -12,6 +12,8 @@ public class SetFactory {
     //Set multiSet = new MultipleChoiceSet(name, cards);
 
 
+    //Methods for creating new sets.
+
     /*public static void createFlashSet() {
         System.out.println("Type the name of the set you want to play.");
         String nameOfSet = sc.nextLine();

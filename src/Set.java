@@ -12,6 +12,7 @@ public abstract class Set {
     //public static DataBase db = new DataBase();
     ArrayList<Card> cards = new ArrayList<Card>();
 
+    //Methods for adding and removing cards from arrayList cards.
     void addCard(Card c){
         this.cards.add(c);
     }
@@ -42,6 +43,7 @@ public abstract class Set {
         }*/
     //}
 
+    //getter
     public String getName() { return name; }
 }
 

@@ -14,6 +14,7 @@ public class FlashSet extends Set {
     }
 
     //@Override
+    //run method for if you run a set as a flashSet (a set full of flash cards).
     public void run() {
         System.out.println("You are running " + super.name + " as a flash set.");
         System.out.println("Press enter to view the first card, view answer by pressing enter again.");

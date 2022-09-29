@@ -17,6 +17,7 @@ public class MultipleChoiceSet extends Set {
     }
 
     //@Override
+    //run method for if you run a set as a multiChoiceSet (a set full of multiChoice cards).
     public void run() {
         System.out.println("You are running " + super.name + " as a multipleChoice set.");
         System.out.println("Type in the correct alternative answer.");

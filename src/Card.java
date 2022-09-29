@@ -37,6 +37,7 @@ public class Card {
         this.alternatives = alternatives;
     }
 
+    //Getters
     String getQuestion() {
         return question;
     }
@@ -48,7 +49,7 @@ public class Card {
     public String[] getAlternatives() {return alternatives;}
 
     /**
-     * Sätter
+     * Setter, updates the question
      * @param newQuestion
      * @return
      */
@@ -57,6 +58,9 @@ public class Card {
         return question;
     }
 
+    /*Creates a flashCard.
+      The user types in the cards question and answer,
+      which are used to create the card.*/
     public void createAFlashCard () {
 
         System.out.println("What is the question? Enter it here: ");
@@ -71,7 +75,9 @@ public class Card {
         //System.out.println(flash.getAnswer());
     }
 
-
+    /*Creates a spellingCard.
+      The user types in the cards question and answer,
+      which are used to create the card.*/
     public void createASpellingCard () {
 
         System.out.println("What is the question? Enter it here: ");
@@ -81,7 +87,7 @@ public class Card {
 
         Card spelling = new Card(userQuestion, userAnswer);
 
-        System.out.println(spelling.getQuestion());
+        /*System.out.println(spelling.getQuestion());
         System.out.println("Enter the answer: ");
         String userGuess = sc.nextLine();
         System.out.println(userGuess);
@@ -93,11 +99,14 @@ public class Card {
         }
         else {
             System.out.println("Unfortunately that's wrong. \n The answer is: " + spelling.getAnswer());
-        }
+        }*/
 
 
     }
 
+    /*Creates a multiChoiceCard.
+      The user types in the cards question and answer plus the alternative answers,
+      which are used to create the card.*/
     public void createAMultipleChoiceCard () {
         System.out.println("What is the question? Enter it here: ");
         String userQuestion = sc.nextLine();
@@ -113,6 +122,8 @@ public class Card {
 
         Card multiple = new Card(userQuestion, userAnswer, alternativeAnswers);
 
+
+        //Behövs ej
         System.out.println(multiple.getQuestion() + "\n");
 
         int amountOfAlternatives = alternativeAnswers.length;

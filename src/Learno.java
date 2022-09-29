@@ -1,9 +1,3 @@
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -12,11 +6,10 @@ import java.nio.file.Path;
 import java.util.*;
 
 public class Learno {
-
-    //public static Set set;
+    public static Card card;
     public static DataBase db = new DataBase();
     static Scanner sc = new Scanner(System.in);
-    Random rand = new Random();
+    static Random rand = new Random();
 
     static String basePath = new File("").getAbsolutePath();
     private final static Path setFilePath = Path.of(basePath + "/Sets/");
@@ -49,8 +42,11 @@ public class Learno {
                 String inputSetName = sc.nextLine();
                 //Set set = new FlashSet("");
 
+
+                //run the requested set as a set full of flashCards.
                 Set yo = db.getFlashSet(inputSetName);
                 yo.run();
+
 
                 //Path filepath = Path.of(db.getSetFolderFile() + "/" + inputSetName + ".txt");
                 //db.readFile(filepath, set);
@@ -67,6 +63,12 @@ public class Learno {
                 else {
                     System.out.println(whichSet + " is not an available set.");
                 }*/
+            }
+            else if (input.equals("3")) {
+                System.out.println("What set do you want to shuffle?\n");
+                String input2 = sc.nextLine();
+                //shuffle(db.getMultiSet(input2));
+                shuffleFlashSet(db.getFlashSet(input2));
             }
         }
         //createSetMenu();
@@ -90,6 +92,80 @@ public class Learno {
         FileManager.writeFile();
     }*/
 
+
+    public static void shuffleMultiChoiceSet(Set multiSet) {
+        ArrayList<Card> multiCards = multiSet.cards;
+        ArrayList<Card> tmp = multiSet.cards;
+        int amountOfCards = tmp.size();
+        int int_random;
+        Card pickedCard;
+        //for (Card card : tmp) {
+        for (int i = 0; i < amountOfCards;) {
+            int_random = rand.nextInt(amountOfCards);
+
+            pickedCard = tmp.get(int_random);
+            tmp.remove(pickedCard);
+            amountOfCards--;
+
+            System.out.println(int_random);
+            System.out.println(pickedCard.getQuestion());
+            System.out.println(pickedCard.getAnswer() + "\n");
+        }
+        System.out.println(multiCards);
+        //flashSet.run();
+    }
+
+
+    public static void shuffleFlashSet(Set flashSet) {
+        ArrayList<Card> flashCards = flashSet.cards;
+        ArrayList<Card> tmp = flashSet.cards;
+        int amountOfCards = tmp.size();
+        int int_random;
+        Card pickedCard;
+        //for (Card card : tmp) {
+        for (int i = 0; i < amountOfCards;) {
+            int_random = rand.nextInt(amountOfCards);
+
+            pickedCard = tmp.get(int_random);
+            tmp.remove(pickedCard);
+            amountOfCards--;
+
+            System.out.println(int_random);
+            System.out.println(pickedCard.getQuestion());
+            System.out.println(pickedCard.getAnswer() + "\n");
+        }
+        System.out.println(flashCards);
+        //flashSet.run();
+    }
+
+    public static void shuffleSpellingSet(Set spellingSet) {
+        ArrayList<Card> spellingCards = spellingSet.cards;
+        ArrayList<Card> tmp = spellingSet.cards;
+        int amountOfCards = tmp.size();
+        int int_random;
+        Card pickedCard;
+        //for (Card card : tmp) {
+        for (int i = 0; i < amountOfCards;) {
+            int_random = rand.nextInt(amountOfCards);
+
+            pickedCard = tmp.get(int_random);
+            tmp.remove(pickedCard);
+            amountOfCards--;
+
+            System.out.println(int_random);
+            System.out.println(pickedCard.getQuestion());
+            System.out.println(pickedCard.getAnswer() + "\n");
+        }
+        System.out.println(spellingCards);
+        //flashSet.run();
+    }
+
+
+    /*Method for creating new set, the user inserts the name for the new set.
+    * Then, if the method makeFile successfully creates a new file for the new set,
+    * it will write in the sets name onto the first row, then the users question and answer
+    * for card nr 1 onto the second row and the users question and answer for card nr 2 onto
+    * the third row and so on.*/
     public static void createSetMenu() {
         Scanner sc = new Scanner(System.in);
         boolean temp = true;
@@ -116,6 +192,7 @@ public class Learno {
         }
     }
 
+    //Creates a new file. Has a safegaurd, cannot create a file that already exists.
     public static boolean makeFile(String name) {
         try{
             File mySet = new File (db.getSetFolderPath() + "/fc." + name + ".txt");
@@ -132,6 +209,8 @@ public class Learno {
             return false;
         }
     }
+
+    //Writes the content onto the file located in that path.
     public static void writeFile(String name, String content) {
         //Path path = Path.of("C:\\OOP\\DIT257-Learno updated\\Sets\\" + name + ".txt");
         Path path = Path.of(db.getSetFolderFile() + "/fc." + name + ".txt");
@@ -143,6 +222,9 @@ public class Learno {
         }
     }
 
+    /*Creates a flashCard.
+      The user types in the cards question and answer,
+      which are used to create the card.*/
     public void createAFlashCard () {
 
         System.out.println("What is the question? Enter it here: ");
@@ -151,13 +233,12 @@ public class Learno {
         String userAnswer = sc.nextLine();
 
         Card flash = new Card(userQuestion, userAnswer);
-
-        //Behövs ej
-        //System.out.println(flash.getQuestion() + "\n");
-        //System.out.println(flash.getAnswer());
     }
 
 
+    /*Creates a spellingCard.
+      The user types in the cards question and answer,
+      which are used to create the card.*/
     public void createASpellingCard () {
         System.out.println("What is the question? Enter it here: ");
         String userQuestion = sc.nextLine();
@@ -166,7 +247,7 @@ public class Learno {
 
         Card spelling = new Card(userQuestion, userAnswer);
 
-        System.out.println(spelling.getQuestion());
+        /*System.out.println(spelling.getQuestion());
         System.out.println("Enter the answer: ");
         String userGuess = sc.nextLine();
         System.out.println(userGuess);
@@ -178,11 +259,14 @@ public class Learno {
         }
         else {
             System.out.println("Unfortunately that's wrong. \n The answer is: " + spelling.getAnswer());
-        }
+        }*/
 
 
     }
 
+    /*Creates a multiChoiceCard.
+      The user types in the cards question and answer plus the alternative answers,
+      which are used to create the card.*/
     public void createAMultipleCard () {
         System.out.println("What is the question? Enter it here: ");
         String userQuestion = sc.nextLine();
@@ -196,15 +280,16 @@ public class Learno {
         String userAlternatives = sc.nextLine();
         String[] alternativeAnswers = userAlternatives.split("¤");
 
-        MultipleChoiceCard multiple = new MultipleChoiceCard(userQuestion, alternativeAnswers, userAnswer);
+        Card multiple = new Card(userQuestion, userAnswer, alternativeAnswers);
 
-        System.out.println(multiple.getQuestion() + "\n");
+
+        /*System.out.println(multiple.getQuestion() + "\n");
 
         int amountOfAlternatives = alternativeAnswers.length;
         int int_random = rand.nextInt(amountOfAlternatives);
         for (String alternativeAnswer : alternativeAnswers) {
             System.out.println(alternativeAnswer);
-        }
+        }*/
         //Tried to randomize the order of printing out alternatives
         /*int amountOfAlternatives = alternativeAnswers.length;
         //int[] alreadyShown = new int[alternativeAnswers.length];
@@ -221,7 +306,7 @@ public class Learno {
             }
         }*/
 
-        System.out.println("");
+        /*System.out.println("");
         //convert into arrayList
         ArrayList<String> listOfAnswers = new ArrayList<String>(Arrays.asList(alternativeAnswers));
         if (listOfAnswers.contains(userAnswer)) {
@@ -238,7 +323,7 @@ public class Learno {
         }
         else {
             System.out.println("Your answer isn't included in the alternative answers!");
-        }
+        }*/
     }
 
 
