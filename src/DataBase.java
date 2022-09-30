@@ -1,3 +1,6 @@
+import Model.Card;
+import Model.Set;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -29,16 +32,16 @@ public class DataBase {
             String[] nameStructure = fileName.split("\\.", 3); // 1: Type, 2: Name, 3: txt
 
             switch (nameStructure[0]) { // fc = FlashCard, mc = Multiple Choice, s = Spelling
-                case "fc":
-                    Set fcSetTmp = new FlashSet(nameStructure[1], new ArrayList<>());
+                case "fs":
+                    Set fcSetTmp = new Set(nameStructure[1]);
                     fc.put(nameStructure[1], readFile(setFolderPath.resolve(fileName), fcSetTmp));
                     break;
-                case "mc":
-                    Set mcSetTmp = new MultipleChoiceSet(nameStructure[1], new ArrayList<>());
+                case "mcs":
+                    Set mcSetTmp = new Set(nameStructure[1]);
                     mc.put(nameStructure[1], readFile(setFolderPath.resolve(fileName), mcSetTmp));
                     break;
-                case "s":
-                    //Set sSetTmp = new SpellingSet(nameStructure[1], new ArrayList<>());
+                case "ss":
+                    //Set sSetTmp = new Set(nameStructure[1]);
                     //multiChoiceSets.add(readFile(setFolderPath.resolve(fileName), sSetTmp));
                     break;
                 default:
@@ -111,11 +114,20 @@ public class DataBase {
 
     // Given a filename update its corresponding set
     public void updateASet(String fileName, HashMap<String, Set> mapTmp) {
-        for (int i = 0; i < fc.size(); i++) {
-            Set setInFocus = fc.get(fileName);
+        for (int i = 0; i < mapTmp.size(); i++) {
+            Set setInFocus = mapTmp.get(fileName);
             if (setInFocus.getName().equals(fileName)) {
-                Set setTmp = new FlashSet(fileName, new ArrayList<>());
-                mapTmp.replace(fileName, readFile(setFolderPath.resolve("/" + mapTmp.toString() + "." + fileName + ".txt"), setTmp));
+                Set setTmp = new Set(fileName);
+                String typeTmp = "";
+                if (mapTmp == fc) typeTmp = "/fc.";
+                else if (mapTmp == mc) typeTmp = "/mc.";
+                else if (mapTmp == s) typeTmp = "/s.";
+                try {
+                    mapTmp.replace(fileName, readFile(setFolderPath.resolve(typeTmp + fileName + ".txt"), setTmp));
+                }
+                    catch(Exception e) {
+                        System.out.println("Error: File structure is wrong");
+                }
             }
         }
     }
@@ -127,7 +139,7 @@ public class DataBase {
             String[] nameStructure = fileName.split("\\.", 3);
 
             if (nameStructure[0].equals(mapTmp.toString())) {
-                Set flashSetTmp = new FlashSet(nameStructure[1], new ArrayList<>());
+                Set flashSetTmp = new Set(nameStructure[1]);
                 mapTmp.put(nameStructure[1], readFile(setFolderPath.resolve(fileName), flashSetTmp));
             }
         }
