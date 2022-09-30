@@ -111,11 +111,20 @@ public class DataBase {
 
     // Given a filename update its corresponding set
     public void updateASet(String fileName, HashMap<String, Set> mapTmp) {
-        for (int i = 0; i < fc.size(); i++) {
-            Set setInFocus = fc.get(fileName);
+        for (int i = 0; i < mapTmp.size(); i++) {
+            Set setInFocus = mapTmp.get(fileName);
             if (setInFocus.getName().equals(fileName)) {
                 Set setTmp = new FlashSet(fileName, new ArrayList<>());
-                mapTmp.replace(fileName, readFile(setFolderPath.resolve("/" + mapTmp.toString() + "." + fileName + ".txt"), setTmp));
+                String typeTmp = "";
+                if (mapTmp == fc) typeTmp = "/fc.";
+                else if (mapTmp == mc) typeTmp = "/mc.";
+                else if (mapTmp == s) typeTmp = "/s.";
+                try {
+                    mapTmp.replace(fileName, readFile(setFolderPath.resolve(typeTmp + fileName + ".txt"), setTmp));
+                }
+                    catch(Exception e) {
+                        System.out.println("Error: File structure is wrong");
+                }
             }
         }
     }
