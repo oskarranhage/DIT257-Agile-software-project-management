@@ -1,6 +1,3 @@
-package Controller;
-
-import Model.Card;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -72,6 +69,7 @@ public class FXController implements Initializable {
     private static int curSetInd = 0;
     private boolean atQuestion;
     private List<Integer> correctAnswersInd = new ArrayList<>();
+    private List<String> userAnswersSpelling = new ArrayList<>();
 
     public FXController() throws IOException {
     }
@@ -93,7 +91,7 @@ public class FXController implements Initializable {
     public void setUpFlashcardPlay(){
         atQuestion = true;
         atQuestionInd = 0;
-        currentSetTextF.setText("You are running " + db.getFlashSets().get(0).getName() + " as a flash set.");
+        currentSetTextF.setText("You are running " + db.getFlashSets().get(0).name + " as a flash set.");
         QnATextF.setText(db.getFlashSets().get(0).getCards().get(atQuestionInd).getQuestion());
     }
 
@@ -126,7 +124,7 @@ public class FXController implements Initializable {
      */
     public void turnCard(){
         if (atQuestion){
-            QnATextF.setText(db.getFlashSets().get(curSetInd).getCards().get(atQuestionInd).getAnswers()[0]);
+            QnATextF.setText(db.getFlashSets().get(curSetInd).getCards().get(atQuestionInd).getAnswer());
             atQuestion = false;
         } else{
             QnATextF.setText(db.getFlashSets().get(curSetInd).getCards().get(atQuestionInd).getQuestion());
@@ -138,7 +136,7 @@ public class FXController implements Initializable {
     /**
      * Creates a list item and adds it to both a list of list items and to the flow pane by calling updateCreateSetFlowPane()
      */
-    public void addCreateSetItem() throws IOException {
+    public void addCreateSetItem() {
         CreateSetListItem item = new CreateSetListItem(this, db.getCreateSetItems().size());
         db.getCreateSetItems().add(item);
         //out.println(db.getCreateSetItems().size() + "in flow");
@@ -240,25 +238,24 @@ public class FXController implements Initializable {
     /** ____________SPELLING____________ */
 
     /**
-     * Sets up Play Spelling when a set is chosen
+     * Sets up Play Spelling when a set is chosen (getFlashSet will be replaced by getTextSet)
      */
     public void setUpSpellingPlay(){
         atQuestionInd = 0;
         correctAnswersInd.clear();
-        currentSetTextF.setText("You are running " + db.getTextSets().get(curSetInd).name + " as a spelling set.");
-        QnATextF.setText(db.getTextSets().get(curSetInd).getCards().get(atQuestionInd).getQuestion());
+        currentSetTextF.setText("You are running " + db.getFlashSets().get(curSetInd).name + " as a spelling set.");
+        termS.setText(db.getFlashSets().get(curSetInd).getCards().get(atQuestionInd).getQuestion());
     }
 
     /**
      * Switches to the previous Spelling unless the last is currently played
      */
     public void nextSpellingTerm(){
-        if (db.getTextSets().get(curSetInd).getCards().size()-1 != atQuestionInd){
+        if (1 != atQuestionInd){
             atQuestionInd += 1;
-            QnATextF.setText(db.getTextSets().get(curSetInd).getCards().get(atQuestionInd).getQuestion());
-        }
-        if (isCorrectSpelling()){
-            correctAnswersInd.add(atQuestionInd);
+            termS.setText(db.getFlashSets().get(curSetInd).getCards().get(atQuestionInd).getQuestion());
+            userAnswersSpelling.add(definitionAnswerS.getText());
+            definitionAnswerS.setText("");
         }
     }
 
@@ -272,29 +269,13 @@ public class FXController implements Initializable {
     /**
      * Gets the correct answers of the set, the correct answer is always at index 0
      */
-    public List<Card> getCorrectAnswers(){
-        List<Card> correctAnswers = new ArrayList<>();
-        for (int i = 0; i < db.getTextSets().get(curSetInd).getCards().size(); i++) {
-            if (correctAnswersInd.contains(i)){
-                correctAnswers.add(db.getTextSets().get(curSetInd).getCards().get(i));
+    public void viewResults(){
+        for (int i = 0; i < userAnswersSpelling.size(); i++) {
+            if (db.getFlashSets().get(i).equals(userAnswersSpelling.get(i))){
+                // TODO make wrong answers red
             }
         }
-        return correctAnswers;
     }
-
-    /**
-     * Gets the wrong answers of the set, the wrong answer is always at index i>0
-     */
-    public List<Card> getWrongAnswers(){
-        List<Card> wrongAnswers = new ArrayList<>();
-        for (int i = 0; i < db.getTextSets().get(curSetInd).getCards().size(); i++) {
-            if (!correctAnswersInd.contains(i)){
-                wrongAnswers.add(db.getTextSets().get(curSetInd).getCards().get(i));
-            }
-        }
-        return wrongAnswers;
-    }
-
 
     /*
      * Switches to the previous Spelling unless the first is currently played (unsure if needed)
