@@ -68,7 +68,8 @@ public class Learno {
                 System.out.println("What set do you want to shuffle?\n");
                 String input2 = sc.nextLine();
                 //shuffle(db.getMultiSet(input2));
-                shuffleFlashSet(db.getFlashSet(input2));
+                Set lol = shuffleFlashSet(db.getFlashSet(input2));
+                lol.run();
             }
         }
         //createSetMenu();
@@ -92,7 +93,7 @@ public class Learno {
         FileManager.writeFile();
     }*/
 
-    public static void shuffleFlashSet(Set flashSet) {
+    public static Set shuffleFlashSet(Set flashSet) {
         ArrayList<Card> flashCards = flashSet.cards;
         ArrayList<Card> tmp = flashSet.cards;
         int amountOfCards = tmp.size();
@@ -112,6 +113,7 @@ public class Learno {
         }
         System.out.println(flashCards);
         //flashSet.run();
+        return flashSet;
     }
 
     public static void shuffleMultiChoiceSet(Set multiSet) {
@@ -125,6 +127,13 @@ public class Learno {
             int_random = rand.nextInt(amountOfCards);
 
             pickedCard = tmp.get(int_random);
+            String[] alt = pickedCard.getAlternatives();
+            for (int j = 0; j < alt.length; j++) {
+                String[] newAlt = new String[alt.length];
+                String pickedAlternative = alt[int_random];
+                newAlt[j] = pickedAlternative;
+            }
+
             tmp.remove(pickedCard);
             amountOfCards--;
 
@@ -133,7 +142,7 @@ public class Learno {
             System.out.println(pickedCard.getAnswer() + "\n");
         }
         System.out.println(multiCards);
-        //flashSet.run();
+        //multiSet.run();
     }
 
     public static void shuffleSpellingSet(Set spellingSet) {
@@ -155,7 +164,7 @@ public class Learno {
             System.out.println(pickedCard.getAnswer() + "\n");
         }
         System.out.println(spellingCards);
-        //flashSet.run();
+        //spellingSet.run();
     }
 
 
