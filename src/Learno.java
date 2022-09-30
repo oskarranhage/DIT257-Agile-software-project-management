@@ -92,6 +92,27 @@ public class Learno {
         FileManager.writeFile();
     }*/
 
+    public static void shuffleFlashSet(Set flashSet) {
+        ArrayList<Card> flashCards = flashSet.cards;
+        ArrayList<Card> tmp = flashSet.cards;
+        int amountOfCards = tmp.size();
+        int int_random;
+        Card pickedCard;
+        //for (Card card : tmp) {
+        for (int i = 0; i < amountOfCards;) {
+            int_random = rand.nextInt(amountOfCards);
+
+            pickedCard = tmp.get(int_random);
+            tmp.remove(pickedCard);
+            amountOfCards--;
+
+            System.out.println(int_random);
+            System.out.println(pickedCard.getQuestion());
+            System.out.println(pickedCard.getAnswer() + "\n");
+        }
+        System.out.println(flashCards);
+        //flashSet.run();
+    }
 
     public static void shuffleMultiChoiceSet(Set multiSet) {
         ArrayList<Card> multiCards = multiSet.cards;
@@ -112,29 +133,6 @@ public class Learno {
             System.out.println(pickedCard.getAnswer() + "\n");
         }
         System.out.println(multiCards);
-        //flashSet.run();
-    }
-
-
-    public static void shuffleFlashSet(Set flashSet) {
-        ArrayList<Card> flashCards = flashSet.cards;
-        ArrayList<Card> tmp = flashSet.cards;
-        int amountOfCards = tmp.size();
-        int int_random;
-        Card pickedCard;
-        //for (Card card : tmp) {
-        for (int i = 0; i < amountOfCards;) {
-            int_random = rand.nextInt(amountOfCards);
-
-            pickedCard = tmp.get(int_random);
-            tmp.remove(pickedCard);
-            amountOfCards--;
-
-            System.out.println(int_random);
-            System.out.println(pickedCard.getQuestion());
-            System.out.println(pickedCard.getAnswer() + "\n");
-        }
-        System.out.println(flashCards);
         //flashSet.run();
     }
 
