@@ -1,3 +1,5 @@
+package Controller;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -83,7 +85,7 @@ public class FileManager {
             int answer = Integer.parseInt(sc.toString());
             switch(answer) {
                 case 1:
-                    //TODO: Reuse code in Learno.createAFlashCard()? or move it?
+                    //TODO: Reuse code in Controller.Learno.createAFlashCard()? or move it?
                     /*while(temp){
                         System.out.println("What is the question? Enter it here: ");
                         String userQuestion = sc.nextLine();

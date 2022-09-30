@@ -1,3 +1,6 @@
+package Controller;
+
+import Model.Set;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -96,16 +99,16 @@ public class FXController implements Initializable {
         currentFlashSet = db.getFlashSets().get(0);
         atCardInd = 0;
         atQuestion = true;
-        currentSetTextF.setText("You are running " + currentFlashSet.name + " as a flash set.");
+        currentSetTextF.setText("You are running " + currentFlashSet.getName() + " as a flash set.");
         instructionF.setText("Click to turn");
-        QnATextF.setText(currentFlashSet.cards.get(atCardInd).getQuestion());
+        QnATextF.setText(currentFlashSet.getCards().get(atCardInd).getQuestion());
     }
 
     public void nextFlashCard(){
-        if (currentFlashSet.cards.size()-1 != atCardInd){
+        if (currentFlashSet.getCards().size()-1 != atCardInd){
             atCardInd += 1;
             atQuestion = true;
-            QnATextF.setText(currentFlashSet.cards.get(atCardInd).getQuestion());
+            QnATextF.setText(currentFlashSet.getCards().get(atCardInd).getQuestion());
         }
     }
 
@@ -113,14 +116,14 @@ public class FXController implements Initializable {
         if (atCardInd != 0){
             atCardInd -= 1;
             atQuestion = true;
-            QnATextF.setText(currentFlashSet.cards.get(atCardInd).getQuestion());
+            QnATextF.setText(currentFlashSet.getCards().get(atCardInd).getQuestion());
         }
     }
 
     public void showAnswer(){
         if(atQuestion){
              atQuestion = false;
-             QnATextF.setText(currentFlashSet.cards.get(atCardInd).getAnswer());
+             QnATextF.setText(currentFlashSet.getCards().get(atCardInd).getAnswers()[0]);
         }
     }
     /** -------------- Play Multiple Choice methods -------------- */

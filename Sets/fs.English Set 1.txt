@@ -1,0 +1,5 @@
+
+Får.Sheep
+Hus.House
+Tyskland.Germany
+Bokhylla.Bookshelf
