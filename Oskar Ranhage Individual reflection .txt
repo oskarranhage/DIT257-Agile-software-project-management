@@ -40,7 +40,7 @@ like desiding structure and colour usage.
 
 
 
-Week 2:
+Week 3:
 * what do I want to learn or understand better?
 I want to learn how to merge diffrent branches in Git, continue learing Git, become more adept in using it, learn to code better.
 * how can I help someone else, or the entire team, to learn something new?
@@ -51,7 +51,7 @@ Im part in the meetings, created the scrum board and some of its stories. aswell
 This week I help Alex with programin servela methods and creating a Method that created a Text File. Creation of the Scrum Board and all its parts.
 
 
-Week 3:
+Week 4
 * what do I want to learn or understand better?
 Because of sickness i still want to be better at using git, and usage of the branches.
 * how can I help someone else, or the entire team, to learn something new?
@@ -62,11 +62,15 @@ This week i contributed with being present during the meetings, working with the
 this week i was part in developing the MVC model, creating a UML diagram and then creating the editFile method inside the logic.
 
 
-Week 4:
+Week 5
 * what do I want to learn or understand better?
+Im getting better at using git but not near what a whant tho
 * how can I help someone else, or the entire team, to learn something new?
+i help my team with learning github and how the merge branches.
 * what is my contribution towards the team’s use of Scrum?
+this week we i contributed by being Pretend PO and by partisipating in all of the meetings awsell as the extra programer meetings
 * what is my contribution towards the team’s deliveries?
+I help with MVC and created a Non personal path so its not hard coded in, aswell as creating a edit file function
 
 
 Week 5:
