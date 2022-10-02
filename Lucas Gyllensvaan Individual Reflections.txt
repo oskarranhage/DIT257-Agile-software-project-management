@@ -58,11 +58,14 @@ This sprint I have worked to improve the existing code by following the MVC desi
 
 Week 5: 
 
-
-* what do I want to learn or understand better?
-* how can I help someone else, or the entire team, to learn something new?
-* what is my contribution towards the team’s use of Scrum?
-* what is my contribution towards the team’s deliveries?
+what do I want to learn or understand better?
+I’ve talked enough about the multi layer cake model, so I won’t mention it this time, but I still want to learn how the group could work more vertically. I have learned a lot more about how to use git and for the most part I can operate it without problems, I know how to push, pull, commit my files to and from branches. I would however like to practice more in merging my files with others, so that it goes more smoothly in the future. 
+how can I help someone else, or the entire team, to learn something new?
+If I have new found knowledge in a subject that concerns my team, I will be sure to share this with them. Review others' work and give constructive criticism to help them grow and improve. Bring forth others opinions by making sure everyone feels included. 
+what is my contribution towards the team’s use of Scrum?
+We have had meetings that I have attended, a sprint review and we have worked in a sprint this week.
+what is my contribution towards the team’s deliveries?
+This sprint I have made a shuffle or randomizer method named shuffleSet located in the Learno class for shuffling the cards in a set and also shuffling the alternative answers to each card in the set. I have replaced all textSet instances with the new name spellingSet, this was an easy fix that only took a few minutes. I have made Set no longer runnable and removed the sub classes to Set such as FlashSet etc. Because the code is better off with only one Set class that handles all the different sets and not multiple subclasses with one abstract superclass. I have commented on all the relevant methods from earlier sprints, this was necessary because it will make the code easier to understand and continue working on as a programmer.
 
 
 
