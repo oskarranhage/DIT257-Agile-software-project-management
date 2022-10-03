@@ -6,16 +6,17 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Text;
+
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
-
-import static java.lang.System.out;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.*;
 
 public class FXController implements Initializable {
-    private DataBase db = new DataBase();
+    public DataBase db = new DataBase();
     /**
      * Play flashcards
      * The F at the end of each variable is short for "Flashcard"
@@ -31,23 +32,11 @@ public class FXController implements Initializable {
      */
 
     @FXML private AnchorPane playMultipleChoiceView;
-    @FXML private Button backButtonMC;
-    @FXML private Button nextButtonMC;
-    @FXML private Button previousButtonMC;
-    @FXML private Text questionMC;
     @FXML private RadioButton answer1;
     @FXML private RadioButton answer2;
     @FXML private RadioButton answer3;
     @FXML private RadioButton answer4;
-    @FXML private Text answer1Text;
-    @FXML private Text answer2Text;
-    @FXML private Text answer3Text;
-    @FXML private Text answer4Text;
-    //@FXML private List<Text> answerTexts = List.of(answer1Text, answer2Text, answer3Text, answer4Text);
-    //private List<RadioButton> answerChoices; { assert false; answerChoices = List.of(answer1, answer2, answer3, answer4); }
-
-    @FXML private Text confirmAnswerMC;
-    @FXML private Text guessResultMC;
+    private List<RadioButton> answerChoices;
 
     @FXML private AnchorPane startMenu;
 
@@ -55,7 +44,6 @@ public class FXController implements Initializable {
     @FXML private TextField setNameC;
 
     @FXML private TextField definitionAnswerS;
-    @FXML private Text curSetS;
     @FXML private Text termS;
 
     @FXML private AnchorPane createFolderMenu;
@@ -66,12 +54,12 @@ public class FXController implements Initializable {
     @FXML private AnchorPane spellingView;
 
     private static int atQuestionInd = 0;
-    private static int curSetInd = 0;
+    private static String curSetName = "";
     private boolean atQuestion;
-    private List<Integer> correctAnswersInd = new ArrayList<>();
-    private List<String> userAnswersSpelling = new ArrayList<>();
+    private List<String> userAnswers = new ArrayList<>();
+    public int createItemID = 1;
 
-    public FXController() throws IOException {
+    public FXController() {
     }
 
     /**
@@ -79,6 +67,7 @@ public class FXController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        answerChoices = List.of(answer1, answer2, answer3, answer4);
         openStartMenu();
     }
 
@@ -89,20 +78,22 @@ public class FXController implements Initializable {
      * Sets up flash card play. Used when opening the play flashcard page
      */
     public void setUpFlashcardPlay(){
+        curSetName = "English Set 1";
         atQuestion = true;
         atQuestionInd = 0;
-        currentSetTextF.setText("You are running " + db.getFlashSets().get(0).name + " as a flash set.");
-        QnATextF.setText(db.getFlashSets().get(0).getCards().get(atQuestionInd).getQuestion());
+        //currentSetTextF.setText("You are running " + db.getFlashSets().get(curSetName).name + " as a flash set.");
+        QnATextF.setText(db.getFlashSet(curSetName).getCards().get(3).getQuestion());
     }
 
     /**
      * Switches to the previous flashcard unless the last is currently played
      */
     public void nextFlashCard(){
-        if (db.getFlashSets().get(0).getCards().size()-1 != atQuestionInd){
+        if (db.getFlashSet(curSetName).getCards().size()-1 != atQuestionInd){
             atQuestionInd += 1;
-            QnATextF.setText(db.getFlashSets().get(0).getCards().get(atQuestionInd).getQuestion());
+            QnATextF.setText(db.getFlashSet(curSetName).getCards().get(atQuestionInd).getQuestion());
         }
+        atQuestion = true;
     }
 
     /**
@@ -111,7 +102,7 @@ public class FXController implements Initializable {
     public void previousFlashCard(){
         if (atQuestionInd != 0){
             atQuestionInd -= 1;
-            QnATextF.setText(db.getFlashSets().get(curSetInd).getCards().get(atQuestionInd).getQuestion());
+            QnATextF.setText(db.getFlashSet(curSetName).getCards().get(atQuestionInd).getQuestion());
         }
     }
 
@@ -124,10 +115,10 @@ public class FXController implements Initializable {
      */
     public void turnCard(){
         if (atQuestion){
-            QnATextF.setText(db.getFlashSets().get(curSetInd).getCards().get(atQuestionInd).getAnswer());
+            QnATextF.setText(db.getFlashSet(curSetName).getCards().get(atQuestionInd).getAnswers()[0]);
             atQuestion = false;
         } else{
-            QnATextF.setText(db.getFlashSets().get(curSetInd).getCards().get(atQuestionInd).getQuestion());
+            QnATextF.setText(db.getFlashSet(curSetName).getCards().get(atQuestionInd).getQuestion());
             atQuestion = true;
         }
     }
@@ -137,10 +128,11 @@ public class FXController implements Initializable {
      * Creates a list item and adds it to both a list of list items and to the flow pane by calling updateCreateSetFlowPane()
      */
     public void addCreateSetItem() {
-        CreateSetListItem item = new CreateSetListItem(this, db.getCreateSetItems().size());
-        db.getCreateSetItems().add(item);
+        CreateSetListItem item = new CreateSetListItem(this, ("C" + createItemID));
+        createItemID++;
+        db.getCreateSetListItems().add(item);
         //out.println(db.getCreateSetItems().size() + "in flow");
-        updateCreateSetFlowPane(db.getCreateSetItems());
+        updateCreateSetFlowPane(db.getCreateSetListItems());
         //out.println(createSetFlowPane.getChildren().size() + "in list");
     }
 
@@ -149,8 +141,11 @@ public class FXController implements Initializable {
      */
     public void updateCreateSetFlowPane(List<CreateSetListItem> items){
         createSetFlowPane.getChildren().clear();
+        createItemID = 1;
         for (CreateSetListItem item : items) {
-            createSetFlowPane.getChildren().add(new CreateSetListItem(this, 2));
+            item.id = "C" + createItemID;
+            createItemID++;
+            createSetFlowPane.getChildren().add(item);
         }
     }
 
@@ -166,67 +161,89 @@ public class FXController implements Initializable {
      * Action event for save-button. Saves the set to a text file
      */
     public void saveCreatedSet(){
+        String type = "fc.";
         if (!setNameC.getText().equals("")) {
             String name = setNameC.getText();
             StringBuilder sb = new StringBuilder();
-            for (CreateSetListItem item : db.getCreateSetItems()) {
-                sb.append(name).append("\n").append(item.getTerm()).append(".").append(item.getDefinition()).append("\n");
+            sb.append(name);
+            for (CreateSetListItem item : db.getCreateSetListItems()) {
+                sb.append("\n").append(item.getTerm()).append(".").append(item.getDefinition());
             }
-            FileManager.makeFile(name, sb.toString());
+            FileManager.makeFile(type + name, sb.toString());
+            db.updateAll();
             // TODO set creation confirmation message to front
         } else{
             // TODO name error message to front
         }
     }
 
+
     /** ____________MULTIPLE CHOICES____________ */
 
     /**
-     * Changes the radio button-texts to the answers, in case use the text contained inside the radio buttons
-     * @param answers       List of the current cards answers
+     * Randomizes the answers in a new array, the original array is still sorted
+     * Changes the radio button-texts to the answers
      */
-    public void setAnswers(List<String> answers){
-        for (int i = 0; i < answers.size(); i++) {
-            //answerChoices.get(i).setSelected(false);
-            //answerChoices.get(i).setText(answers.get(i));
+    public void setAnswers(){
+        Random rand = new Random();
+        String[] answers = db.getMultiSet(curSetName).getCards().get(atQuestionInd).getAnswers();
+        for (int i = 3; i > 0; i--) {
+            int j = rand.nextInt(i+1);
+            String temp = answers[i];
+            answers[i] = answers[j];
+            answers[j] = temp;
         }
-    }
-
-    /**
-     * Changes the choice-texts to the answers, in case we want to remove the text of radio buttons and add seperate text for better design
-     * @param answers       List of the current cards answers
-     */
-    public void setAnswerTexts(List<String> answers){
-        List<Text> answerTexts = List.of(answer1Text, answer2Text, answer3Text, answer4Text);
-        for (int i = 0; i < answers.size(); i++) {
-            answerTexts.get(i).setText(answers.get(i));
+        for (int i = 0; i < answerChoices.size(); i++) {
+            answerChoices.get(i).setText(answers[i]);
         }
     }
 
     /**
      * Checks whether the answer chosen by the user is right or wrong
-     * @param choice        The users choice
-     * @param rightAnswer   The right answer
      */
-    public void confirmAnswer(RadioButton choice, String rightAnswer){
-        if (choice.getText().equals(rightAnswer)){
-            guessResultMC.setText("Right answer");
-        } else{
-            guessResultMC.setText("Wrong answer");
+    public void confirmAnswer(){
+        boolean hasAnswered = false;
+        for (RadioButton rb : answerChoices) {
+            if (rb.isSelected()) {
+                hasAnswered = true;
+                userAnswers.add(rb.getText());
+                if (rb.getText().equals(db.getMultiSet(curSetName).getCards().get(atQuestionInd).getAnswers()[0])) {
+                    // TODO maybe show that it was the right answer
+                } else {
+                    // TODO maybe show that it was the right answer
+                }
+            }
         }
-        guessResultMC.toFront();
+        if (hasAnswered){
+            // TODO go to next card
+        } else{
+            // TODO say that they need to answer the question before they can go to the next
+        }
     }
 
-    /*public void selectAnswer(RadioButton choice){
+    /**
+     * -
+     */
+    public void presentResult(){
+        for (int i = 0; i < userAnswers.size(); i++) {
+            if (db.getMultiSet(curSetName).getCards().get(i).getAnswers().equals(userAnswers.get(i))){
+                // TODO add a list item to result list flow pane that represents a correct answer
+            } else{
+                // TODO add a list item to result list flow pane that represents a wrong answer
+            }
+        }
+    }
+
+    public void selectAnswer(RadioButton choice){
         for (RadioButton rb : answerChoices) {
             rb.setSelected(rb.getText().equals(choice.getText()));
         }
-    }*/
+    }
 
-    /*public void selectFirstAnswer(){ selectAnswer(answer1); }
+    public void selectFirstAnswer(){ selectAnswer(answer1); }
     public void selectSecondAnswer(){ selectAnswer(answer2); }
     public void selectThirdAnswer(){ selectAnswer(answer3); }
-    public void selectFourthAnswer(){ selectAnswer(answer4); }*/
+    public void selectFourthAnswer(){ selectAnswer(answer4); }
 
     /**
      * Sets the current set text to the current set, for example "set test2"
@@ -242,9 +259,8 @@ public class FXController implements Initializable {
      */
     public void setUpSpellingPlay(){
         atQuestionInd = 0;
-        correctAnswersInd.clear();
-        currentSetTextF.setText("You are running " + db.getFlashSets().get(curSetInd).name + " as a spelling set.");
-        termS.setText(db.getFlashSets().get(curSetInd).getCards().get(atQuestionInd).getQuestion());
+        currentSetTextF.setText("You are running " + curSetName + " as a spelling set.");
+        termS.setText(db.getSpellingSet(curSetName).getCards().get(atQuestionInd).getQuestion());
     }
 
     /**
@@ -253,8 +269,8 @@ public class FXController implements Initializable {
     public void nextSpellingTerm(){
         if (1 != atQuestionInd){
             atQuestionInd += 1;
-            termS.setText(db.getFlashSets().get(curSetInd).getCards().get(atQuestionInd).getQuestion());
-            userAnswersSpelling.add(definitionAnswerS.getText());
+            termS.setText(db.getSpellingSet(curSetName).getCards().get(atQuestionInd).getQuestion());
+            userAnswers.add(definitionAnswerS.getText());
             definitionAnswerS.setText("");
         }
     }
@@ -270,8 +286,8 @@ public class FXController implements Initializable {
      * Gets the correct answers of the set, the correct answer is always at index 0
      */
     public void viewResults(){
-        for (int i = 0; i < userAnswersSpelling.size(); i++) {
-            if (db.getFlashSets().get(i).equals(userAnswersSpelling.get(i))){
+        for (int i = 0; i < userAnswers.size(); i++) {
+            if (db.getFlashSets().get(i).equals(userAnswers.get(i))){
                 // TODO make wrong answers red
             }
         }
