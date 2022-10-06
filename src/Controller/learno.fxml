@@ -1,0 +1,854 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.QuadCurve?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../View/learnoCSS.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.FXController">
+   <children>
+      <AnchorPane fx:id="myFoldersView" layoutX="-11.0" layoutY="-11.0" prefHeight="900.0" prefWidth="1600.0">
+         <children>
+            <AnchorPane prefHeight="900.0" prefWidth="1600.0">
+               <children>
+                  <AnchorPane prefHeight="900.0" prefWidth="1600.0">
+                     <children>
+                        <AnchorPane prefHeight="900.0" prefWidth="1600.0">
+                           <children>
+                              <ImageView fitHeight="900.0" fitWidth="1600.0">
+                                 <image>
+                                    <Image url="@../images/homepageBackground1.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="903.0" fitWidth="1600.0" layoutX="-9.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true" />
+                              <Button layoutX="-23.0" layoutY="126.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="1103.0" style="-fx-background-color: #fcf0fd;" styleClass="buttonsSmall">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="-12.0" layoutY="140.0" mnemonicParsing="false" onMouseClicked="#openStartMenu" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: #EED7CA;" styleClass="buttonsSmall" text="Back">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Text layoutX="517.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My folders:">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Text>
+                              <Pane layoutX="209.0" layoutY="303.0" prefHeight="601.0" prefWidth="1195.0" style="-fx-background-color: #8BC29F;">
+                                 <children>
+                                    <ScrollPane layoutX="36.0" layoutY="40.0" prefHeight="518.0" prefWidth="1128.0" style="-fx-background-color: #8BC29F;">
+                                       <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="536.0" prefWidth="1117.0" style="-fx-background-color: #8BC29F;">
+                                             <children>
+                                                <GridPane prefHeight="489.0" prefWidth="1096.0">
+                                                  <columnConstraints>
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                </GridPane>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="buttonsLarge" />
+                                    <String fx:value="buttonsMedium" />
+                                 </styleClass>
+                              </Pane>
+                              <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="125.0" prefWidth="1600.0" style="-fx-background-color: #8BC29F;">
+                                 <children>
+                                    <ImageView fitHeight="119.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fitHeight="107.0" fitWidth="215.0" layoutX="14.0" layoutY="6.0" onMouseClicked="#openStartMenu">
+                                       <image>
+                                          <Image url="@../images/learnoLogoNew-removebg-preview.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <ImageView fitHeight="24.0" fitWidth="22.0" layoutX="74.0" layoutY="176.0" rotate="180.0">
+                                 <image>
+                                    <Image url="@../images/right-arrow.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="setCreatedView" prefHeight="900.0" prefWidth="1600.0">
+         <children>
+            <AnchorPane prefHeight="900.0" prefWidth="1600.0">
+               <children>
+                  <AnchorPane prefHeight="900.0" prefWidth="1600.0">
+                     <children>
+                        <AnchorPane prefHeight="905.0" prefWidth="1604.0">
+                           <children>
+                              <ImageView fitHeight="903.0" fitWidth="1600.0">
+                                 <image>
+                                    <Image url="@../images/homepageBackground1.png" />
+                                 </image>
+                              </ImageView>
+                              <Button layoutX="-23.0" layoutY="126.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="1103.0" style="-fx-background-color: #fcf0fd;" styleClass="buttonsSmall">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="-12.0" layoutY="140.0" mnemonicParsing="false" onMouseClicked="#openStartMenu" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: #EED7CA;" styleClass="buttonsSmall" text="Back">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Text layoutX="456.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New set created:">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                              </Text>
+                              <Pane layoutX="228.0" layoutY="303.0" prefHeight="557.0" prefWidth="1174.0" style="-fx-background-color: #8BC29F;" styleClass="buttonsLarge">
+                                 <children>
+                                    <Button layoutX="237.0" layoutY="310.0" mnemonicParsing="false" onMouseClicked="#openChooseSet" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #fcf0fd;" styleClass="buttonsSmall">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="648.0" layoutY="302.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #fcf0fd;" styleClass="buttonsSmall">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="342.0" layoutY="61.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="518.0" style="-fx-background-color: #fcf0fd;" styleClass="buttonsSmall">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Button>
+                                    <Text layoutX="460.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;Name of set&quot;" />
+                                    <Button layoutX="511.0" layoutY="161.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="181.0" style="-fx-background-color: #EED7CA;" styleClass="buttonsMedium" />
+                                    <Text layoutX="314.0" layoutY="376.0" onMouseClicked="#openChooseSet" strokeType="OUTSIDE" strokeWidth="0.0" text="My sets" />
+                                    <Text layoutX="729.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Play set" />
+                                    <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="628.0" layoutY="169.0">
+                                       <image>
+                                          <Image url="@../images/pen.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="76.0" fitWidth="76.0" layoutX="761.0" layoutY="399.0">
+                                       <image>
+                                          <Image url="@../images/play-button.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="65.0" fitWidth="67.0" layoutX="355.0" layoutY="406.0" onMouseClicked="#openChooseSet">
+                                       <image>
+                                          <Image url="@../images/floppy-disk.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text layoutX="551.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit" />
+                                 </children>
+                              </Pane>
+                              <Text layoutX="33.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                              <ImageView fitHeight="29.0" fitWidth="26.0" layoutX="63.0" layoutY="176.0" rotate="180.0">
+                                 <image>
+                                    <Image url="@../images/right-arrow.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="125.0" prefWidth="1600.0" style="-fx-background-color: #8BC29F;">
+               <children>
+                  <ImageView fitHeight="119.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="107.0" fitWidth="215.0" layoutX="14.0" layoutY="6.0" onMouseClicked="#openStartMenu">
+                     <image>
+                        <Image url="@../images/learnoLogoNew-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="choooseSetView" prefHeight="900.0" prefWidth="1600.0">
+         <children>
+            <AnchorPane prefHeight="900.0" prefWidth="1600.0">
+               <children>
+                  <ImageView fitHeight="900.0" fitWidth="1600.0">
+                     <image>
+                        <Image url="@../images/homepageBackground1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="799.0" fitWidth="1600.0" layoutX="-9.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button layoutX="-20.0" layoutY="124.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="1103.0" style="-fx-background-color: #fcf0fd;" styleClass="buttonsSmall">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="-12.0" layoutY="140.0" mnemonicParsing="false" onMouseClicked="#openStartMenu" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: #EED7CA;" styleClass="buttonsSmall" text="Back">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Text layoutX="456.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose your study technique:">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Text>
+                  <Pane layoutX="230.0" layoutY="319.0" prefHeight="585.0" prefWidth="1174.0" style="-fx-background-color: #8BC29F;" styleClass="buttonsLarge">
+                     <children>
+                        <Button layoutX="635.0" layoutY="324.0" mnemonicParsing="false" onMouseClicked="#openCreateSetSingle" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #fcf0fd;" styleClass="buttonsSmall">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="438.0" layoutY="56.0" mnemonicParsing="false" onMouseClicked="#openCreateSetMultiple" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #fcf0fd;" styleClass="buttonsSmall">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="235.0" layoutY="325.0" mnemonicParsing="false" onMouseClicked="#openCreateSetSingle" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #fcf0fd;" styleClass="buttonsSmall">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Text layoutX="457.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Multiple choices">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="302.0" layoutY="429.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flashcards">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="727.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spelling">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <AnchorPane layoutX="-1.0" prefHeight="125.0" prefWidth="1600.0" style="-fx-background-color: #8BC29F;">
+                     <children>
+                        <ImageView fitHeight="119.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="107.0" fitWidth="215.0" layoutX="14.0" layoutY="6.0" onMouseClicked="#openStartMenu">
+                           <image>
+                              <Image url="@../images/learnoLogoNew-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <ImageView fitHeight="22.0" fitWidth="19.0" layoutX="78.0" layoutY="182.0" rotate="180.0">
+                     <image>
+                        <Image url="@../images/right-arrow.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="spellingView" prefHeight="900.0" prefWidth="1600.0">
+         <children>
+            <AnchorPane prefHeight="900.0" prefWidth="1600.0">
+               <children>
+                  <AnchorPane prefHeight="900.0" prefWidth="1600.0">
+                     <children>
+                        <AnchorPane prefHeight="900.0" prefWidth="1600.0">
+                           <children>
+                              <ImageView fitHeight="903.0" fitWidth="1600.0">
+                                 <image>
+                                    <Image url="@../images/homepageBackground1.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="799.0" fitWidth="1600.0" layoutX="-9.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true" />
+                              <Text fx:id="termS" layoutX="655.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Butterfly">
+                                 <font>
+                                    <Font name="System Bold" size="72.0" />
+                                 </font>
+                              </Text>
+                              <Button layoutX="-12.0" layoutY="140.0" mnemonicParsing="false" onMouseClicked="#openChooseSet" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: #EED7CA;" styleClass="buttonsSmall" text="Back">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Pane layoutX="115.0" layoutY="380.0" prefHeight="524.0" prefWidth="1383.0" style="-fx-background-color: #8BC29F;" styleClass="buttonsLarge">
+                                 <children>
+                                    <Button layoutX="920.0" layoutY="392.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: #EED7CA;" styleClass="buttonsSmall">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Button>
+                                    <Text layoutX="987.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Skip">
+                                       <font>
+                                          <Font size="36.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="definitionAnswerS" layoutX="461.0" layoutY="182.0" prefHeight="79.0" prefWidth="429.0" />
+                                    <Button layoutX="1160.0" layoutY="392.0" mnemonicParsing="false" onMouseClicked="#nextSpellingTerm" prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: #EED7CA;" styleClass="buttonsSmall">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Button>
+                                    <Text layoutX="1206.0" layoutY="445.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Next">
+                                       <font>
+                                          <Font size="36.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="285.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Definition:">
+                                       <font>
+                                          <Font size="36.0" />
+                                       </font>
+                                    </Text>
+                                    <ImageView fitHeight="30.0" fitWidth="29.0" layoutX="1304.0" layoutY="418.0">
+                                       <image>
+                                          <Image url="@../images/right-arrow.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <ImageView fitHeight="24.0" fitWidth="29.0" layoutX="70.0" layoutY="177.0" rotate="180.0">
+                                 <image>
+                                    <Image url="@../images/right-arrow.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="125.0" prefWidth="1600.0" style="-fx-background-color: #8BC29F;">
+                     <children>
+                        <ImageView fitHeight="119.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="107.0" fitWidth="215.0" layoutX="14.0" layoutY="6.0" onMouseClicked="#openStartMenu">
+                           <image>
+                              <Image url="@../images/learnoLogoNew-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                        <Text layoutX="550.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Studying: balbalbala">
+                           <font>
+                              <Font size="48.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="startMenu" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <AnchorPane prefHeight="900.0" prefWidth="1600.0">
+               <children>
+                  <AnchorPane prefHeight="905.0" prefWidth="1604.0">
+                     <children>
+                        <ImageView fitHeight="903.0" fitWidth="1600.0">
+                           <image>
+                              <Image url="@../images/homepageBackground1.png" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane prefHeight="125.0" prefWidth="1600.0" style="-fx-background-color: #8BC29F;">
+                           <children>
+                              <ImageView fitHeight="119.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="107.0" fitWidth="215.0" layoutX="14.0" layoutY="6.0">
+                                 <image>
+                                    <Image url="@../images/learnoLogoNew-removebg-preview.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <Button layoutX="1235.0" layoutY="200.0" mnemonicParsing="false" onMouseClicked="#openMySets" prefHeight="82.0" prefWidth="362.0" style="-fx-background-color: #fcf0fd;" styleClass="buttonsSmall">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="868.0" layoutY="468.0" mnemonicParsing="false" onMouseClicked="#openChooseSet" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #fcf0fd;" styleClass="buttonsSmall" text="Create new study set">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="460.0" layoutY="467.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #fcf0fd;" styleClass="buttonsSmall" text="Create new folder">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Text layoutX="590.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!">
+                           <font>
+                              <Font name="System Bold" size="96.0" />
+                           </font>
+                        </Text>
+                        <Button layoutX="1333.0" layoutY="294.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="264.0" style="-fx-background-color: #fcf0fd;" styleClass="buttonsSmall">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Button>
+                        <Text layoutX="1376.0" layoutY="250.0" onMouseClicked="#openMySets" strokeType="OUTSIDE" strokeWidth="0.0" text="My sets">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="1390.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My folders">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <ImageView fitHeight="40.0" fitWidth="38.0" layoutX="1481.0" layoutY="219.0" onMouseClicked="#openMySets">
+                           <image>
+                              <Image url="@../images/floppy-disk.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="94.0" fitWidth="50.0" layoutX="1520.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/folder.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="playFlashcardView" prefHeight="900.0" prefWidth="1600.0">
+         <children>
+            <AnchorPane prefHeight="905.0" prefWidth="1604.0">
+               <children>
+                  <ImageView fitHeight="903.0" fitWidth="1600.0">
+                     <image>
+                        <Image url="@../images/homepageBackground1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="799.0" fitWidth="1600.0" layoutX="-9.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button layoutX="-25.0" layoutY="148.0" mnemonicParsing="false" onMouseClicked="#openMySets" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: #EED7CA;" styleClass="buttonsSmall" text="Back">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="prevButtonF" layoutX="70.0" layoutY="754.0" mnemonicParsing="false" onMouseClicked="#previousFlashCard" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #fcf0fd;" styleClass="buttonsSmall" text="Previous">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="confirmButtonF" layoutX="1349.0" layoutY="756.0" mnemonicParsing="false" onMouseClicked="#nextFlashCard" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #fcf0fd;" styleClass="buttonsSmall" text="Next">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Text layoutX="693.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click on a card to turn it">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <Pane layoutX="601.0" layoutY="312.0" prefHeight="374.0" prefWidth="613.0" rotate="4.8" style="-fx-background-color: #fffde9;" styleClass="roundedPane" />
+                  <Pane layoutX="436.0" layoutY="318.0" prefHeight="374.0" prefWidth="613.0" rotate="-7.6" style="-fx-background-color: #fffde9;" styleClass="roundedPane" />
+                  <Pane layoutX="511.0" layoutY="355.0" onMouseClicked="#turnCard" prefHeight="374.0" prefWidth="613.0" style="-fx-background-color: #fffde9;" styleClass="roundedPane">
+                     <children>
+                        <Text fx:id="QnATextF" layoutX="190.0" layoutY="208.0" onMouseClicked="#turnCard" strokeType="OUTSIDE" strokeWidth="0.0" text="Butterfly">
+                           <font>
+                              <Font name="System Bold" size="48.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <ImageView fitHeight="24.0" fitWidth="22.0" layoutX="61.0" layoutY="186.0" rotate="180.0">
+                     <image>
+                        <Image url="@../images/right-arrow.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="24.0" fitWidth="22.0" layoutX="94.0" layoutY="791.0" onMouseClicked="#previousFlashCard" rotate="180.0">
+                     <image>
+                        <Image url="@../images/right-arrow.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="24.0" fitWidth="22.0" layoutX="1492.0" layoutY="795.0" onMouseClicked="#nextFlashCard">
+                     <image>
+                        <Image url="@../images/right-arrow.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="125.0" prefWidth="1600.0" style="-fx-background-color: #8BC29F;">
+               <children>
+                  <ImageView fitHeight="119.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="107.0" fitWidth="215.0" layoutX="14.0" layoutY="6.0" onMouseClicked="#openStartMenu">
+                     <image>
+                        <Image url="@../images/learnoLogoNew-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="521.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Playing flashcards:">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="currentSetTextF" layoutX="825.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Studyset">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="playMultipleChoiceView" prefHeight="900.0" prefWidth="1600.0">
+         <children>
+            <AnchorPane prefHeight="900.0" prefWidth="1600.0">
+               <children>
+                  <AnchorPane prefHeight="900.0" prefWidth="1600.0">
+                     <children>
+                        <ImageView fitHeight="903.0" fitWidth="1600.0">
+                           <image>
+                              <Image url="@../images/homepageBackground1.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="799.0" fitWidth="1600.0" layoutX="-9.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true" />
+                        <Text fx:id="questionMC" layoutX="655.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Butterfly">
+                           <font>
+                              <Font name="System Bold" size="72.0" />
+                           </font>
+                        </Text>
+                        <Button layoutX="-12.0" layoutY="140.0" mnemonicParsing="false" onMouseClicked="#openMySets" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: #EED7CA;" styleClass="buttonsSmall" text="Back">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Pane layoutX="115.0" layoutY="380.0" prefHeight="524.0" prefWidth="1383.0" style="-fx-background-color: #8BC29F;" styleClass="buttonsLarge">
+                           <children>
+                              <Button layoutX="1127.0" layoutY="380.0" mnemonicParsing="false" onMouseClicked="#nextMultipleCard" prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: #EED7CA;" styleClass="buttonsSmall">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Text fx:id="nextButtonTextMC" layoutX="1194.0" layoutY="434.0" onMouseClicked="#nextMultipleCard" strokeType="OUTSIDE" strokeWidth="0.0" text="Next">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Text>
+                              <RadioButton fx:id="answer1" layoutX="142.0" layoutY="76.0" mnemonicParsing="false" text="Alt 1" />
+                              <RadioButton fx:id="answer2" layoutX="142.0" layoutY="183.0" mnemonicParsing="false" text="Alt 2" />
+                              <RadioButton fx:id="answer3" layoutX="140.0" layoutY="294.0" mnemonicParsing="false" text="Alt 3" />
+                              <RadioButton fx:id="answer4" layoutX="138.0" layoutY="392.0" mnemonicParsing="false" text="Alt 4" />
+                           </children>
+                        </Pane>
+                        <ImageView fitHeight="19.0" fitWidth="19.0" layoutX="65.0" layoutY="181.0" rotate="180.0">
+                           <image>
+                              <Image url="@../images/right-arrow.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="125.0" prefWidth="1600.0" style="-fx-background-color: #8BC29F;">
+               <children>
+                  <ImageView fitHeight="119.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="107.0" fitWidth="215.0" layoutX="14.0" layoutY="6.0" onMouseClicked="#openStartMenu">
+                     <image>
+                        <Image url="@../images/learnoLogoNew-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="mySetsView" prefHeight="900.0" prefWidth="1600.0">
+         <children>
+            <AnchorPane prefHeight="900.0" prefWidth="1600.0">
+               <children>
+                  <AnchorPane prefHeight="905.0" prefWidth="1604.0">
+                     <children>
+                        <ImageView fitHeight="903.0" fitWidth="1600.0">
+                           <image>
+                              <Image url="@../images/homepageBackground1.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="799.0" fitWidth="1600.0" layoutX="-9.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true" />
+                        <Button layoutX="-23.0" layoutY="126.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="1103.0" style="-fx-background-color: #fcf0fd;" styleClass="buttonsSmall">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="-12.0" layoutY="140.0" mnemonicParsing="false" onMouseClicked="#openStartMenu" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: #EED7CA;" styleClass="buttonsSmall" text="Back">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Text layoutX="456.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My study sets:">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Text>
+                        <Pane layoutX="230.0" layoutY="319.0" prefHeight="585.0" prefWidth="1174.0" style="-fx-background-color: #8BC29F;">
+                           <children>
+                              <ScrollPane layoutX="-3.0" layoutY="-7.0" prefHeight="594.0" prefWidth="1176.0" style="-fx-background-color: #8BC29F;">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="593.0" prefWidth="1169.0" style="-fx-background-color: #8BC29F;">
+                                       <children>
+                                          <GridPane fx:id="mySetsGridPane" prefHeight="588.0" prefWidth="1161.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="587.6666259765625" minWidth="10.0" prefWidth="581.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="869.0000305175781" minWidth="10.0" prefWidth="581.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                          </GridPane>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </ScrollPane>
+                           </children>
+                        </Pane>
+                        <ImageView fitHeight="24.0" fitWidth="22.0" layoutX="68.0" layoutY="178.0" rotate="180.0">
+                           <image>
+                              <Image url="@../images/right-arrow.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="125.0" prefWidth="1600.0" style="-fx-background-color: #8BC29F;">
+               <children>
+                  <ImageView fitHeight="119.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="107.0" fitWidth="215.0" layoutX="14.0" layoutY="6.0" onMouseClicked="#openStartMenu">
+                     <image>
+                        <Image url="@../images/learnoLogoNew-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="createSetView" layoutX="-5.0" layoutY="-2.0" prefHeight="900.0" prefWidth="1600.0">
+         <children>
+            <AnchorPane prefHeight="900.0" prefWidth="1600.0">
+               <children>
+                  <AnchorPane prefHeight="900.0" prefWidth="1600.0">
+                     <children>
+                        <ImageView fitHeight="903.0" fitWidth="1600.0">
+                           <image>
+                              <Image url="@../images/homepageBackground1.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="799.0" fitWidth="1600.0" layoutX="-9.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true" />
+                        <Pane layoutX="230.0" layoutY="204.0" prefHeight="700.0" prefWidth="1178.0" style="-fx-background-color: #ABCBB2;" styleClass="buttonsMedium">
+                           <children>
+                              <Button layoutX="312.0" layoutY="612.0" mnemonicParsing="false" onMouseClicked="#addCreateSetItem" prefHeight="50.0" prefWidth="567.0" style="-fx-background-color: #EED7CA;" styleClass="buttonsSmall" />
+                              <Text layoutX="493.0" layoutY="654.0" onMouseClicked="#addCreateSetItem" strokeType="OUTSIDE" strokeWidth="0.0" text="Add term/definiton">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <Button layoutX="962.0" layoutY="612.0" mnemonicParsing="false" onMouseClicked="#saveCreatedSet" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #EED7CA;" styleClass="buttonsSmall" text="Save">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <ScrollPane layoutX="74.0" layoutY="42.0" prefHeight="551.0" prefWidth="1036.0">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="549.0" prefWidth="1028.0">
+                                       <children>
+                                          <FlowPane fx:id="createSetFlowPane" prefHeight="548.0" prefWidth="1036.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </ScrollPane>
+                              <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="721.0" layoutY="617.0" onMouseClicked="#addCreateSetItem">
+                                 <image>
+                                    <Image url="@../images/add.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Button layoutX="-12.0" layoutY="140.0" mnemonicParsing="false" onMouseClicked="#openChooseSet" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: #EED7CA;" styleClass="buttonsSmall" text="Back">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Button>
+                        <AnchorPane prefHeight="125.0" prefWidth="1600.0" style="-fx-background-color: #8BC29F;">
+                           <children>
+                              <ImageView fitHeight="119.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="107.0" fitWidth="215.0" layoutX="14.0" layoutY="6.0" onMouseClicked="#openStartMenu">
+                                 <image>
+                                    <Image url="@../images/learnoLogoNew-removebg-preview.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fx:id="creatingEditingTitleText" layoutX="654.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Creating new flashcard set">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                        <TextField fx:id="setNameC" layoutX="705.0" layoutY="142.0" prefHeight="50.0" prefWidth="281.0" />
+                        <Text layoutX="611.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <ImageView fitHeight="24.0" fitWidth="22.0" layoutX="66.0" layoutY="177.0" rotate="178.2">
+                           <image>
+                              <Image url="@../images/right-arrow.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="setCreatedView" prefHeight="900.0" prefWidth="1600.0">
+         <children>
+            <AnchorPane prefHeight="900.0" prefWidth="1600.0">
+               <children>
+                  <AnchorPane prefHeight="900.0" prefWidth="1600.0">
+                     <children>
+                        <AnchorPane prefHeight="905.0" prefWidth="1604.0">
+                           <children>
+                              <ImageView fitHeight="903.0" fitWidth="1600.0">
+                                 <image>
+                                    <Image url="@../images/homepageBackground1.png" />
+                                 </image>
+                              </ImageView>
+                              <Button layoutX="-23.0" layoutY="126.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="1103.0" style="-fx-background-color: #fcf0fd;" styleClass="buttonsSmall">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="-12.0" layoutY="140.0" mnemonicParsing="false" onMouseClicked="#editCurrentSet" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: #EED7CA;" styleClass="buttonsSmall" text="Back">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Text layoutX="456.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New set created:">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                              </Text>
+                              <Pane layoutX="228.0" layoutY="303.0" prefHeight="557.0" prefWidth="1174.0" style="-fx-background-color: #8BC29F;" styleClass="buttonsLarge">
+                                 <children>
+                                    <Button layoutX="237.0" layoutY="310.0" mnemonicParsing="false" onMouseClicked="#openMySets" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #fcf0fd;" styleClass="buttonsSmall">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="648.0" layoutY="302.0" mnemonicParsing="false" onMouseClicked="#openPlayFlashcard" prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #fcf0fd;" styleClass="buttonsSmall">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="342.0" layoutY="61.0" mnemonicParsing="false" prefHeight="200.0" prefWidth="518.0" style="-fx-background-color: #fcf0fd;" styleClass="buttonsSmall">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Button>
+                                    <Text fx:id="createdSetName" layoutX="460.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;Name of set&quot;" />
+                                    <Button layoutX="511.0" layoutY="161.0" mnemonicParsing="false" onMouseClicked="#editCurrentSet" prefHeight="65.0" prefWidth="181.0" style="-fx-background-color: #EED7CA;" styleClass="buttonsMedium" />
+                                    <Text layoutX="314.0" layoutY="376.0" onMouseClicked="#openMySets" strokeType="OUTSIDE" strokeWidth="0.0" text="My sets" />
+                                    <Text layoutX="729.0" layoutY="376.0" onMouseClicked="#openPlayFlashcard" strokeType="OUTSIDE" strokeWidth="0.0" text="Play set" />
+                                    <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="628.0" layoutY="169.0" onMouseClicked="#editCurrentSet">
+                                       <image>
+                                          <Image url="@../images/pen.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="76.0" fitWidth="76.0" layoutX="761.0" layoutY="399.0" onMouseClicked="#openPlayFlashcard">
+                                       <image>
+                                          <Image url="@../images/play-button.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="65.0" fitWidth="67.0" layoutX="355.0" layoutY="406.0" onMouseClicked="#openMySets">
+                                       <image>
+                                          <Image url="@../images/floppy-disk.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text layoutX="551.0" layoutY="206.0" onMouseClicked="#editCurrentSet" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit" />
+                                 </children>
+                              </Pane>
+                              <Text layoutX="33.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                              <ImageView fitHeight="29.0" fitWidth="26.0" layoutX="63.0" layoutY="176.0" rotate="180.0">
+                                 <image>
+                                    <Image url="@../images/right-arrow.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="125.0" prefWidth="1600.0" style="-fx-background-color: #8BC29F;">
+               <children>
+                  <ImageView fitHeight="119.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="107.0" fitWidth="215.0" layoutX="14.0" layoutY="6.0" onMouseClicked="#openStartMenu">
+                     <image>
+                        <Image url="@../images/learnoLogoNew-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="introPage" onMouseClicked="#openStartMenu" prefHeight="900.0" prefWidth="1600.0">
+         <children>
+            <AnchorPane prefHeight="900.0" prefWidth="1600.0">
+               <children>
+                  <AnchorPane prefHeight="900.0" prefWidth="1600.0">
+                     <children>
+                        <AnchorPane prefHeight="900.0" prefWidth="1600.0">
+                           <children>
+                              <AnchorPane prefHeight="905.0" prefWidth="1604.0">
+                                 <children>
+                                    <ImageView fitHeight="903.0" fitWidth="1600.0">
+                                       <image>
+                                          <Image url="@../images/homepageBackground1.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text layoutX="456.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                                       <font>
+                                          <Font size="48.0" />
+                                       </font>
+                                    </Text>
+                                    <QuadCurve controlX="753.77783203125" controlY="163.0" endX="-209.3333282470703" endY="102.66665649414062" fill="#f9f2d6" layoutX="509.0" layoutY="409.0" startX="163.55560302734375" startY="205.66665649414062" stroke="#f9f2d6" strokeType="INSIDE" />
+                                    <Text layoutX="263.0" layoutY="584.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LEARNO">
+                                       <font>
+                                          <Font name="Tw Cen MT Condensed" size="200.0" />
+                                       </font>
+                                    </Text>
+                                    <QuadCurve controlX="-61.0" controlY="242.33334350585938" endX="-32.37141799926758" endY="113.3715591430664" fill="#fff282" layoutX="1067.0" layoutY="321.0" rotate="77.0" startX="163.55560302734375" startY="205.66665649414062" stroke="#fff282" strokeType="INSIDE" />
+                                    <Line endX="460.333251953125" endY="6.103515625E-5" layoutX="548.0" layoutY="721.0" startX="-383.6666259765625" startY="6.103515625E-5" />
+                                    <Line endX="99.99998474121094" endY="74.111083984375" layoutX="62.0" layoutY="647.0" startX="100.0" startY="-430.99993896484375" />
+                                    <ImageView fitHeight="276.0" fitWidth="199.0" layoutX="1020.0" layoutY="402.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/light-bulb.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

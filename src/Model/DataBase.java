@@ -1,3 +1,6 @@
+package Model;
+import Controller.CreateSetMultipleAnswer;
+import Controller.CreateSetSingleAnswer;
 import Model.Card;
 import Model.Set;
 
@@ -19,6 +22,9 @@ public class DataBase {
     // Directory for the folder of sets in File and Path data types.
     private final Path setFolderPath = Path.of(new File("").getAbsolutePath() + "/Sets/");
     private final File setFolderFile = setFolderPath.toFile();
+
+    private ArrayList<CreateSetSingleAnswer> createSingeListItems = new ArrayList<>();
+    private ArrayList<CreateSetMultipleAnswer> createMultipleListItems = new ArrayList<>();
 
     // Constructor initialises the workable data
     public DataBase() {
@@ -157,4 +163,11 @@ public class DataBase {
 
     public Path getSetFolderPath() { return setFolderPath; }
     public File getSetFolderFile() { return setFolderFile; }
+
+    public ArrayList<CreateSetSingleAnswer> getCreateSingleListItems() {
+        return createSingeListItems;
+    }
+    public ArrayList<CreateSetMultipleAnswer> getCreateMultipleListItems() {
+        return createMultipleListItems;
+    }
 }

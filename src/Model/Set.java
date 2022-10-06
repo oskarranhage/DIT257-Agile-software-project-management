@@ -2,13 +2,14 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Set {
     String name;
     ArrayList<Card> cards = new ArrayList<Card>();
     setType thisSetType;
 
-    public enum setType{FlashCard,Spelling,MultipleChoice}
+    public enum setType{FlashCard,Spelling,MultipleChoice,Null}
     public void setTypeFlashCard(){thisSetType = setType.FlashCard;}
     public void setTypeSpelling(){thisSetType = setType.Spelling;}
     public void setTypeMultipleChoice(){thisSetType = setType.MultipleChoice;}
@@ -16,6 +17,12 @@ public class Set {
 
     public Set(String name){
         this.name = name;
+    }
+
+    public Set(String name, List<Card> cardList, setType type){
+        this.name = name;
+        cards.addAll(cardList);
+        this.thisSetType = type;
     }
 
     public void addCard(int id,Card c){this.cards.add(id,c);}

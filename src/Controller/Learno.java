@@ -1,3 +1,13 @@
+package Controller;
+import Model.Card;
+import Model.DataBase;
+import Model.Set;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -5,7 +15,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 
-public class Learno {
+import static javafx.application.Application.launch;
+
+public class Learno extends Application {
     public static Card card;
     public static DataBase db = new DataBase();
     static Scanner sc = new Scanner(System.in);
@@ -15,87 +27,26 @@ public class Learno {
     private final static Path setFilePath = Path.of(basePath + "/Sets/");
 
     public static void main(String[] args) {
-        //launch(args);
-
-        //new Learno().createAFlashCard();
-        //new Learno().createASpellingCard();
-        //new Learno().createAMultipleCard();
-
-        while (true) {
-            System.out.println("Choose action.");
-            System.out.println("1. Create set");
-            System.out.println("2. Play set");
-            String input = sc.nextLine();
-            System.out.println(input);
-            if (input.equals("1")) {
-                createSetMenu();
-            } else if (input.equals("2")) {
-                /*System.out.println("Type the name of the set you want to play.");
-                String inputSetName = sc.nextLine();
-                Set set = new FlashSet("");
-                set.readFile(inputSetName);
-                set.run();*/
-
-                System.out.println("What set do you wan't to play?\n");
-                //System.out.println("Press 'f' for flashSet, 't' for textSet, 'm' for multipleChoiceSet");
-                //String whichSet = sc.nextLine();
-                String inputSetName = sc.nextLine();
-                //Set set = new FlashSet("");
-
-
-                //run the requested set as a set full of flashCards.
-                Set yo = db.getFlashSet(inputSetName);
-                yo.run();
-
-
-                //Path filepath = Path.of(db.getSetFolderFile() + "/" + inputSetName + ".txt");
-                //db.readFile(filepath, set);
-                //set.run();
-                /*if (whichSet.equals("f")) {
-                    SetFactory.createFlashSet();
-                }
-                else if (whichSet.equals("t")) {
-                    SetFactory.createTextSet();
-                }
-                else if (whichSet.equals("m")) {
-                    SetFactory.createMultipleChoiceSet();
-                }
-                else {
-                    System.out.println(whichSet + " is not an available set.");
-                }*/
-            }
-            else if (input.equals("3")) {
-                System.out.println("What set do you want to shuffle?\n");
-                String input2 = sc.nextLine();
-                //shuffle(db.getMultiSet(input2));
-                Set lol = shuffleFlashSet(db.getFlashSet(input2));
-                lol.run();
-            }
-        }
-        //createSetMenu();
-
-        //Set set1 = new FlashSet();              // create an empty FlashSet.
-        //set1.readFile("./sets/set1.txt");// Read the designated file into the FlashSet
-        //set1.run();                             // Run the set, calling the run() method in FlashSet
+        launch(args);
     }
 
-    /*@Override
+    @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("agilproj.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Controller/learno.fxml"));
 
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
         stage.show();
-    }*/
+    }
 
     /*public static void createSetMenu() {
         FileManager.writeFile();
     }*/
 
     public static Set shuffleFlashSet(Set flashSet) {
-        ArrayList<Card> flashCards = flashSet.cards;
-        ArrayList<Card> tmp = flashSet.cards;
+        ArrayList<Card> flashCards = flashSet.getCards();
+        ArrayList<Card> tmp = flashSet.getCards();
         int amountOfCards = tmp.size();
         int int_random;
         Card pickedCard;
@@ -109,7 +60,7 @@ public class Learno {
 
             System.out.println(int_random);
             System.out.println(pickedCard.getQuestion());
-            System.out.println(pickedCard.getAnswer() + "\n");
+            System.out.println(pickedCard.getAnswers()[0] + "\n");
         }
         System.out.println(flashCards);
         //flashSet.run();
@@ -117,8 +68,8 @@ public class Learno {
     }
 
     public static void shuffleMultiChoiceSet(Set multiSet) {
-        ArrayList<Card> multiCards = multiSet.cards;
-        ArrayList<Card> tmp = multiSet.cards;
+        ArrayList<Card> multiCards = multiSet.getCards();
+        ArrayList<Card> tmp = multiSet.getCards();
         int amountOfCards = tmp.size();
         int int_random;
         Card pickedCard;
@@ -127,7 +78,7 @@ public class Learno {
             int_random = rand.nextInt(amountOfCards);
 
             pickedCard = tmp.get(int_random);
-            String[] alt = pickedCard.getAlternatives();
+            String[] alt = pickedCard.getAnswers();
             for (int j = 0; j < alt.length; j++) {
                 String[] newAlt = new String[alt.length];
                 String pickedAlternative = alt[int_random];
@@ -139,15 +90,15 @@ public class Learno {
 
             System.out.println(int_random);
             System.out.println(pickedCard.getQuestion());
-            System.out.println(pickedCard.getAnswer() + "\n");
+            System.out.println(pickedCard.getAnswers()[0] + "\n");
         }
         System.out.println(multiCards);
         //multiSet.run();
     }
 
     public static void shuffleSpellingSet(Set spellingSet) {
-        ArrayList<Card> spellingCards = spellingSet.cards;
-        ArrayList<Card> tmp = spellingSet.cards;
+        ArrayList<Card> spellingCards = spellingSet.getCards();
+        ArrayList<Card> tmp = spellingSet.getCards();
         int amountOfCards = tmp.size();
         int int_random;
         Card pickedCard;
@@ -161,7 +112,7 @@ public class Learno {
 
             System.out.println(int_random);
             System.out.println(pickedCard.getQuestion());
-            System.out.println(pickedCard.getAnswer() + "\n");
+            System.out.println(pickedCard.getAnswers()[0] + "\n");
         }
         System.out.println(spellingCards);
         //spellingSet.run();
@@ -179,7 +130,7 @@ public class Learno {
         StringBuilder sb = new StringBuilder();
         System.out.println("What is the name of this set?");
         String name = sc.nextLine();
-        Boolean success = makeFile(name);
+        boolean success = makeFile(name);
         if(success){
             sb.append(name).append("\n");
             while(temp){
@@ -287,7 +238,7 @@ public class Learno {
         String userAlternatives = sc.nextLine();
         String[] alternativeAnswers = userAlternatives.split("¤");
 
-        Card multiple = new Card(userQuestion, userAnswer, alternativeAnswers);
+        //Card multiple = new Card(userQuestion, userAnswer, alternativeAnswers);
 
 
         /*System.out.println(multiple.getQuestion() + "\n");

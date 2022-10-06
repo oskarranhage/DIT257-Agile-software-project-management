@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="267.0" prefWidth="306.0" style="-fx-background-color: #FCF0FD;" styleClass="orderListItem" stylesheets="@../../../updatedo/src/learnoCSS.css" type="AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text fx:id="setName" layoutX="91.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Study set">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Pane layoutX="22.0" layoutY="127.0" onMouseClicked="#openSet" prefHeight="74.0" prefWidth="122.0" style="-fx-background-color: #EED7CA;" styleClass="buttonsMedium" stylesheets="@../../../updatedo/src/learnoCSS.css">
+         <children>
+            <Text layoutX="26.0" layoutY="47.0" onMouseClicked="#openSet" strokeType="OUTSIDE" strokeWidth="0.0" text="Play">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="30.0" fitWidth="26.0" layoutX="82.0" layoutY="23.0" onMouseClicked="#openSet">
+               <image>
+                  <Image url="@../images/play-button.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="164.0" layoutY="127.0" onMouseClicked="#editSet" prefHeight="74.0" prefWidth="122.0" style="-fx-background-color: #EED7CA;" styleClass="buttonsMedium" stylesheets="@../../../updatedo/src/learnoCSS.css">
+         <children>
+            <Text layoutX="27.0" layoutY="46.0" onMouseClicked="#editSet" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="30.0" fitWidth="32.0" layoutX="76.0" layoutY="22.0" onMouseClicked="#editSet">
+               <image>
+                  <Image url="@../images/pen.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</fx:root>
