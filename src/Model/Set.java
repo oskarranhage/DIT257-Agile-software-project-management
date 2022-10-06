@@ -46,6 +46,61 @@ public class Set {
 
     public void setCards(ArrayList<Card> cards) {this.cards = cards;}
 
+    public static Model.Set shuffleSet(Model.Set set) {
+        //ArrayList<Model.Card> cardList = flashSet.cards;
+        //Model.Set.cards;
+        //ArrayList<Model.Card> cardList = db.getFlashSet("tja").cards;
+        //flashSet.getCards();
+        ArrayList<Model.Card> cardList = new ArrayList<>();
+        ArrayList<Model.Card> tmp = set.cards;
+        int amountOfCards = tmp.size();
+        int int_random;
+        int int_random2;
+        Model.Card pickedCard;
+
+        String[] alt;
+        String[] newAlt;
+        List<String> l;
+        //for (Card card : tmp) {
+        for (int i = 0; i < amountOfCards;) {
+            int_random = rand.nextInt(amountOfCards);
+            pickedCard = tmp.get(int_random);
+
+            //shuffle alternatives
+            alt = pickedCard.getAnswers();
+            newAlt = new String[alt.length];
+            l = Arrays.asList(alt);
+
+            ArrayList<String> alternatives = new ArrayList<>(l);
+
+            for (int j = 0; j < alt.length; j++) {
+                int_random2 = rand.nextInt(alternatives.size());
+
+                String pickedAlternative = alternatives.get(int_random2);
+                newAlt[j] = pickedAlternative;
+                alternatives.remove(pickedAlternative);
+            }
+
+            tmp.remove(pickedCard);
+            cardList.add(pickedCard);
+            amountOfCards--;
+
+            System.out.println(int_random);
+            System.out.println(pickedCard.getQuestion());
+            System.out.println(Arrays.toString(newAlt));
+            System.out.println(Arrays.toString(pickedCard.getAnswers()) + "\n");
+            pickedCard.setAnswers(newAlt);
+            /*Model.Set h = db.getFlashSet("tja");
+            System.out.println(h.getCards());
+            Model.Set g = db.getFlashSet("tjo");
+            System.out.println(g.getCards());*/
+
+        }
+        System.out.println(cardList);
+        set.setCards(cardList);
+        return set;
+    }
+
     public void runSpellingSet(Set set){
         int rightAnswers = 0;
         int wrongAnswers = 0;
@@ -138,63 +193,6 @@ public class Set {
         System.out.println("This is what you answered: " + wrongInputs);
         System.out.println("Press enter to continue.");
         sc.nextLine();
-    }
-
-
-
-    public static Model.Set shuffleSet(Model.Set set) {
-        //ArrayList<Model.Card> cardList = flashSet.cards;
-        //Model.Set.cards;
-        //ArrayList<Model.Card> cardList = db.getFlashSet("tja").cards;
-        //flashSet.getCards();
-        ArrayList<Model.Card> cardList = new ArrayList<>();
-        ArrayList<Model.Card> tmp = set.cards;
-        int amountOfCards = tmp.size();
-        int int_random;
-        int int_random2;
-        Model.Card pickedCard;
-
-        String[] alt;
-        String[] newAlt;
-        List<String> l;
-        //for (Card card : tmp) {
-        for (int i = 0; i < amountOfCards;) {
-            int_random = rand.nextInt(amountOfCards);
-            pickedCard = tmp.get(int_random);
-
-            //shuffle alternatives
-            alt = pickedCard.getAnswers();
-            newAlt = new String[alt.length];
-            l = Arrays.asList(alt);
-
-            ArrayList<String> alternatives = new ArrayList<>(l);
-
-            for (int j = 0; j < alt.length; j++) {
-                int_random2 = rand.nextInt(alternatives.size());
-
-                String pickedAlternative = alternatives.get(int_random2);
-                newAlt[j] = pickedAlternative;
-                alternatives.remove(pickedAlternative);
-            }
-
-            tmp.remove(pickedCard);
-            cardList.add(pickedCard);
-            amountOfCards--;
-
-            System.out.println(int_random);
-            System.out.println(pickedCard.getQuestion());
-            System.out.println(Arrays.toString(newAlt));
-            System.out.println(Arrays.toString(pickedCard.getAnswers()) + "\n");
-            pickedCard.setAnswers(newAlt);
-            /*Model.Set h = db.getFlashSet("tja");
-            System.out.println(h.getCards());
-            Model.Set g = db.getFlashSet("tjo");
-            System.out.println(g.getCards());*/
-
-        }
-        System.out.println(cardList);
-        set.setCards(cardList);
-        return set;
     }
 }
 
