@@ -130,6 +130,16 @@ group at the end of the week, to see if what is done and what needs more work, a
 also helps our team with keeping the dividing. This helps us so when it is time at the sprint review to show our PO what we have done this 
 week.
 
+WEEK 6:
+When we as programmers deem a user story that we have worked in as “done”, it needs to meet the requirements for DoD (definition of done). 
+Every individual user story has an acceptance criteria, if the user story meets the requirements of the acceptance criteria it will progress 
+into the “review state” where it will be reviewed by the PO. If the PO deems this user story as done it will progress into the “done state” 
+where it’s completely finished. The overall PO satisfaction for the product is set by the PO testing and interacting with the application. 
+This week the PO had a representation layer to interact with as opposed to week four, a runnable program with panels/scenes that were drawn up.
+The PO could navigate around the application, create and play sets. There were some bugs and the application does not fully work yet, 
+he was not so pleased. Personally I think he’s too harsh given that the product practically reaches the minimal requirements, 
+and thus he shouldn’t be displeased that we are still in the time frame and haven’t met any real setbacks in that regard.
+
 
 *The three KPIs you use for monitoring your progress and how you use them to improve your process:?
 WEEK 5:
@@ -245,11 +255,6 @@ made it very difficult for others to work with your code, so that is now obligat
 low coupling, high cohesion following the design principles and implementing design patterns. We try to implement solutions that are not too 
 long and complex, but simple and easy to understand. To achieve easily understood code we need to enforce the rule of 100% javadoc coverage 
 at the end of each sprint. 
-
-When we as programmers deem a user story that we have worked in as “done”, it needs to meet the requirements for 
-DoD (definition of done). Every individual user story has an acceptance criteria, if the user story meets the requirements of the acceptance 
-criteria it will progress into the “review state” where it will be reviewed by the PO. If the PO deems this user story as done it will progress 
-into the “done state” where it’s completely finished.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
