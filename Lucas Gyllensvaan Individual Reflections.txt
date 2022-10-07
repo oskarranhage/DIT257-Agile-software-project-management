@@ -3,7 +3,6 @@
 
 Week 1: 
 
-
 * what do I want to learn or understand better?
 I want to learn to use github on a more professional level, where I am able to commit, push, pull etc. This will definitely help speed things up for myself and my team, furthermore we will work better together as a team if we can review each other's contribution.
 * how can I help someone else, or the entire team, to learn something new?
@@ -12,6 +11,7 @@ Making sure everyone’s opinion is brought forth, so that no conflicts arise an
 I have contributed this week with the team’s use of scrum in the jigsaw puzzle and the lego session. During the jigsaw puzzle the team reviewed their efforts and talked about how to reduce the time needed to complete the puzzle, and I along with others came up with ways for us to achieve this. During the lego sessions when we played the poker cards game before each split, we estimated how much time it would take for us to complete a building. I estimated very similarly as the other team members on how much time it would take.
 * what is my contribution towards the team’s deliveries?
 Everyone in the group has assigned tasks and I contribute to the group by doing my tasks. For example in the Lego lab we had a scrum master and two people who fetched Lego pieces and two people who built the buildings. This worked fairly well, I had a fetcher who provided me with the necessary components in order for me to build the buildings that we had been assigned to complete. 
+
 
 
 Week 2:
@@ -25,8 +25,6 @@ We have worked in sprints and have had a sprint review where we reviewed each ot
  
 what is my contribution towards the team’s deliveries?
 All of the members of the group have contributed towards the team by coming up with our project and planning how it will accomplish securing some of the UN goals. We will mostly focus on goal 4 with its targets, as previously mentioned in our representation (8th of september). I have contributed by bringing forth ideas, different variations of learning games that we plan to add to our application in the future, and in doing so expanding the functionality of the application. Furthermore, I have already thought of some solutions to how we can implement portions of our project. Such as for example how a user is able to create their own questions with either multiple choices or where you have to insert the correct answer into a textfield etc.  
-
-
 
 
 
@@ -44,6 +42,7 @@ This sprint I have coded it so that it’s possible to create a new flashcard (a
 
 
 Week 4:
+
 what do I want to learn or understand better?
 I have yet to understand how the team should work vertically in the multi layer cake model, is it allowed that we work on different things in the backend and frontend? Some of us worked on the model of the MVC (Model, View, Controller) for this sprint, one team member worked on a database class for storing text files and its content, the others worked on how to display the sets with cards in the program. I would argue that we have worked more horizontally than vertically, but I don’t really see how we could have done this otherwise and still maintain efficiency. Is the idea that we all should have worked on the MVC for example, and when that’s done take care of the next assignment for this sprint that we had planned to complete?
   
@@ -69,15 +68,16 @@ This sprint I have made a shuffle or randomizer method named shuffleSet located 
 
 
 
-
 Week 6:
 
-
-* what do I want to learn or understand better?
-* how can I help someone else, or the entire team, to learn something new?
-* what is my contribution towards the team’s use of Scrum?
-* what is my contribution towards the team’s deliveries?
-
+what do I want to learn or understand better?
+I would like to learn more agile practices that the team could use and implement into our project.  
+how can I help someone else, or the entire team, to learn something new?
+Review others' work and give constructive criticism to help them grow and improve. Bring forth others opinions by making sure everyone feels included. Share new found knowledge.
+what is my contribution towards the team’s use of Scrum?
+We have worked in a sprint and have had meetings that I have attended, a sprint review.
+what is my contribution towards the team’s deliveries?
+I have added counters and lists so that a player can overall see how many questions he/she got right and wrong (5 of 6 right) when playing a set. The player can view precisely what questions he/she got right and wrong, with the help of the different lists that contain the questions that the player answered correctly and wrong. I have made some calibrations to the shuffleSet method in order for it to work the way it’s supposed to, and to be compatible with the new pushed code into the main branch. 
 
 
 
@@ -88,7 +88,6 @@ Week 7:
 * how can I help someone else, or the entire team, to learn something new?
 * what is my contribution towards the team’s use of Scrum?
 * what is my contribution towards the team’s deliveries?
-
 
 
 
