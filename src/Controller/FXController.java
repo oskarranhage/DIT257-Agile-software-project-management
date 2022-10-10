@@ -333,7 +333,6 @@ public class FXController implements Initializable {
         // setText(correct/db.getMultiSet(curSetName).getCards().size());
     }
 
-
     public void selectAnswer(RadioButton choice){
         for (RadioButton rb : answerChoices) {
             rb.setSelected(rb.getText().equals(choice.getText()));
@@ -421,8 +420,17 @@ public class FXController implements Initializable {
                 sets.addAll(db.getSpellingSets().values());
             }
         }
-        mySetsGridPane.getRowConstraints().add(new RowConstraints(3)); // column 0 is 100 wide
-        mySetsGridPane.getColumnConstraints().add(new ColumnConstraints(200)); // column 1 is 200 wide
+        mySetsGridPane.getChildren().clear();
+        //mySetsGridPane.getRowConstraints().add(new RowConstraints(3)); // column 0 is 100 wide
+        //mySetsGridPane.getColumnConstraints().add(new ColumnConstraints(200)); // column 1 is 200 wide
+
+
+        for (int i = 0; i < sets.size(); i++) {
+            for (int j = 0; j < 3; j++) {
+                mySetsGridPane.add(new MySetsGridItem(this, sets.get(i)), j, i);
+            }
+        }
+        /*
         for (int i = 0; i < mySetsGridPane.getColumnCount(); i++) {
             for (int j = 0; j < mySetsGridPane.getRowCount(); j++) {
                 if (sets.size() > i+j) {
@@ -430,6 +438,7 @@ public class FXController implements Initializable {
                 }
             }
         }
+        */
     }
 
     public void updateMyFlashSetsGridPane(){
