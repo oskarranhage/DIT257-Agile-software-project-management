@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -7,14 +8,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="267.0" prefWidth="306.0" style="-fx-background-color: #FCF0FD;" styleClass="orderListItem" stylesheets="@../../../updatedo/src/learnoCSS.css" type="AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="267.0" prefWidth="306.0" style="-fx-background-color: #FCF0FD;" styleClass="cartItem" type="AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text fx:id="setName" layoutX="91.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Study set">
+      <Text fx:id="setName" layoutX="92.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Study set">
          <font>
             <Font size="30.0" />
          </font>
       </Text>
-      <Pane layoutX="22.0" layoutY="127.0" onMouseClicked="#openSet" prefHeight="74.0" prefWidth="122.0" style="-fx-background-color: #EED7CA;" styleClass="buttonsMedium" stylesheets="@../../../updatedo/src/learnoCSS.css">
+      <Pane layoutX="23.0" layoutY="144.0" onMouseClicked="#openSet" prefHeight="74.0" prefWidth="122.0" style="-fx-background-color: #EED7CA;" styleClass="buttonsMedium">
          <children>
             <Text layoutX="26.0" layoutY="47.0" onMouseClicked="#openSet" strokeType="OUTSIDE" strokeWidth="0.0" text="Play">
                <font>
@@ -27,8 +28,12 @@
                </image>
             </ImageView>
          </children>
+         <stylesheets>
+            <URL value="@../../../updatedo/src/learnoCSS.css" />
+            <URL value="@../../../../Agil/DIT257-Agile-software-project-management-main/DIT257-Agile-software-project-management-main/src/View/learnoCSS.css" />
+         </stylesheets>
       </Pane>
-      <Pane layoutX="164.0" layoutY="127.0" onMouseClicked="#editSet" prefHeight="74.0" prefWidth="122.0" style="-fx-background-color: #EED7CA;" styleClass="buttonsMedium" stylesheets="@../../../updatedo/src/learnoCSS.css">
+      <Pane layoutX="163.0" layoutY="144.0" onMouseClicked="#editSet" prefHeight="74.0" prefWidth="122.0" style="-fx-background-color: #EED7CA;" styleClass="buttonsMedium">
          <children>
             <Text layoutX="27.0" layoutY="46.0" onMouseClicked="#editSet" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit">
                <font>
@@ -41,6 +46,28 @@
                </image>
             </ImageView>
          </children>
+         <stylesheets>
+            <URL value="@../../../updatedo/src/learnoCSS.css" />
+            <URL value="@../../../../Agil/DIT257-Agile-software-project-management-main/DIT257-Agile-software-project-management-main/src/View/learnoCSS.css" />
+         </stylesheets>
+      </Pane>
+      <Pane onMouseClicked="#openSet" prefHeight="61.0" prefWidth="81.0" style="-fx-background-color: #EED7CA;" styleClass="cartItem">
+         <stylesheets>
+            <URL value="@../../../updatedo/src/learnoCSS.css" />
+            <URL value="@../../../../Agil/DIT257-Agile-software-project-management-main/DIT257-Agile-software-project-management-main/src/View/learnoCSS.css" />
+         </stylesheets>
+         <children>
+            <ImageView fitHeight="61.0" fitWidth="68.0" layoutX="7.0">
+               <image>
+                  <Image url="@../../../../../Downloads/radio-button.png" />
+               </image>
+            </ImageView>
+         </children>
       </Pane>
    </children>
+   <stylesheets>
+      <URL value="@../../../updatedo/src/learnoCSS.css" />
+      <URL value="@../../../../Agil/DIT257-Agile-software-project-management-main/DIT257-Agile-software-project-management-main/src/View/learnoCSS.css" />
+   </stylesheets>
 </fx:root>
+
