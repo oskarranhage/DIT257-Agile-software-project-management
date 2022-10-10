@@ -1,4 +1,3 @@
-
 SPRINT REVIEW 1:
 
 How did the sprint go?
@@ -89,6 +88,27 @@ When we are assigned a user story we should present how we are going to implemen
 happened with “multiple choices” this week.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
+SPRINT REVIEW 6:
+
+How did the sprint go?
+It went well. Reaching the end of the project, we're noticing that the workload is getting uneven, this is because the front end developers
+have most of their work to do right now while the back end developers don't have much work to do at all. This situation has occured because
+the back end developers doesn't have the knowledge in javafx required to help with the tasks given to the front end developers. 
+
+Did we complete our tasks?
+All members completed their tasks. 
+
+Did the members cooperate well?
+We had good communication this sprint.
+
+Was the workload sufficinent and/or manageable?
+The workload was manageable, however the backend developers didn’t have much to do due to the backend being mostly complete. For most of the 
+group members, the stress level decreased this sprint. 
+
+What needs to change until the next sprint?
+We need to improve our ability to distribute work as well as understand how much work we are capable of achieving.
+
+----------------------------------------------------------------------------------------------------------------------------------------------
 
 Team Reflection:
 
@@ -129,6 +149,16 @@ following the acceptance criteria and only when the criteria is met, are you mov
 group at the end of the week, to see if what is done and what needs more work, and or if it needed to be split up into smaller parts, it 
 also helps our team with keeping the dividing. This helps us so when it is time at the sprint review to show our PO what we have done this 
 week.
+
+WEEK 6:
+When we as programmers deem a user story that we have worked in as “done”, it needs to meet the requirements for DoD (definition of done). 
+Every individual user story has an acceptance criteria, if the user story meets the requirements of the acceptance criteria it will progress 
+into the “review state” where it will be reviewed by the PO. If the PO deems this user story as done it will progress into the “done state” 
+where it’s completely finished. The overall PO satisfaction for the product is set by the PO testing and interacting with the application. 
+This week the PO had a representation layer to interact with as opposed to week four, a runnable program with panels/scenes that were drawn up.
+The PO could navigate around the application, create and play sets. There were some bugs and the application does not fully work yet, 
+he was not so pleased. Personally I think he’s too harsh given that the product practically reaches the minimal requirements, 
+and thus he shouldn’t be displeased that we are still in the time frame and haven’t met any real setbacks in that regard.
 
 
 *The three KPIs you use for monitoring your progress and how you use them to improve your process:?
@@ -246,11 +276,6 @@ low coupling, high cohesion following the design principles and implementing des
 long and complex, but simple and easy to understand. To achieve easily understood code we need to enforce the rule of 100% javadoc coverage 
 at the end of each sprint. 
 
-When we as programmers deem a user story that we have worked in as “done”, it needs to meet the requirements for 
-DoD (definition of done). Every individual user story has an acceptance criteria, if the user story meets the requirements of the acceptance 
-criteria it will progress into the “review state” where it will be reviewed by the PO. If the PO deems this user story as done it will progress 
-into the “done state” where it’s completely finished.
-
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 *Application of Scrum*
@@ -271,6 +296,26 @@ We’ve been working in sprints and been using sprint reviews and other retrospe
 to our project. However we think we also need better structure in our meetings, pointers that we can follow and talk about in our for example
 sprint review, this will save us time. All the meetings we have are sort of ineffective and have siphoned all the time available for us to work
 and complete all the stories.
+
+WEEK 6:
+We’re still working according to scrum, which means we have a product backlog, a scrum board that gets updated each sprint during the planning 
+phase, and then a sprint review at the end of each sprint where we reflect over the passed sprint and where we may update the backlog. Our only 
+deviation from the formal scrum is that we don’t have daily scrum meetings, instead we have sprint planning on mondays, a lunch meeting on 
+wednesdays and a  sprint review meeting on fridays. All of these meetings now have concrete agendas that the scrum master makes sure is followed. 
+The way we structure our meetings has improved and it’s very noticeable in how much time we need to spend on each meeting. Friday meetings for 
+example used to go on for about 5 hours and most of that time was spent talking about things not relevant to the meeting and sometimes working 
+on the wrong things. Friday meetings after we implemented the meeting agendas now usually take 2 hours. This is one of the most valuable 
+improvements we’ve made during the course of this class in terms of saving time and energy. 
+
+The manner in which we organize our scrum board is something that could be improved, it would’ve been helpful to save which week what stories 
+were completed, as it is now all completed user stories get bundled up into “done” which makes it harder to look back and compare each sprint. 
+This is however kind of documented in our KPIs “designated user stories“ and “completed user stories” where the number of user stories designated 
+and listed by each person is documented, but it would be nice to see what the user stories actually were and not only a number. Another 
+improvement would be to be more consistent in how we order the user stories so that the ones shown at the top are the ones of highest importance, 
+this is something we’ve been a bit sloppy with.
+
+It’s a bit too late to implement these improvements now as we are close to the end of our work and our scrum board is mostly empty. But if we were 
+to improve we would need to include the rule of always ordering user stories depending on importance as part of the social contract.
 
 *the sprint review and how it relates to your scope and customer value (Did you have a PO, if yes, who?, if no, how did you carry out the
 review? Did the review result in a re-prioritisation of user stories? How did the reviews relate to your DoD? Did the feedback change your
@@ -294,4 +339,12 @@ you used but focus on how you developed the expertise to use them) relation to l
 to what others have to say?)?:
 
 *relation to literature and guest lectures (how do your reflections relate to what others have to say?):
-
+Week 6:
+Matthias shows us in the guest lecture why the structure of scrum is necessary for success, or more like how not working agile fails the longer 
+the project goes on, mostly because of communication. And with this in mind this became a key part in our meetings catching up so no 
+misunderstandings can happen. Our reflections have been standard with key structure that is necessary for working agile. Our application of scrum 
+is in the same way that Matthias have used, but with a few differences in manitorial stuff like when the meetings are, how long of a sprint and 
+such. In the beginning it was hard to visualize how to work with a PO, and the guest lecture helped with that “team is in control of its process 
+and tool -> we decided how we wanted to develop” this way it showed us that the PO is a guideline while we get to develope how we want just as 
+long it follows scrum and the stories gets done.
+----

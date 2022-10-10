@@ -24,4 +24,9 @@ public class Card {
     public String[] getAnswers() {
         return answers;
     }
+
+    public String[] setAnswers(String[] newAlt) {
+        answers = newAlt;
+        return answers;
+    }
 }
