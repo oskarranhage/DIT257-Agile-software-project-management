@@ -64,7 +64,7 @@ this week i was part in developing the MVC model, creating a UML diagram and the
 
 Week 5
 * what do I want to learn or understand better?
-Im getting better at using git but not near what a whant tho
+Im getting better at using git but not near what a whant thow
 * how can I help someone else, or the entire team, to learn something new?
 i help my team with learning github and how the merge branches.
 * what is my contribution towards the team’s use of Scrum?
@@ -73,8 +73,12 @@ this week we i contributed by being Pretend PO and by partisipating in all of th
 I help with MVC and created a Non personal path so its not hard coded in, aswell as creating a edit file function
 
 
-Week 5:
+Week 6:
 * what do I want to learn or understand better?
+This week i became better at programing, and github is getting easier to understande and use
 * how can I help someone else, or the entire team, to learn something new?
+my team needs me because i know github best
 * what is my contribution towards the team’s use of Scrum?
+This week i was the Scrum Master and i was the person who held all the meetings as well as the rugular stuf
 * what is my contribution towards the team’s deliveries?
+this week me and lucas took the same userstorie (result screen), finished, randomization of all the diffrent types of learning game.
