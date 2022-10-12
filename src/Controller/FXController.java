@@ -1,7 +1,5 @@
 package Controller;
-import Controller.CreateSetMultipleAnswer;
-import Controller.CreateSetSingleAnswer;
-import javafx.event.ActionEvent;
+import Model.FileManager;
 import Model.Set;
 import Model.Card;
 import Model.DataBase;
@@ -10,18 +8,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import java.net.URL;
 import java.util.*;
 
-import static Model.Set.setType.FlashCard;
 import static java.lang.System.out;
 
 public class FXController implements Initializable {
     public DataBase db = new DataBase();
+    private FileManager fm = new FileManager();
 
     /** Play flashcards variables */
     @FXML private AnchorPane playFlashcardView;
@@ -89,8 +86,8 @@ public class FXController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         answerChoices = List.of(answer1, answer2, answer3, answer4);
         openIntroPage();
-        db.getSpellingSets().put("test spelling", new Set("test spelling", List.of(new Card("blue", "blå"), new Card("red", "röd"), new Card("green", "grön")), Model.Set.setType.Spelling));
-        db.getMultiSets().put("test multiple", new Set("test multiple", List.of(new Card("4", new String[]{"5-2", "3-1", "7-3", "3-2"}), new Card("3", new String[]{"5-2", "3-1", "7-3", "3-2"}), new Card("1", new String[]{"5-2", "3-1", "7-3", "3-2"})), Model.Set.setType.MultipleChoice));
+        db.getSetHashMap().put("test spelling", new Set("test spelling", List.of(new Card("blue", "blå"), new Card("red", "röd"), new Card("green", "grön")), Model.Set.setType.Spelling));
+        db.getSetHashMap().put("test multiple", new Set("test multiple", List.of(new Card("4", new String[]{"5-2", "3-1", "7-3", "3-2"}), new Card("3", new String[]{"5-2", "3-1", "7-3", "3-2"}), new Card("1", new String[]{"5-2", "3-1", "7-3", "3-2"})), Model.Set.setType.MultipleChoice));
     }
 
 
@@ -103,8 +100,8 @@ public class FXController implements Initializable {
         prevButtonF.setVisible(false);
         atQuestion = true;
         atQuestionInd = 0;
-        currentSetTextF.setText(db.getFlashSets().get(curSetName).getName());
-        QnATextF.setText(db.getFlashSet(curSetName).getCards().get(0).getQuestion());
+        currentSetTextF.setText(db.getSetHashMap().get(curSetName).getName());
+        QnATextF.setText(db.getSet(curSetName).getCards().get(0).getQuestion());
     }
 
     /**
@@ -112,12 +109,12 @@ public class FXController implements Initializable {
      */
     public void nextFlashCard(){
         prevButtonF.setVisible(true);
-        if (db.getFlashSet(curSetName).getCards().size()-1 != atQuestionInd){
+        if (db.getSet(curSetName).getCards().size()-1 != atQuestionInd){
             atQuestionInd += 1;
-            QnATextF.setText(db.getFlashSet(curSetName).getCards().get(atQuestionInd).getQuestion());
+            QnATextF.setText(db.getSet(curSetName).getCards().get(atQuestionInd).getQuestion());
             atQuestion = true;
         }
-        if (db.getFlashSet(curSetName).getCards().size()-1 == atQuestionInd){
+        if (db.getSet(curSetName).getCards().size()-1 == atQuestionInd){
             confirmButtonF.setText("Submit");
         }
     }
@@ -128,7 +125,7 @@ public class FXController implements Initializable {
     public void previousFlashCard(){
         if (atQuestionInd != 0){
             atQuestionInd -= 1;
-            QnATextF.setText(db.getFlashSet(curSetName).getCards().get(atQuestionInd).getQuestion());
+            QnATextF.setText(db.getSet(curSetName).getCards().get(atQuestionInd).getQuestion());
             atQuestion = true;
         }
         if (atQuestionInd < 1){
@@ -146,11 +143,11 @@ public class FXController implements Initializable {
     public void turnCard(){
         out.println(atQuestion);
         if (atQuestion){
-            out.println(db.getFlashSet(curSetName).getCards().get(atQuestionInd).getAnswers()[0]);
-            QnATextF.setText(db.getFlashSet(curSetName).getCards().get(atQuestionInd).getAnswers()[0]);
+            out.println(db.getSet(curSetName).getCards().get(atQuestionInd).getAnswers()[0]);
+            QnATextF.setText(db.getSet(curSetName).getCards().get(atQuestionInd).getAnswers()[0]);
             atQuestion = false;
         } else{
-            QnATextF.setText(db.getFlashSet(curSetName).getCards().get(atQuestionInd).getQuestion());
+            QnATextF.setText(db.getSet(curSetName).getCards().get(atQuestionInd).getQuestion());
             atQuestion = true;
         }
     }
@@ -223,21 +220,25 @@ public class FXController implements Initializable {
     /**
      * Action event for save-button. Saves the set to a text file
      */
-    public void saveCreatedSet(){
-        String type = "fs.";
+    public void saveCreatedSet() {
+        String type = fm.getFlashSetStringRepresentation();
         switch (creatingType){
-            case FlashCard -> type = "fs.";
-            case Spelling -> type = "ss.";
-            case MultipleChoice -> type = "mcs.";
+            case FlashCard -> type = fm.getFlashSetStringRepresentation();
+            case Spelling -> type = fm.getSpellingSetStringRepresentation();
+            case MultipleChoice -> type = fm.getMultipleChoiceSetStringRepresentation();
         }
         if (!setNameC.getText().equals("")) {
             String name = setNameC.getText();
             StringBuilder sb = new StringBuilder();
-            sb.append(name);
             for (CreateSetSingleAnswer item : db.getCreateSingleListItems()) {
                 sb.append("\n").append(item.getTerm()).append(".").append(item.getDefinition());
             }
-            FileManager.makeFile(type + name, sb.toString());
+            try {
+                fm.createTextFile(type + name);
+                fm.writeFile(type+name, sb.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             db.updateAll();
             // TODO set creation confirmation message to front
         } else{
@@ -256,8 +257,8 @@ public class FXController implements Initializable {
         curSetName = "test multiple";
         atQuestion = true;
         atQuestionInd = 0;
-        currentSetTextF.setText(db.getMultiSets().get(curSetName).getName());
-        questionMC.setText(db.getMultiSet(curSetName).getCards().get(atQuestionInd).getQuestion());
+        currentSetTextF.setText(db.getSetHashMap().get(curSetName).getName());
+        questionMC.setText(db.getSet(curSetName).getCards().get(atQuestionInd).getQuestion());
         setAnswers();
     }
 
@@ -267,7 +268,7 @@ public class FXController implements Initializable {
      */
     public void setAnswers(){
         Random rand = new Random();
-        String[] answers = db.getMultiSet(curSetName).getCards().get(atQuestionInd).getAnswers();
+        String[] answers = db.getSet(curSetName).getCards().get(atQuestionInd).getAnswers();
         for (int i = 3; i > 0; i--) {
             int j = rand.nextInt(i+1);
             String temp = answers[i];
@@ -289,7 +290,7 @@ public class FXController implements Initializable {
             if (rb.isSelected()) {
                 hasAnswered = true;
                 userAnswers.add(rb.getText());
-                if (rb.getText().equals(db.getMultiSet(curSetName).getCards().get(atQuestionInd).getAnswers()[0])) {
+                if (rb.getText().equals(db.getSet(curSetName).getCards().get(atQuestionInd).getAnswers()[0])) {
                     // TODO maybe show that it was the right answer
                 } else {
                     // TODO maybe show that it was the right answer
@@ -304,14 +305,14 @@ public class FXController implements Initializable {
     }
 
     public void nextMultipleCard(){
-        if (db.getMultiSet(curSetName).getCards().size()-1 != atQuestionInd){
+        if (db.getSet(curSetName).getCards().size()-1 != atQuestionInd){
             atQuestionInd += 1;
-            questionMC.setText(db.getMultiSet(curSetName).getCards().get(atQuestionInd).getQuestion());
+            questionMC.setText(db.getSet(curSetName).getCards().get(atQuestionInd).getQuestion());
             setAnswers();
             for (RadioButton rb : answerChoices) {
                 rb.setSelected(false);
             }
-            if (atQuestionInd == db.getMultiSet(curSetName).getCards().size()-1){
+            if (atQuestionInd == db.getSet(curSetName).getCards().size()-1){
                 nextButtonTextMC.setText("Submit");
             }
         }
@@ -322,14 +323,14 @@ public class FXController implements Initializable {
     public void presentResult(){
         int correct = 0;
         for (int i = 0; i < userAnswers.size(); i++) {
-            if (db.getMultiSet(curSetName).getCards().get(i).getAnswers().equals(userAnswers.get(i))){
+            if (db.getSet(curSetName).getCards().get(i).getAnswers().equals(userAnswers.get(i))){
                 correct++;
                 // TODO add a list item to result list flow pane that represents a correct answer
             } else{
                 // TODO add a list item to result list flow pane that represents a wrong answer
             }
         }
-        int wrong = db.getMultiSet(curSetName).getCards().size() - correct;
+        int wrong = db.getSet(curSetName).getCards().size() - correct;
         // setText(correct/db.getMultiSet(curSetName).getCards().size());
     }
 
@@ -367,7 +368,7 @@ public class FXController implements Initializable {
 
     public void editCurrentSet(){
         db.updateAll();
-        editSingleSet(db.getFlashSet(curSetName));
+        editSingleSet(db.getSet(curSetName));
         //editSingleSet(db.getMultiSet(curSetName));
         //editSingleSet(db.getSpellingSet(curSetName));
     }
@@ -381,16 +382,16 @@ public class FXController implements Initializable {
         curSetName = "test spelling";
         atQuestionInd = 0;
         currentSetTextF.setText(curSetName);
-        termS.setText(db.getSpellingSet(curSetName).getCards().get(atQuestionInd).getQuestion());
+        termS.setText(db.getSet(curSetName).getCards().get(atQuestionInd).getQuestion());
     }
 
     /**
      * Switches to the previous Spelling unless the last is currently played
      */
     public void nextSpellingTerm(){
-        if (db.getSpellingSet("test spelling").getCards().size()-1 != atQuestionInd){
+        if (db.getSet("test spelling").getCards().size()-1 != atQuestionInd){
             atQuestionInd += 1;
-            termS.setText(db.getSpellingSet(curSetName).getCards().get(atQuestionInd).getQuestion());
+            termS.setText(db.getSet(curSetName).getCards().get(atQuestionInd).getQuestion());
             userAnswers.add(definitionAnswerS.getText());
             definitionAnswerS.setText("");
         }
@@ -401,7 +402,7 @@ public class FXController implements Initializable {
      */
     public void viewResults(){
         for (int i = 0; i < userAnswers.size(); i++) {
-            if (db.getFlashSets().get(i).equals(userAnswers.get(i))){
+            if (db.getSetHashMap().get(i).equals(userAnswers.get(i))){
                 // TODO make wrong answers red
             }
         }
@@ -412,13 +413,13 @@ public class FXController implements Initializable {
         mySetsGridPane.getChildren().clear();
         ArrayList<Model.Set> sets = new ArrayList<>();
         switch (type){
-            case FlashCard -> sets.addAll(db.getFlashSets().values());
-            case MultipleChoice -> sets.addAll(db.getMultiSets().values());
-            case Spelling -> sets.addAll(db.getSpellingSets().values());
+            case FlashCard -> sets.addAll(db.getSetHashMap().values());
+            case MultipleChoice -> sets.addAll(db.getSetHashMap().values());
+            case Spelling -> sets.addAll(db.getSetHashMap().values());
             case Null -> {
-                sets.addAll(db.getFlashSets().values());
-                sets.addAll(db.getMultiSets().values());
-                sets.addAll(db.getSpellingSets().values());
+                sets.addAll(db.getSetHashMap().values());
+                sets.addAll(db.getSetHashMap().values());
+                sets.addAll(db.getSetHashMap().values());
             }
         }
         mySetsGridPane.getRowConstraints().add(new RowConstraints(3)); // column 0 is 100 wide
