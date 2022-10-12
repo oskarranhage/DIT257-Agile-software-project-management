@@ -88,7 +88,61 @@ I also completed my 2 tasks I had on the scrumboard.
 
 Week 5:
 
-Week 6:
+
+What do I want to learn or understand better?
+I would like to learn to plan our work better. To organize our meetings a bit more. 
+
+
+How can I help someone else, or the entire team, to learn something new?
+Same as last week. 
+
+
+What is my contribution towards the team’s use of scrum?
+We have used our scrumboard, and had several meetings this week to follow up each persons work. I followed my tasks that I had on our scrumboard this week. 
+
+
+What is my contribution towards the team’s deliveries?
+My contributions towards the team's deliveries is that I completed my 2 tasks. I did my 2 scene-designs in scene builder, one "flashcard view" and one "homepage view". 
+
+
+--------------------------------------------------------------
+
+Week 5:
+
+What do I want to learn or understand better?
+I want to learn how to estimate the workload better, so that I don´t have to get as stressed as I was this sprint. I still completed all my tasks, 
+but the stresslevel was a bit high for me. 
+
+How can I help someone else, or the entire team, to learn something new?
+
+
+What is my contribution towards the team’s use of scrum?
+I use the trello board, and I attended every meeting. 
+
+What is my contribution towards the team’s deliveries?
+I completed my tasks that I had for this sprint. 
+
+---------------------------------------------------------------
+
+Week 6: 7/10
+
+What do I want to learn or understand better?
+
+
+How can I help someone else, or the entire team, to learn something new?
+
+
+What is my contribution towards the team’s use of scrum?
+I use our trello board and attended to every meeting. 
+
+
+What is my contribution towards the team’s deliveries?
+I completed my tasks on the scrumboard that I had for this sprint. I added icons in SceneBuilder so that the program looks a bit better, 
+but also so that the user can navigate better. It is easier to navigate if there is icons that describes where every button takes you. 
+
+--------------------------------------------------------------
+
+Week 7:
 
 
 
