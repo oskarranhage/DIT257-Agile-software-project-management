@@ -16,8 +16,9 @@ public class Set {
     public void setTypeMultipleChoice(){thisSetType = setType.MultipleChoice;}
     public setType getThisSetType() {return thisSetType;}
 
-    public Set(String name){
+    public Set(String name, setType type){
         this.name = name;
+        this.thisSetType = type;
     }
 
     public Set(String name, List<Card> cardList, setType type){

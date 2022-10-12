@@ -5,7 +5,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 
-public class CreateSetSingleAnswer extends AnchorPane {
+public class SingleAnswerListItem extends AnchorPane {
 
     FXController controller;
     String id;
@@ -14,7 +14,7 @@ public class CreateSetSingleAnswer extends AnchorPane {
     @FXML private TextField defTextC;
 
     /** Constructor for order with fxml */
-    public CreateSetSingleAnswer(FXController controller, String id) {
+    public SingleAnswerListItem(FXController controller, String id) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("createSetSingleAnswer.fxml"));
 
                 fxmlLoader.setRoot(this);
@@ -30,7 +30,7 @@ public class CreateSetSingleAnswer extends AnchorPane {
         this.id = id;
     }
 
-    public CreateSetSingleAnswer(FXController controller, String id, String term, String def) {
+    public SingleAnswerListItem(FXController controller, String id, String term, String def) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("createSetSingleAnswer.fxml"));
 
         fxmlLoader.setRoot(this);

@@ -1,8 +1,6 @@
 package Model;
-import Controller.CreateSetMultipleAnswer;
-import Controller.CreateSetSingleAnswer;
-import Model.Card;
-import Model.Set;
+import Controller.MultipleAnswerListItem;
+import Controller.SingleAnswerListItem;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,8 +21,8 @@ public class DataBase {
     private final Path setFolderPath = Path.of(new File("").getAbsolutePath() + "/Sets/");
     private final File setFolderFile = setFolderPath.toFile();
 
-    private ArrayList<CreateSetSingleAnswer> createSingeListItems = new ArrayList<>();
-    private ArrayList<CreateSetMultipleAnswer> createMultipleListItems = new ArrayList<>();
+    private ArrayList<SingleAnswerListItem> createSingeListItems = new ArrayList<>();
+    private ArrayList<MultipleAnswerListItem> createMultipleListItems = new ArrayList<>();
 
     // Constructor initialises the workable data
     public DataBase() {
@@ -36,19 +34,20 @@ public class DataBase {
             String fileName = fileEntry.getName();
 
             String[] nameStructure = fileName.split("\\.", 3); // 1: Type, 2: Name, 3: txt
+            Set setTmp = null;
 
             switch (nameStructure[0]) { // fc = FlashCard, mc = Multiple Choice, s = Spelling
                 case "fs":
-                    Set fcSetTmp = new Set(nameStructure[1]);
-                    fc.put(nameStructure[1], readFile(setFolderPath.resolve(fileName), fcSetTmp));
+                    setTmp = new Set(nameStructure[1], Set.setType.FlashCard);
+                    fc.put(nameStructure[1], readFile(setFolderPath.resolve(fileName), setTmp));
                     break;
                 case "mcs":
-                    Set mcSetTmp = new Set(nameStructure[1]);
-                    mc.put(nameStructure[1], readFile(setFolderPath.resolve(fileName), mcSetTmp));
+                    setTmp = new Set(nameStructure[1], Set.setType.MultipleChoice);
+                    mc.put(nameStructure[1], readFile(setFolderPath.resolve(fileName), setTmp));
                     break;
                 case "ss":
-                    //Set sSetTmp = new Set(nameStructure[1]);
-                    //multiChoiceSets.add(readFile(setFolderPath.resolve(fileName), sSetTmp));
+                    setTmp = new Set(nameStructure[1], Set.setType.Spelling);
+                    s.put(nameStructure[1], readFile(setFolderPath.resolve(fileName), setTmp));
                     break;
                 default:
                     System.out.println("File with missing marker: " + fileName);
@@ -123,11 +122,21 @@ public class DataBase {
         for (int i = 0; i < mapTmp.size(); i++) {
             Set setInFocus = mapTmp.get(fileName);
             if (setInFocus.getName().equals(fileName)) {
-                Set setTmp = new Set(fileName);
                 String typeTmp = "";
-                if (mapTmp == fc) typeTmp = "/fc.";
-                else if (mapTmp == mc) typeTmp = "/mc.";
-                else if (mapTmp == s) typeTmp = "/s.";
+                Set.setType setType = Set.setType.Null;
+                if (mapTmp == fc){
+                    typeTmp = "/fc.";
+                    setType = Set.setType.FlashCard;
+                }
+                else if (mapTmp == mc){
+                    typeTmp = "/mc.";
+                    setType = Set.setType.MultipleChoice;
+                }
+                else if (mapTmp == s){
+                    typeTmp = "/s.";
+                    setType = Set.setType.Spelling;
+                }
+                Set setTmp = new Set(fileName, setType);
                 try {
                     mapTmp.replace(fileName, readFile(setFolderPath.resolve(typeTmp + fileName + ".txt"), setTmp));
                 }
@@ -145,7 +154,7 @@ public class DataBase {
             String[] nameStructure = fileName.split("\\.", 3);
 
             if (nameStructure[0].equals(mapTmp.toString())) {
-                Set flashSetTmp = new Set(nameStructure[1]);
+                Set flashSetTmp = new Set(nameStructure[1], Set.setType.FlashCard);
                 mapTmp.put(nameStructure[1], readFile(setFolderPath.resolve(fileName), flashSetTmp));
             }
         }
@@ -164,10 +173,10 @@ public class DataBase {
     public Path getSetFolderPath() { return setFolderPath; }
     public File getSetFolderFile() { return setFolderFile; }
 
-    public ArrayList<CreateSetSingleAnswer> getCreateSingleListItems() {
+    public ArrayList<SingleAnswerListItem> getCreateSingleListItems() {
         return createSingeListItems;
     }
-    public ArrayList<CreateSetMultipleAnswer> getCreateMultipleListItems() {
+    public ArrayList<MultipleAnswerListItem> getCreateMultipleListItems() {
         return createMultipleListItems;
     }
 }
