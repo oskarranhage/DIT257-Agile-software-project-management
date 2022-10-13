@@ -118,15 +118,15 @@ public class FileManager {
      */
     private Set readFile(Path filepath) throws Exception {
         String fileName = filepath.toFile().getName();
-        Set set = new Set(fileName.split(regexSplitter)[1]);
+        //Assigns the right setType according to file name, throws exception if not possible.
+        Set.setType type;
+        if(fileName.split(regexSplitter)[0].equals(flashSetStringRepresentation)) {type = Set.setType.FlashCard;}
+        else if(fileName.split(regexSplitter)[0].equals(spellingSetStringRepresentation)) {type = Set.setType.Spelling;}
+        else if(fileName.split(regexSplitter)[0].equals(multipleChoiceSetStringRepresentation)) {type = Set.setType.MultipleChoice;}
+        else {throw new Exception("Filename not compatible.");}
+        Set set = new Set(fileName.split(regexSplitter)[1], type);
 
         String content = Files.readString(filepath); // Throws exception if file is not textfile or does not exist.
-
-        //Assigns the right setType according to file name, throws exception if not possible.
-        if(fileName.split(regexSplitter)[0].equals(flashSetStringRepresentation)) {set.setTypeFlashCard();}
-        else if(fileName.split(regexSplitter)[0].equals(spellingSetStringRepresentation)) {set.setTypeSpelling();}
-        else if(fileName.split(regexSplitter)[0].equals(multipleChoiceSetStringRepresentation)) {set.setTypeMultipleChoice();}
-        else {throw new Exception("Filename not compatible.");}
 
         String[] lines = content.split("\r?\n|\r");
         for (int i = 0; i < lines.length ; i++) {

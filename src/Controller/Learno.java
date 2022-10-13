@@ -27,8 +27,7 @@ public class Learno extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        View view = new View();
-        view.startMenu();
+
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Controller/learno.fxml"));
 
         Scene scene = new Scene(root);
