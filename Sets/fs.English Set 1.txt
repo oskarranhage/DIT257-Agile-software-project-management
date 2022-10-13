@@ -1,4 +1,3 @@
-
 Får.Sheep
 Hus.House
 Tyskland.Germany

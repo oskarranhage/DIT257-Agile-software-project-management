@@ -1,4 +1,4 @@
-//Authors : Alexander Lisborg
+//Authors : Alexander Lisborg, Lucas, Anthon
 package Model;
 
 import java.util.*;
@@ -6,7 +6,7 @@ import java.util.*;
 public class Set {
     String name;
     ArrayList<Card> cards = new ArrayList<Card>();
-    setType thisSetType;
+    private setType thisSetType;
     static Random rand = new Random();
     Scanner sc = new Scanner(System.in);
 
@@ -47,11 +47,7 @@ public class Set {
 
     public void setCards(ArrayList<Card> cards) {this.cards = cards;}
 
-    public static Model.Set shuffleSet(Model.Set set) {
-        //ArrayList<Model.Card> cardList = flashSet.cards;
-        //Model.Set.cards;
-        //ArrayList<Model.Card> cardList = db.getFlashSet("tja").cards;
-        //flashSet.getCards();
+    public static Model.Set shuffleSet(Set set) {
         ArrayList<Model.Card> cardList = new ArrayList<>();
         ArrayList<Model.Card> tmp = set.cards;
         int amountOfCards = tmp.size();
@@ -85,115 +81,12 @@ public class Set {
             tmp.remove(pickedCard);
             cardList.add(pickedCard);
             amountOfCards--;
-
-            System.out.println(int_random);
-            System.out.println(pickedCard.getQuestion());
-            System.out.println(Arrays.toString(newAlt));
-            System.out.println(Arrays.toString(pickedCard.getAnswers()) + "\n");
             pickedCard.setAnswers(newAlt);
-            /*Model.Set h = db.getFlashSet("tja");
-            System.out.println(h.getCards());
-            Model.Set g = db.getFlashSet("tjo");
-            System.out.println(g.getCards());*/
 
         }
         System.out.println(cardList);
         set.setCards(cardList);
         return set;
-    }
-
-    public void runSpellingSet(Set set){
-        int rightAnswers = 0;
-        int wrongAnswers = 0;
-        int amountOfQuestions = (set.getCards()).size();
-        ArrayList<Card> questionsRight = new ArrayList<>();
-        ArrayList<Card> questionsWrong = new ArrayList<>();
-        ArrayList<String> rightInputs = new ArrayList<>();
-        ArrayList<String> wrongInputs = new ArrayList<>();
-        String input = "";
-        int count = 1;
-        System.out.println("You are running " + set.getName() + " as a spelling set.");
-        for (Card card : set.getCards()) {
-            System.out.println("Press enter to view next card.");
-            sc.nextLine();
-            System.out.println("Card " + count + " :");
-            System.out.println(card.getQuestion());
-            System.out.println("Type out the answer:");
-            input = sc.nextLine();
-            if(input.toLowerCase().equals(card.getAnswers()[0].toLowerCase())) {
-                System.out.println("Your answer was correct!");
-                rightAnswers++;
-                questionsRight.add(card);
-                rightInputs.add(input);
-            }
-            else {
-                System.out.println("Your answer was incorrect!");
-                System.out.println("You answered " + input + ", the correct answer is : " + card.getAnswers()[0]);
-                wrongAnswers++;
-                questionsWrong.add(card);
-                wrongInputs.add(input);
-            }
-            count++;
-        }
-        System.out.println("\nCongratulations! You reached the end of the set. You gave " + rightAnswers + " correct answers out of " + amountOfQuestions);
-        //System.out.println("You answered " + inputs.get(0) + "the correct was " + );
-        System.out.println("These are the questions you got right: " + questionsRight);
-        System.out.println("This is what you answered: " + rightInputs);
-        System.out.println("\nYou got " + wrongAnswers + " question/s wrong.");
-        System.out.println("These are the questions you got wrong: " + questionsWrong);
-        System.out.println("This is what you answered: " + wrongInputs);
-        System.out.println("Press enter to continue.");
-        sc.nextLine();
-    }
-
-    /**
-     * Runs a multiple choice set in the terminal view.
-     * @param set The set that will be run
-     */
-    public void runMultipleChoiceSet(Set set){
-        int rightAnswers = 0;
-        int wrongAnswers = 0;
-        int amountOfQuestions = (set.getCards()).size();
-        ArrayList<String> questionsRight = new ArrayList<>();
-        ArrayList<String> questionsWrong = new ArrayList<>();
-        ArrayList<String> rightInputs = new ArrayList<>();
-        ArrayList<String> wrongInputs = new ArrayList<>();
-        String input = "";
-        int count = 1;
-        System.out.println("You are running " + set.getName() + " as a multiple choice set.");
-        for (Card card : set.getCards()) {
-            System.out.println("Press enter to view next card.");
-            sc.nextLine();
-            System.out.println("Card " + count + " :");
-            System.out.println(card.getQuestion());
-            String correctAnswer = card.getAnswers()[0];
-            List<String> answersShuffled = Arrays.asList(card.getAnswers());
-            Collections.shuffle(answersShuffled);
-            System.out.println(answersShuffled);
-            System.out.println("Please enter the answer :");
-            input = sc.nextLine();
-            if (input.toLowerCase().equals(correctAnswer.toLowerCase())) {
-                System.out.println("Your answer was correct!");
-                rightAnswers++;
-                questionsRight.add(card.getQuestion());
-            }
-            else {
-                System.out.println("Your answer was incorrect!");
-                System.out.println("The correct answer was : " + correctAnswer);
-                wrongAnswers++;
-                questionsWrong.add(card.getQuestion());
-            }
-            count++;
-        }
-        System.out.println("\nCongratulations! You reached the end of the set. You gave " + rightAnswers + " correct answers out of " + amountOfQuestions);
-        //System.out.println("You answered " + inputs.get(0) + "the correct was " + );
-        System.out.println("These are the questions you got right: " + questionsRight);
-        System.out.println("This is what you answered: " + rightInputs);
-        System.out.println("\nYou got " + wrongAnswers + " question/s wrong.");
-        System.out.println("These are the questions you got wrong: " + questionsWrong);
-        System.out.println("This is what you answered: " + wrongInputs);
-        System.out.println("Press enter to continue.");
-        sc.nextLine();
     }
 }
 

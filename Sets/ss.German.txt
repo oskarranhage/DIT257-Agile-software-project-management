@@ -1,4 +1,3 @@
-
 ett.ein
 två.zwei
 tre.drei
