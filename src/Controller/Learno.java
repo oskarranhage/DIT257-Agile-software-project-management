@@ -19,12 +19,6 @@ import java.util.*;
 import static javafx.application.Application.launch;
 
 public class Learno extends Application {
-    public static Card card;
-    static Scanner sc = new Scanner(System.in);
-    static Random rand = new Random();
-
-    static String basePath = new File("").getAbsolutePath();
-    private final static Path setFilePath = Path.of(basePath + "/Sets/");
 
     public static void main(String[] args) {
 
