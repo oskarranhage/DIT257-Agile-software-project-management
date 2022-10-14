@@ -120,6 +120,18 @@ WEEK 3: How we chose the scope of our application under the Scrum board meeting 
 flashcards, that would give our primary customer middle schoolers a tool that they can use in all of their courses. Later focusing on adding
 more functionality like a Spelling test, and multiple choice answers.
 
+WEEK 7:
+The primary customer group is still people in the school-age, mostly students around middle-school. 
+We first decided that the priority for the application should be a playable version of flashcards, with the ability to later add on more functionality 
+to the application. That could be things like a spelling-test and multiple choices-test. 
+We discovered quite quickly that we would have the time to extend our application with these features. Now we have all 3 features implemented
+in our application; spelling, multiple choices and flashcards, so that the user can choose their own way of learning. We even had the discussion
+to implement even more functionality, such as having a “folder” functionality. The idea behind that was that the user could sort their study tests in specific 
+folders. However, we felt like we were a little short on time to accomplish that, and since we did not think that the folder-feature would make a big difference 
+for the application (the priority was not so high), we chose to skip that. 
+
+
+
 *The success criteria for the team in terms of what you want to achieve within the project (this can include the application, but also your
 learning outcomes, your teamwork, or your effort)?:
 
