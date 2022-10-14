@@ -44,6 +44,19 @@ public class Learno extends Application {
         FileManager.writeFile();
     }*/
 
+    // Get a set with answers and returns a set with only the incorrect ones
+    // Maybe temporary position in program
+    public Set setFromIncorrectAnswers(Set currentSet, boolean[] answers) {
+        ArrayList<Card> falseAnswersSet = new ArrayList<>();
+        for (int i = 0; i < answers.length; i++) {
+            if (!answers[i]) {
+                falseAnswersSet.add(currentSet.getCards().get(i));
+            }
+        }
+
+        return new Set("newSet", falseAnswersSet, currentSet.getThisSetType());
+    }
+
     public static Set shuffleFlashSet(Set flashSet) {
         ArrayList<Card> flashCards = flashSet.getCards();
         ArrayList<Card> tmp = flashSet.getCards();

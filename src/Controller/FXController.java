@@ -321,12 +321,16 @@ public class FXController implements Initializable {
      */
     public void presentResult(){
         int correct = 0;
+        boolean[] answersResults = new boolean[userAnswers.size()];
         for (int i = 0; i < userAnswers.size(); i++) {
             if (db.getMultiSet(curSetName).getCards().get(i).getAnswers().equals(userAnswers.get(i))){
                 correct++;
                 // TODO add a list item to result list flow pane that represents a correct answer
+                answersResults[i] = true;
+
             } else{
                 // TODO add a list item to result list flow pane that represents a wrong answer
+                answersResults[i] = false;
             }
         }
         int wrong = db.getMultiSet(curSetName).getCards().size() - correct;
