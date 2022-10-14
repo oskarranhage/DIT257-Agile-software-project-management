@@ -83,12 +83,20 @@ I have added counters and lists so that a player can overall see how many questi
 
 Week 7:
 
+what do I want to learn or understand better?
+multi layer cake model, other agile practices and how we as a group can implement such practices into our work ethic.
+how can I help someone else, or the entire team, to learn something new?
+Bring forth new found knowledge. Keep great communication with team members and share overviews of my code to them, so that they understand it and what I’m working on. This ensures that if members need to connect their section of code to mine, that it will go smoothly and easy.
+what is my contribution towards the team’s use of Scrum?
+I have been PO this week and because of this I reviewed user stories and the product as a whole and gave my opinion of it, if I deem a user story to be done or if it still requires more work before it can be classified as done.
+what is my contribution towards the team’s deliveries?
+This sprint I have made it so that after a user has played a set he/she can play it again, but this time with the questions previously answered wrong. I have an arrayList containing the cards for the questions you answer wrong and create a new set with these cards. From the result list create a new temporary set with the cards that got incorrectly answered.
+
+
+
+Week 8:
 
 * what do I want to learn or understand better?
 * how can I help someone else, or the entire team, to learn something new?
 * what is my contribution towards the team’s use of Scrum?
 * what is my contribution towards the team’s deliveries?
-
-
-
-Week 8:
