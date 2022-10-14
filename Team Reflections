@@ -88,6 +88,56 @@ When we are assigned a user story we should present how we are going to implemen
 happened with “multiple choices” this week.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
+
+SPRINT REVIEW WEEK 4:
+
+How did the sprint go?
+It went well. We completed most of our planned user stories and had time to catch up from last week's disturbances. 
+
+Did we complete our tasks?
+We completed almost all user stories, but we had a problem with merging. Causing the tasks as a whole not to be completed. The tasks still work 
+by themselves. Anthon got stuck on a specific error and therefore didn’t have the time to complete one of the user stories he was assigned.
+
+Did the members cooperate well?
+This week the backend programmers split up in groups of two and worked together on user stories with closer communication, this went well as we 
+were able to discuss ideas and implementations with each other more easily. 
+
+In this sprint one misunderstanding occurred, the group did not have the same visions for the “multiple choices” feature. This could be avoided 
+by more detailed communication among us. 
+
+Was the workload sufficinent and/or manageable?
+The workload this week was manageable for the most part, however we had some larger stories from last week that we had left over, for example the 
+MVC user story. But this still sufficed and did not overflow our work load. 
+
+What needs to change until the next sprint?
+Next week we will work on user stories in separate branches, and then merge those branches into the main branch when completely done.
+
+When we are assigned a user story we should present how we are going to implement that work in order to prevent misunderstanding such as what 
+happened with “multiple choices” this week.
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+SPRINT REVIEW WEEK 5:
+
+How did the sprint go?
+It went well.
+
+Did we complete our tasks?
+All members completed their tasks. 
+
+Did the members cooperate well?
+We had good communication this sprint, 
+
+Was the workload sufficinent and/or manageable?
+The workload was manageable, however the backend developers didn’t have much to do due to the backend being mostly complete. For most of the 
+group members, the stress level decreased this sprint. 
+
+What needs to change until the next sprint?
+We need to improve our ability to distribute work as well as understand how much work we are capable of achieving.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
 SPRINT REVIEW 6:
 
 How did the sprint go?
@@ -107,6 +157,27 @@ group members, the stress level decreased this sprint.
 
 What needs to change until the next sprint?
 We need to improve our ability to distribute work as well as understand how much work we are capable of achieving.
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+SPRINT REVIEW WEEK 7:
+
+How did the sprint go?
+It went well, we have developed a better understanding for how we as a team work in an agile way of working. 
+
+Did we complete our tasks?
+we completed all of our designated user stories starting with the ones with highest     priority.  
+
+Did the members cooperate well?
+Yes the members did cooperate well in this sprint. 
+
+Was the workload sufficinent and/or manageable?
+This week our user stories were manageable as we completed all of them. Regarding whether they were sufficient is a bit hard to tell 
+because we didn’t want to add too much for the recond to last sprint. The reason for this is that we predict the last sprint will be to fix the 
+bugs and small errors in the program. 
+
+What needs to change until the next sprint?
+The next sprint we should not add anything new, only fix bugs and remove excess code.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -168,6 +239,7 @@ been written in quite broad terms. In the future we would like to have smaller s
 reasonable to complete in the timespan of a sprint. This will be achieved by changing and adding more specific stories throughout the project
 when needed and adding them into the scrum board.
 
+
 *Your acceptance tests, such as how they were performed, with whom, and which value they provided for you and the other stakeholders:?
 WEEK 5:
 How we Demo finished user stories, is when they are runnable and able to be merged into the main branch. Our acceptance test is by 
@@ -175,6 +247,17 @@ following the acceptance criteria and only when the criteria is met, are you mov
 group at the end of the week, to see if what is done and what needs more work, and or if it needed to be split up into smaller parts, it 
 also helps our team with keeping the dividing. This helps us so when it is time at the sprint review to show our PO what we have done this 
 week.
+
+WEEK 7:
+We now use checklists on each item in trello to clearly show what acceptance criterias needs to be met for each story, and also what criteria
+have been completed. This way of listing acceotance criteria has made it easier for us to work on the same user stories together and for us
+to see what the others are working on. We would however need to be more distictive between how we define our user stories and our quick fixes.
+During our project we've run into a lot of smaller things that needs to be fixed, this has led to us creating objects in trello which are not
+user stories but are fixes that needs to be done in order to work towards a user story or even several user stories. We would need to openly
+discuss and distinguish between how the fixes should be written out. Our current method has worked but has led to confusion about which objects
+are user stories and which ones that are just fixes and how they should be written. When looking on our trello, we've had to deal with and
+rewrite objects so that they make sense for everyone, this would have been much easier had we discussed the rules of writing user stories 
+and fixes in more detail in the beginning.
 
 WEEK 6:
 When we as programmers deem a user story that we have worked in as “done”, it needs to meet the requirements for DoD (definition of done). 
