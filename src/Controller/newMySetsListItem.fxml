@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="95.0" prefWidth="652.0" type="AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <Pane prefHeight="95.0" prefWidth="652.0" style="-fx-background-color: #FFFFFF;">
+      <children>
+         <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="603.0" layoutY="30.0">
+            <image>
+               <Image url="@../../../../../Downloads/correct.png" />
+            </image>
+         </ImageView>
+         <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="603.0" layoutY="30.0">
+            <image>
+               <Image url="@../../../../../Downloads/delete-button.png" />
+            </image>
+         </ImageView>
+      </children>
+   </Pane>
+   <Text layoutX="52.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Term" />
+   <Text layoutX="342.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Definition" />
+   <Line endX="233.0" endY="36.166664123535156" layoutX="45.0" layoutY="18.0" startX="8.0" startY="36.166664123535156" />
+   <Line endX="233.0" endY="36.166664123535156" layoutX="334.0" layoutY="17.0" startX="8.0" startY="36.166664123535156" />
+   <TextField fx:id="defTextC" layoutX="342.0" layoutY="19.0" prefHeight="25.0" prefWidth="226.0" promptText="Definition" />
+   <TextField fx:id="termTextC" layoutX="53.0" layoutY="19.0" prefHeight="25.0" prefWidth="226.0" promptText="Term" />
+   <Button layoutX="606.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#removeCreateListItem" text="X" />
+</fx:root>

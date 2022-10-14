@@ -176,14 +176,17 @@ public class FileManager {
             sb.append(card.getQuestion());
             for (String answer : card.getAnswers()) {
                 if(answer != null){
-                    sb.append(splitterChar+answer);
+                    sb.append(splitterChar).append(answer);
                 }
             }
             sb.append("\n");
         }
-        String type = flashSetStringRepresentation;
-        if(set.getThisSetType() == Set.setType.Spelling){type = spellingSetStringRepresentation;}
-        else if(set.getThisSetType() == Set.setType.MultipleChoice){type = multipleChoiceSetStringRepresentation;}
+        String type = "";
+        switch (set.getThisSetType()){
+            case FlashCard -> type = flashSetStringRepresentation;
+            case MultipleChoice -> type = multipleChoiceSetStringRepresentation;
+            case Spelling -> type = spellingSetStringRepresentation;
+        }
         writeFile(type + splitterChar + set.getName(), sb.toString());
     }
 

@@ -41,6 +41,7 @@ public class MultipleAnswerListItem extends AnchorPane {
 
       this.controller = controller;
       this.id = id;
+      System.out.println(id);
    }
 
    public MultipleAnswerListItem(FXController controller, String id, String term, List<String> answers) {
@@ -70,7 +71,7 @@ public class MultipleAnswerListItem extends AnchorPane {
    }
 
    public void removeCreateListItem(){
-      controller.db.getCreateSingleListItems().removeIf(item -> id.equals(item.id));
-      controller.updateCreateSingleFlowPane(controller.db.getCreateSingleListItems());
+      controller.db.getCreateMultipleListItems().removeIf(item -> id.equals(item.id));
+      controller.updateCreateMultipleFlowPane(controller.db.getCreateMultipleListItems());
    }
 }

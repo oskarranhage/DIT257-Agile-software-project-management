@@ -2,10 +2,15 @@ package Controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 
 import java.io.IOException;
+import java.nio.file.Path;
+import java.util.Objects;
 import java.util.Set;
 
 public class MySetsGridItem extends AnchorPane {
@@ -13,10 +18,13 @@ public class MySetsGridItem extends AnchorPane {
     FXController controller;
     Model.Set set;
     @FXML Text setName;
+    @FXML ImageView setImageFlash;
+    @FXML ImageView setImageSpelling;
+    @FXML ImageView setImageMul;
 
     /** Constructor for order with fxml */
     public MySetsGridItem(FXController controller, Model.Set set) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("mySetsGridItem.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("newMySetsGridItem.fxml"));
 
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -27,9 +35,19 @@ public class MySetsGridItem extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
+        setImageFlash.setVisible(false);
+        setImageSpelling.setVisible(false);
+        setImageMul.setVisible(false);
+
         this.controller = controller;
         this.set = set;
         setName.setText(set.getName());
+        setName.setTextAlignment(TextAlignment.CENTER);
+        switch (set.getThisSetType()){
+            case FlashCard -> setImageFlash.setVisible(true);
+            case Spelling -> setImageSpelling.setVisible(true);
+            case MultipleChoice -> setImageMul.setVisible(true);
+        }
     }
 
     public void openSet(){
@@ -43,12 +61,15 @@ public class MySetsGridItem extends AnchorPane {
 
     public void editSet(){
         controller.setCurSetName(set.getName());
-        switch (set.getThisSetType()){
-            case FlashCard, Spelling -> controller.openCreateSetSingle();
-            case MultipleChoice -> controller.openCreateSetMultiple();
-        }
+        controller.editCurrentSet();
     }
 
+    public void removeSet(){
 
+    }
+
+    private Image newImage(String url){
+        return new Image(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(url)));
+    }
 }
 

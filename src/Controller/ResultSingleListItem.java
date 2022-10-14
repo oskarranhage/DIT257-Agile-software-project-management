@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
@@ -17,36 +18,14 @@ public class ResultSingleListItem extends AnchorPane {
 
     @FXML private Text termTextC;
     @FXML private Text defTextC;
+    @FXML private Text userInputText;
     @FXML private ImageView correctAnswerImage;
     @FXML private ImageView wrongAnswerImage;
+    @FXML private Pane borderPane;
+    @FXML private Pane userInputPane;
 
-    /** Constructor for order with fxml */
-    public ResultSingleListItem(FXController controller, boolean isCorrect) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("...fxml"));
-
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
-
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
-
-        if (isCorrect) {
-            correctAnswerImage.setVisible(true);
-            correctAnswerImage.toFront();
-        } else {
-            wrongAnswerImage.setVisible(true);
-            wrongAnswerImage.toFront();
-        }
-
-        this.controller = controller;
-        this.id = id;
-    }
-
-    public ResultSingleListItem(FXController controller, Card card, boolean isCorrect) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("....fxml"));
+    public ResultSingleListItem(FXController controller, Card card, String userInput) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("resultSingleAnswer.fxml"));
 
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -57,18 +36,17 @@ public class ResultSingleListItem extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
-        if (isCorrect) {
-            correctAnswerImage.setVisible(true);
-            correctAnswerImage.toFront();
+        if (card.getCorrectAnswer().equals(userInput)) {
+            borderPane.setStyle("-fx-background-color: #C8FDDD");
         } else {
-            wrongAnswerImage.setVisible(true);
-            wrongAnswerImage.toFront();
+            borderPane.setStyle("-fx-background-color: #FBC4BD");
+            userInputPane.setStyle("-fx-border-color: ##880808");
         }
 
         this.controller = controller;
-        this.id = id;
         termTextC.setText(card.getQuestion());
-        defTextC.setText(card.getAnswers()[0]);
+        defTextC.setText(card.getCorrectAnswer());
+        userInputText.setText(userInput);
     }
 
     public String getTerm(){
