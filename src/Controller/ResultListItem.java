@@ -3,7 +3,6 @@ package Controller;
 import Model.Card;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -11,7 +10,7 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 
-public class ResultSingleListItem extends AnchorPane {
+public class ResultListItem extends AnchorPane {
 
     FXController controller;
     String id;
@@ -24,8 +23,8 @@ public class ResultSingleListItem extends AnchorPane {
     @FXML private Pane borderPane;
     @FXML private Pane userInputPane;
 
-    public ResultSingleListItem(FXController controller, Card card, String userInput) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("resultSingleAnswer.fxml"));
+    public ResultListItem(FXController controller, Card card, String userInput) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("resultListItem.fxml"));
 
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -59,7 +58,7 @@ public class ResultSingleListItem extends AnchorPane {
 
 
     public void removeCreateListItem(){
-        controller.db.getCreateSingleListItems().removeIf(item -> id.equals(item.id));
-        controller.updateCreateSingleFlowPane(controller.db.getCreateSingleListItems());
+        controller.db.getCreateSetListItems().removeIf(item -> id.equals(item.id));
+        controller.updateCreateSingleFlowPane(controller.db.getCreateSetListItems());
     }
 }

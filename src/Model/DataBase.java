@@ -1,9 +1,5 @@
 package Model;
-import Controller.SingleAnswerListItem;
-import Controller.MultipleAnswerListItem;
-
-import Controller.MultipleAnswerListItem;
-import Controller.SingleAnswerListItem;
+import Controller.CreateSetListItem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,8 +13,7 @@ public class DataBase extends FileManager {
      */
     private HashMap<String, Set> setHashMap = new HashMap<>();
 
-    private ArrayList<SingleAnswerListItem> createSingeListItems = new ArrayList<>();
-    private ArrayList<MultipleAnswerListItem> createMultipleListItems = new ArrayList<>();
+    private ArrayList<CreateSetListItem> createSetListItems = new ArrayList<>();
 
     /**
      * Constrinctor initialises data.
@@ -65,6 +60,5 @@ public class DataBase extends FileManager {
     public Set getSet(String setname) {return setHashMap.get(setname);}
 
     public HashMap<String, Set> getSetHashMap() { return setHashMap; }
-    public ArrayList<SingleAnswerListItem> getCreateSingleListItems() {return createSingeListItems;}
-    public ArrayList<MultipleAnswerListItem> getCreateMultipleListItems() {return createMultipleListItems;}
+    public ArrayList<CreateSetListItem> getCreateSetListItems() {return createSetListItems;}
 }

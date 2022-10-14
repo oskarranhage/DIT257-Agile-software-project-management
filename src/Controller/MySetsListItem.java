@@ -1,7 +1,6 @@
 package Controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -9,11 +8,9 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
 import java.io.IOException;
-import java.nio.file.Path;
 import java.util.Objects;
-import java.util.Set;
 
-public class MySetsGridItem extends AnchorPane {
+public class MySetsListItem extends AnchorPane {
 
     FXController controller;
     Model.Set set;
@@ -23,8 +20,8 @@ public class MySetsGridItem extends AnchorPane {
     @FXML ImageView setImageMul;
 
     /** Constructor for order with fxml */
-    public MySetsGridItem(FXController controller, Model.Set set) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("newMySetsGridItem.fxml"));
+    public MySetsListItem(FXController controller, Model.Set set) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("mySetsListItem.fxml"));
 
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);

@@ -1,6 +1,5 @@
 package Controller;
 
-import Model.Set;
 import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,16 +10,14 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 
-import static java.lang.System.out;
-
-public class FlashcardListItem extends AnchorPane {
+public class FlashcardAnimation extends AnchorPane {
 
     FXController controller;
     @FXML
     Text QnATextListItem;
 
-    public FlashcardListItem(FXController controller, String answer) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("flashcardListItem.fxml"));
+    public FlashcardAnimation(FXController controller, String answer) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("flashcardAnimationItem.fxml"));
 
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);

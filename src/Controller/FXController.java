@@ -6,17 +6,13 @@ import Model.DataBase;
 import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
-import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.*;
 import java.util.List;
@@ -128,13 +124,7 @@ public class FXController implements Initializable {
      */
     public void nextFlashCard(){
         if(!confirmButtonF.getText().equals("Submit")){
-            FlashcardListItem flashcardListItem = new FlashcardListItem(this, db.getSet(curSetName).getCards().get(atQuestionInd).getAnswers()[0]);
-            tempFlashCard.getChildren().add(flashcardListItem);
-            flashcardListItem.setLayoutX(511);
-            flashcardListItem.setLayoutY(355);
-            flashcardListItem.toFront();
-            flashcardListItem.nextFlashCard();
-
+            triggerSpinCardAnimation();
             prevButtonF.setVisible(true);
             if (db.getSet(curSetName).getCards().size()-1 > atQuestionInd) {
                 atQuestionInd += 1;
@@ -145,9 +135,20 @@ public class FXController implements Initializable {
                 }
             }
         } else{
-            userAnswers.add(definitionAnswerS.getText());
             openResultPage();
         }
+    }
+
+    /**
+     * Triggers the flash card animation
+     */
+    private void triggerSpinCardAnimation(){
+        FlashcardAnimation flashcardAnimation = new FlashcardAnimation(this, db.getSet(curSetName).getCards().get(atQuestionInd).getAnswers()[0]);
+        tempFlashCard.getChildren().add(flashcardAnimation);
+        flashcardAnimation.setLayoutX(511);
+        flashcardAnimation.setLayoutY(355);
+        flashcardAnimation.toFront();
+        flashcardAnimation.nextFlashCard();
     }
 
     /**
@@ -172,7 +173,6 @@ public class FXController implements Initializable {
      Reveals the answer or the question/term
      */
     public void turnCard(){
-        out.println(atQuestion);
         if (atQuestion){
             out.println(db.getSet(curSetName).getCards().get(atQuestionInd).getAnswers()[0]);
             QnATextF.setText(db.getSet(curSetName).getCards().get(atQuestionInd).getAnswers()[0]);
@@ -181,7 +181,10 @@ public class FXController implements Initializable {
             QnATextF.setText(db.getSet(curSetName).getCards().get(atQuestionInd).getQuestion());
             atQuestion = true;
         }
+        triggerFlipCardAnimation();
+    }
 
+    private void triggerFlipCardAnimation(){
         ScaleTransition stShowBack = new ScaleTransition(Duration.millis(1000), flashCardBack);
         stShowBack.setFromX(0);
         stShowBack.setToX(1);
@@ -193,76 +196,41 @@ public class FXController implements Initializable {
      * Creates a list item and adds it to both a list of list items and to the flow pane by calling updateCreateSetFlowPane()
      */
     public void addCreateSetItem() {
-        if (curSetType == Model.Set.setType.FlashCard || curSetType == Set.setType.Spelling){
-            SingleAnswerListItem item = new SingleAnswerListItem(this, ("C" + createItemID));
-            db.getCreateSingleListItems().add(item);
-            updateCreateSingleFlowPane(db.getCreateSingleListItems());
-        } else if (curSetType == Model.Set.setType.MultipleChoice) {
-            MultipleAnswerListItem item = new MultipleAnswerListItem(this, ("C" + createItemID));
-            db.getCreateMultipleListItems().add(item);
-            updateCreateMultipleFlowPane(db.getCreateMultipleListItems());
-        }
+        CreateSetListItem item = new CreateSetListItem(this, ("C" + createItemID), curSetType);
+        db.getCreateSetListItems().add(item);
+        updateCreateSingleFlowPane(db.getCreateSetListItems());
         createItemID++;
     }
 
     /**
      * Updates the flow-pane by clearing it and then adding all items from the item list again (used when a new list-item is added)
      */
-    public void updateCreateSingleFlowPane(List<SingleAnswerListItem> items){
+    public void updateCreateSingleFlowPane(List<CreateSetListItem> items){
         createSetFlowPane.getChildren().clear();
-        for (SingleAnswerListItem item : items) {
+        for (CreateSetListItem item : items) {
             item.id = "CS" + createItemID;
             createItemID++;
             createSetFlowPane.getChildren().add(item);
         }
     }
 
-    public void updateCreateMultipleFlowPane(List<MultipleAnswerListItem> items){
-        createSetFlowPane.getChildren().clear();
-        for (MultipleAnswerListItem item : items) {
-            item.id = "CM" + createItemID;
-            createItemID++;
-            createSetFlowPane.getChildren().add(item);
-        }
-    }
-
     /**
-     * Opens the create set page and adds 4 list items to the flow pane
+     * Opens the create set page and adds 3 list items to the flow pane
      */
-
-    public void openCreateSetFlashCards(){
-        creatingEditingTitleText.setText("Creating flashcards set");
-        curSetType = Model.Set.setType.FlashCard;
-        openCreateSetSingle();
-    }
-
-    public void openCreateSetSpelling(){
-        creatingEditingTitleText.setText("Creating spelling set");
-        curSetType = Set.setType.Spelling;
-        openCreateSetSingle();
-    }
-
-    public void openCreateSetSingle(){
-        createSetFlowPane.getChildren().clear();
-        createSetView.toFront();
-        if (db.getCreateSingleListItems().size() < 3) {
-            for (int i = 0; i < 3-db.getCreateSingleListItems().size(); i++) {
-                addCreateSetItem();
-            }
+    public void openCreateSet(Set.setType type){
+        curSetType = type;
+        switch (type){
+            case MultipleChoice -> creatingEditingTitleText.setText("Creating multiple choices set");
+            case Spelling -> creatingEditingTitleText.setText("Creating spelling set");
+            case FlashCard -> creatingEditingTitleText.setText("Creating flashcards set");
         }
-        updateCreateSingleFlowPane(db.getCreateSingleListItems());
-    }
-
-    public void openCreateSetMultiple(){
-        creatingEditingTitleText.setText("Creating multiple choices set");
         createSetFlowPane.getChildren().clear();
-        curSetType = Model.Set.setType.MultipleChoice;
+        db.getCreateSetListItems().clear();
         createSetView.toFront();
-        if (db.getCreateSingleListItems().size() == 0) {
-            for (int i = 0; i < 3; i++) {
-                addCreateSetItem();
-            }
+        for (int i = 0; i < 3; i++) {
+            addCreateSetItem();
         }
+        updateCreateSingleFlowPane(db.getCreateSetListItems());
     }
 
     /**
@@ -271,7 +239,7 @@ public class FXController implements Initializable {
     public void saveCreatedSet(){
         if (!setNameC.getText().equals("")) {
             List<Card> cards = new ArrayList<>();
-            for (SingleAnswerListItem item : db.getCreateSingleListItems()) {
+            for (CreateSetListItem item : db.getCreateSetListItems()) {
                 cards.add(new Card(item.getTerm(), item.getDefinition()));
             }
             Set newSet = new Set(setNameC.getText(), cards, curSetType);
@@ -285,7 +253,7 @@ public class FXController implements Initializable {
         createdSetName.setText(curSetName);
         setCreatedView.toFront();
         createSetFlowPane.getChildren().clear();
-        db.getCreateSingleListItems().clear();
+        db.getCreateSetListItems().clear();
     }
 
 
@@ -359,20 +327,21 @@ public class FXController implements Initializable {
         }
     }
 
+    /**
+     * Methods for action events where a button is pressed
+     */
     public void selectFirstAnswer(){ selectAnswer(answer1); }
     public void selectSecondAnswer(){ selectAnswer(answer2); }
     public void selectThirdAnswer(){ selectAnswer(answer3); }
     public void selectFourthAnswer(){ selectAnswer(answer4); }
 
-    /**
-     * RESULT SCREEN
-     */
+    /** ____________RESULT SCREEN____________ */
     public void presentResult(){
         int correct = 0;
         resultSetText.setText("Result of " + curSetName);
         for (int i = 0; i < userAnswers.size(); i++) {
             Card curCard = db.getSet(curSetName).getCards().get(i);
-            resultFlowPane.getChildren().add(new ResultSingleListItem(this, curCard, userAnswers.get(i)));
+            resultFlowPane.getChildren().add(new ResultListItem(this, curCard, userAnswers.get(i)));
             if (curCard.getCorrectAnswer().equals(userAnswers.get(i))){
                 correct++;
             }
@@ -392,7 +361,7 @@ public class FXController implements Initializable {
 
     /** ____________EDIT SET____________ */
 
-    public void editSingleSet(Model.Set set){
+    public void editSet(Model.Set set){
         setNameC.setText(set.getName());
         curSetType = set.getThisSetType();
         switch (curSetType){
@@ -400,22 +369,22 @@ public class FXController implements Initializable {
             case MultipleChoice -> creatingEditingTitleText.setText("Editing multiple choices: " + set.getName());
             case FlashCard -> creatingEditingTitleText.setText("Editing flashcard: " + set.getName());
         }
-        createSetView.toFront();
-        db.getCreateSingleListItems().clear();
+        db.getCreateSetListItems().clear();
         for (Card card : set.getCards()) {
-            SingleAnswerListItem item = new SingleAnswerListItem(this, ("C" + createItemID), card.getQuestion(), card.getAnswers()[0]);
+            CreateSetListItem item = new CreateSetListItem(this, ("C" + createItemID), curSetType, card.getQuestion(), card.getAnswers());
             createItemID++;
-            db.getCreateSingleListItems().add(item);
+            db.getCreateSetListItems().add(item);
         }
         createSetFlowPane.getChildren().clear();
-        for (SingleAnswerListItem item : db.getCreateSingleListItems()) {
+        for (CreateSetListItem item : db.getCreateSetListItems()) {
             createSetFlowPane.getChildren().add(item);
         }
+        createSetView.toFront();
     }
 
     public void editCurrentSet(){
         db.updateAll();
-        editSingleSet(db.getSet(curSetName));
+        editSet(db.getSet(curSetName));
     }
 
     /** ____________SPELLING____________ */
@@ -454,12 +423,12 @@ public class FXController implements Initializable {
     }
 
     /** ____________MY SETS____________ */
-    public void updateMySetsGridPane(){
+    public void updateMySetsFlowPane(){
         mySetsFlowPane.getChildren().clear();
         ArrayList<Set> sets = new ArrayList<>(db.getSetHashMap().values());
 
         for (Set set : sets) {
-            mySetsFlowPane.getChildren().add(new MySetsGridItem(this, set));
+            mySetsFlowPane.getChildren().add(new MySetsListItem(this, set));
         }
     }
 
@@ -485,7 +454,7 @@ public class FXController implements Initializable {
     public void openStartMenu(){ startMenu.toFront(); }
 
     public void openMySets(){
-        updateMySetsGridPane();
+        updateMySetsFlowPane();
         mySetsView.toFront(); }
     public void openChooseSet(){
         choooseSetView.toFront();
@@ -496,4 +465,18 @@ public class FXController implements Initializable {
         presentResult();
         resultPage.toFront();
     }
+    public void openCreateSetFlashCards(){
+        openCreateSet(Set.setType.FlashCard);
+    }
+
+    public void openCreateSetSpelling(){
+        openCreateSet(Set.setType.Spelling);
+    }
+
+    public void openCreateSetMultiple(){
+        openCreateSet(Set.setType.MultipleChoice);
+    }
 }
+
+
+
