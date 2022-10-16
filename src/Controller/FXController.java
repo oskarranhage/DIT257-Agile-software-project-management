@@ -103,39 +103,83 @@ public class FXController implements Initializable {
     }
 
 
+    /** ____________GENERAL METHODS_____________*/
+
+    public void setUpPlay(Set.setType setType) {
+        curSetType = setType;
+        atQuestionInd = 0;
+        userAnswers.clear();
+        resultFlowPane.getChildren().clear();
+
+        switch (curSetType) {
+            case FlashCard:
+                prevButtonF.setVisible(false);
+                atQuestion = true;
+                QnATextF.setText(db.getQuestion(curSetName,0));
+                currentSetTextF.setText("Playing flashcards: " + curSetName);
+                confirmButtonF.setText("Next");
+                break;
+            case Spelling:
+                termS.setText(db.getQuestion(curSetName, atQuestionInd));
+                definitionAnswerS.clear();
+                playingSetTextSpelling.setText("Playing spelling: " + curSetName);
+                nextButtonTextS.setText("Next");
+                break;
+            case MultipleChoice:
+                setAnswers();
+                questionMC.setText(db.getQuestion(curSetName,atQuestionInd));
+                playingSetMultipleText.setText("Playing multiple choices: " + curSetName);
+                nextButtonTextMC.setText("Next");
+        }
+    }
+    public void nextCard(Set.setType setType, Text nextButton){
+        atQuestionInd += 1;
+        int setSize = db.getSetSize(curSetName);
+        if(atQuestionInd < setSize){
+            switch(setType) {
+                case FlashCard :
+                    triggerSpinCardAnimation();
+                    prevButtonF.setVisible(true);
+                    QnATextF.setText(db.getQuestion(curSetName, atQuestionInd));
+                    atQuestion = true;
+                    if (atQuestionInd + 1 == setSize){confirmButtonF.setText("Submit");}
+                    break;
+                case Spelling :
+                    termS.setText(db.getSet(curSetName).getCards().get(atQuestionInd).getQuestion());
+                    userAnswers.add(definitionAnswerS.getText());
+                    definitionAnswerS.setText("");
+                    break;
+                case MultipleChoice :
+                    questionMC.setText(db.getQuestion(curSetName,atQuestionInd));
+                    setAnswers();
+                    for (RadioButton rb : answerChoices) {
+                        rb.setSelected(false);
+                    }
+                    break;
+            }
+            if (atQuestionInd + 1 == setSize && nextButton!=null) {
+                nextButton.setText("Submit");
+            }
+        } else{
+            if (curSetType == Set.setType.Spelling){userAnswers.add(definitionAnswerS.getText());}
+            openResultPage();
+        }
+    }
+
     /** ____________FLASHCARDS____________ */
 
     /**
      * Sets up flash card play. Used when opening the play flashcard page
      */
     public void setUpFlashcardPlay(){
-        curSetType = Set.setType.FlashCard;
-        prevButtonF.setVisible(false);
-        atQuestion = true;
-        atQuestionInd = 0;
-        currentSetTextF.setText("Playing flashcards: " + curSetName);
-        QnATextF.setText(db.getQuestion(curSetName,0));
-        confirmButtonF.setText("Next");
+        setUpPlay(Set.setType.FlashCard);
     }
 
     /**
      * Switches to the previous flashcard unless the last is currently played
      */
     public void nextFlashCard(){
-        if(!confirmButtonF.getText().equals("Submit")){
-            triggerSpinCardAnimation();
-            prevButtonF.setVisible(true);
-            if (db.getSetSize(curSetName) -1 > atQuestionInd) {
-                atQuestionInd += 1;
-                QnATextF.setText(db.getQuestion(curSetName, atQuestionInd));
-                atQuestion = true;
-                if (db.getSetSize(curSetName) - 1 == atQuestionInd) {
-                    confirmButtonF.setText("Submit");
-                }
-            }
-        } else{
-            openResultPage();
-        }
+        nextCard(Set.setType.FlashCard, null);
     }
 
     /**
@@ -238,7 +282,7 @@ public class FXController implements Initializable {
     public void saveCreatedSet(){
         if (!setNameC.getText().equals("")) {
             if(db.getSetHashMap().containsKey(setNameC.getText())) { // If set already exists
-                System.out.println("Error : A set with that name already exists. Choose another name.");
+                out.println("Error : A set with that name already exists. Choose another name.");
             } else {
                 List<Card> cards = new ArrayList<>();
                 if (curSetType == Set.setType.FlashCard || curSetType == Set.setType.Spelling){
@@ -273,16 +317,7 @@ public class FXController implements Initializable {
     /** ____________MULTIPLE CHOICES____________ */
 
     public void setUpMultiplePlay(){
-        userAnswers.clear();
-        resultFlowPane.getChildren().clear();
-        curSetType = Set.setType.MultipleChoice;
-        atQuestion = true;
-        atQuestionInd = 0;
-        currentSetTextF.setText(db.getSet(curSetName).getName());
-        playingSetMultipleText.setText("Playing multiple choices: " + curSetName);
-        setAnswers();
-        questionMC.setText(db.getQuestion(curSetName,atQuestionInd));
-        nextButtonTextMC.setText("Next");
+        setUpPlay(Set.setType.MultipleChoice);
     }
 
     /**
@@ -290,13 +325,11 @@ public class FXController implements Initializable {
      * Changes the radio button-texts to the answers
      */
     public void setAnswers(){
-        String[] answers = db.getAnswers(curSetName,atQuestionInd);
-
-        List<String> answersShuffled = Arrays.asList(answers);
+        List<String> answersShuffled = new ArrayList<>(Arrays.asList(db.getAnswers(curSetName,atQuestionInd)));
         Collections.shuffle(answersShuffled);
 
         for (int i = 0; i < answerChoices.size(); i++) {
-            answerChoices.get(i).setText(answers[i]);
+            answerChoices.get(i).setText(answersShuffled.get(i));
         }
     }
 
@@ -314,22 +347,7 @@ public class FXController implements Initializable {
     }
 
     public void nextMultipleCard(){
-        if(!nextButtonTextMC.getText().equals("Submit")) {
-            if (db.getSetSize(curSetName) - 1 > atQuestionInd) {
-                atQuestionInd += 1;
-                questionMC.setText(db.getQuestion(curSetName,atQuestionInd));
-                setAnswers();
-                for (RadioButton rb : answerChoices) {
-                    rb.setSelected(false);
-                }
-                if (db.getSetSize(curSetName) - 1 == atQuestionInd) {
-                    nextButtonTextMC.setText("Submit");
-                }
-            }
-            out.println(userAnswers.toString());
-        } else{
-            openResultPage();
-        }
+        nextCard(Set.setType.MultipleChoice, nextButtonTextMC);
     }
 
     public void selectAnswer(RadioButton choice){
@@ -352,8 +370,6 @@ public class FXController implements Initializable {
         resultSetText.setText("Result of " + curSetName);
         for (int i = 0; i < userAnswers.size(); i++) {
             Card curCard = db.getCardAtIndex(curSetName,i);
-            out.println(userAnswers.toString() + "PRINTING MESSAGE LMAO ");
-            out.println(userAnswers.get(i) + " : " + userAnswers.size());
             resultFlowPane.getChildren().add(new ResultListItem(this, curCard, userAnswers.get(i)));
             if (curCard.getCorrectAnswer().equals(userAnswers.get(i))){
                 correct++;
@@ -406,33 +422,14 @@ public class FXController implements Initializable {
      * Sets up Play Spelling when a set is chosen (getFlashSet will be replaced by getTextSet)
      */
     public void setUpSpellingPlay(){
-        curSetType = Set.setType.Spelling;
-        atQuestionInd = 0;
-        currentSetTextF.setText(curSetName);
-        playingSetTextSpelling.setText("Playing spelling: " + curSetName);
-        termS.setText(db.getSet(curSetName).getCards().get(atQuestionInd).getQuestion());
-        definitionAnswerS.clear();
-        nextButtonTextS.setText("Next");
+        setUpPlay(Set.setType.Spelling);
     }
 
     /**
      * Switches to the next Spelling unless the last is currently played
      */
     public void nextSpellingTerm(){
-        if(!nextButtonTextS.getText().equals("Submit")) {
-            if (db.getSet(curSetName).getCards().size() - 1 > atQuestionInd) {
-                atQuestionInd += 1;
-                termS.setText(db.getSet(curSetName).getCards().get(atQuestionInd).getQuestion());
-                userAnswers.add(definitionAnswerS.getText());
-                definitionAnswerS.setText("");
-                if (db.getSet(curSetName).getCards().size() - 1 == atQuestionInd) {
-                    nextButtonTextS.setText("Submit");
-                }
-            }
-        } else {
-            userAnswers.add(definitionAnswerS.getText());
-            openResultPage();
-        }
+        nextCard(Set.setType.Spelling,nextButtonTextS);
     }
 
     /** ____________MY SETS____________ */
