@@ -99,7 +99,7 @@ public class FXController implements Initializable {
         answerChoices = List.of(answer1, answer2, answer3, answer4);
         openIntroPage();
         db.getSetHashMap().put("test spelling", new Set("test spelling", List.of(new Card("blue", "blå"), new Card("red", "röd"), new Card("green", "grön")), Model.Set.setType.Spelling));
-        db.getSetHashMap().put("test multiple", new Set("test multiple", List.of(new Card("4", new String[]{"5-2", "3-1", "7-3", "3-2"}), new Card("3", new String[]{"5-2", "3-1", "7-3", "3-2"}), new Card("1", new String[]{"5-2", "3-1", "7-3", "3-2"})), Model.Set.setType.MultipleChoice));
+        db.getSetHashMap().put("test multiple", new Set("test multiple", List.of(new Card("4", new String[]{"7-3", "3-1", "5-2", "3-2"}), new Card("3", new String[]{"5-2", "3-1", "7-3", "3-2"}), new Card("1", new String[]{"3-2", "3-1", "7-3", "5-1"})), Model.Set.setType.MultipleChoice));
     }
 
 
@@ -113,9 +113,8 @@ public class FXController implements Initializable {
         prevButtonF.setVisible(false);
         atQuestion = true;
         atQuestionInd = 0;
-        out.println(curSetName);
-        currentSetTextF.setText("Playing flashcards: " + db.getSet(curSetName).getName());
-        QnATextF.setText(db.getSet(curSetName).getCards().get(0).getQuestion());
+        currentSetTextF.setText("Playing flashcards: " + curSetName);
+        QnATextF.setText(db.getQuestion(curSetName,0));
         confirmButtonF.setText("Next");
     }
 
@@ -126,11 +125,11 @@ public class FXController implements Initializable {
         if(!confirmButtonF.getText().equals("Submit")){
             triggerSpinCardAnimation();
             prevButtonF.setVisible(true);
-            if (db.getSet(curSetName).getCards().size()-1 > atQuestionInd) {
+            if (db.getSetSize(curSetName) -1 > atQuestionInd) {
                 atQuestionInd += 1;
-                QnATextF.setText(db.getSet(curSetName).getCards().get(atQuestionInd).getQuestion());
+                QnATextF.setText(db.getQuestion(curSetName, atQuestionInd));
                 atQuestion = true;
-                if (db.getSet(curSetName).getCards().size() - 1 == atQuestionInd) {
+                if (db.getSetSize(curSetName) - 1 == atQuestionInd) {
                     confirmButtonF.setText("Submit");
                 }
             }
@@ -143,7 +142,7 @@ public class FXController implements Initializable {
      * Triggers the flash card animation
      */
     private void triggerSpinCardAnimation(){
-        FlashcardAnimation flashcardAnimation = new FlashcardAnimation(this, db.getSet(curSetName).getCards().get(atQuestionInd).getAnswers()[0]);
+        FlashcardAnimation flashcardAnimation = new FlashcardAnimation(this, QnATextF.getText());
         tempFlashCard.getChildren().add(flashcardAnimation);
         flashcardAnimation.setLayoutX(511);
         flashcardAnimation.setLayoutY(355);
@@ -156,8 +155,9 @@ public class FXController implements Initializable {
      */
     public void previousFlashCard(){
         if (atQuestionInd != 0){
+            confirmButtonF.setText("Next");
             atQuestionInd -= 1;
-            QnATextF.setText(db.getSet(curSetName).getCards().get(atQuestionInd).getQuestion());
+            QnATextF.setText(db.getQuestion(curSetName, atQuestionInd));
             atQuestion = true;
         }
         if (atQuestionInd < 1){
@@ -169,16 +169,16 @@ public class FXController implements Initializable {
     //  * If at card, grey out the "previous" button or make it not visible
     //  * If at last card, make this known visually to the user (maybe change the "next" button text)
 
+
     /**
      Reveals the answer or the question/term
      */
     public void turnCard(){
         if (atQuestion){
-            out.println(db.getSet(curSetName).getCards().get(atQuestionInd).getAnswers()[0]);
-            QnATextF.setText(db.getSet(curSetName).getCards().get(atQuestionInd).getAnswers()[0]);
+            QnATextF.setText(db.getAnswer(curSetName, atQuestionInd));
             atQuestion = false;
         } else{
-            QnATextF.setText(db.getSet(curSetName).getCards().get(atQuestionInd).getQuestion());
+            QnATextF.setText(db.getQuestion(curSetName, atQuestionInd));
             atQuestion = true;
         }
         triggerFlipCardAnimation();
@@ -197,7 +197,7 @@ public class FXController implements Initializable {
      */
     public void addCreateSetItem() {
         CreateSetListItem item = new CreateSetListItem(this, ("C" + createItemID), curSetType);
-        db.getCreateSetListItems().add(item);
+        db.addCreateSetListItem(item);
         updateCreateSingleFlowPane(db.getCreateSetListItems());
         createItemID++;
     }
@@ -218,18 +218,17 @@ public class FXController implements Initializable {
      * Opens the create set page and adds 3 list items to the flow pane
      */
     public void openCreateSet(Set.setType type){
+        db.clearCreateSetListItem();
+        setNameC.setText("");
+        createSetFlowPane.getChildren().clear();
         curSetType = type;
         switch (type){
             case MultipleChoice -> creatingEditingTitleText.setText("Creating multiple choices set");
             case Spelling -> creatingEditingTitleText.setText("Creating spelling set");
             case FlashCard -> creatingEditingTitleText.setText("Creating flashcards set");
         }
-        createSetFlowPane.getChildren().clear();
-        db.getCreateSetListItems().clear();
         createSetView.toFront();
-        for (int i = 0; i < 3; i++) {
-            addCreateSetItem();
-        }
+        for (int i = 0; i < 3; i++) {addCreateSetItem();}
         updateCreateSingleFlowPane(db.getCreateSetListItems());
     }
 
@@ -238,36 +237,51 @@ public class FXController implements Initializable {
      */
     public void saveCreatedSet(){
         if (!setNameC.getText().equals("")) {
-            List<Card> cards = new ArrayList<>();
-            for (CreateSetListItem item : db.getCreateSetListItems()) {
-                cards.add(new Card(item.getTerm(), item.getDefinition()));
+            if(db.getSetHashMap().containsKey(setNameC.getText())) { // If set already exists
+                System.out.println("Error : A set with that name already exists. Choose another name.");
+            } else {
+                List<Card> cards = new ArrayList<>();
+                if (curSetType == Set.setType.FlashCard || curSetType == Set.setType.Spelling){
+                    for (CreateSetListItem item : db.getCreateSetListItems()) {
+                        cards.add(new Card(item.getTerm(), item.getDefinition()));
+                    }
+                } else if(curSetType == Set.setType.MultipleChoice) {
+                    for (CreateSetListItem item : db.getCreateSetListItems()) {
+                        cards.add(new Card(item.getTermMCS(), item.getDefinitionsMCS()));
+                    }
+                } else if (curSetType == Set.setType.Null){out.println("Error : setType is null.");}
+                else{out.println("Error : Invalid setType.");}
+
+                Set newSet = new Set(setNameC.getText(), cards, curSetType);
+
+                try {
+                    FileManager fm = new FileManager();
+                    fm.saveSet(newSet);
+                } catch (Exception e) {e.printStackTrace();}
+                db.updateAll();
+                setCreatedView.toFront();
+                curSetName = setNameC.getText();
+                createdSetName.setText(curSetName);
+                createSetFlowPane.getChildren().clear();
+                db.clearCreateSetListItem();
             }
-            Set newSet = new Set(setNameC.getText(), cards, curSetType);
-            try {
-                FileManager fm = new FileManager();
-                fm.saveSet(newSet);
-            } catch (Exception e) {e.printStackTrace();}
-            db.updateAll();
         }
-        curSetName = setNameC.getText();
-        createdSetName.setText(curSetName);
-        setCreatedView.toFront();
-        createSetFlowPane.getChildren().clear();
-        db.getCreateSetListItems().clear();
+        else {System.out.println("Error : setNameC field is empty");} // If name is ""
     }
 
 
     /** ____________MULTIPLE CHOICES____________ */
 
     public void setUpMultiplePlay(){
+        userAnswers.clear();
+        resultFlowPane.getChildren().clear();
         curSetType = Set.setType.MultipleChoice;
-        curSetName = "test multiple";
         atQuestion = true;
         atQuestionInd = 0;
         currentSetTextF.setText(db.getSet(curSetName).getName());
         playingSetMultipleText.setText("Playing multiple choices: " + curSetName);
         setAnswers();
-        questionMC.setText(db.getSet(curSetName).getCards().get(atQuestionInd).getQuestion());
+        questionMC.setText(db.getQuestion(curSetName,atQuestionInd));
         nextButtonTextMC.setText("Next");
     }
 
@@ -276,14 +290,11 @@ public class FXController implements Initializable {
      * Changes the radio button-texts to the answers
      */
     public void setAnswers(){
-        Random rand = new Random();
-        String[] answers = db.getSet(curSetName).getCards().get(atQuestionInd).getAnswers();
-        for (int i = 3; i > 0; i--) {
-            int j = rand.nextInt(i+1);
-            String temp = answers[i];
-            answers[i] = answers[j];
-            answers[j] = temp;
-        }
+        String[] answers = db.getAnswers(curSetName,atQuestionInd);
+
+        List<String> answersShuffled = Arrays.asList(answers);
+        Collections.shuffle(answersShuffled);
+
         for (int i = 0; i < answerChoices.size(); i++) {
             answerChoices.get(i).setText(answers[i]);
         }
@@ -300,22 +311,22 @@ public class FXController implements Initializable {
                 break;
             }
         }
-        out.println(userAnswers.toString());
     }
 
     public void nextMultipleCard(){
         if(!nextButtonTextMC.getText().equals("Submit")) {
-            if (db.getSet(curSetName).getCards().size() - 1 > atQuestionInd) {
+            if (db.getSetSize(curSetName) - 1 > atQuestionInd) {
                 atQuestionInd += 1;
-                questionMC.setText(db.getSet(curSetName).getCards().get(atQuestionInd).getQuestion());
+                questionMC.setText(db.getQuestion(curSetName,atQuestionInd));
                 setAnswers();
                 for (RadioButton rb : answerChoices) {
                     rb.setSelected(false);
                 }
-                if (db.getSet(curSetName).getCards().size() - 1 == atQuestionInd) {
+                if (db.getSetSize(curSetName) - 1 == atQuestionInd) {
                     nextButtonTextMC.setText("Submit");
                 }
             }
+            out.println(userAnswers.toString());
         } else{
             openResultPage();
         }
@@ -340,14 +351,16 @@ public class FXController implements Initializable {
         int correct = 0;
         resultSetText.setText("Result of " + curSetName);
         for (int i = 0; i < userAnswers.size(); i++) {
-            Card curCard = db.getSet(curSetName).getCards().get(i);
+            Card curCard = db.getCardAtIndex(curSetName,i);
+            out.println(userAnswers.toString() + "PRINTING MESSAGE LMAO ");
+            out.println(userAnswers.get(i) + " : " + userAnswers.size());
             resultFlowPane.getChildren().add(new ResultListItem(this, curCard, userAnswers.get(i)));
             if (curCard.getCorrectAnswer().equals(userAnswers.get(i))){
                 correct++;
             }
         }
         if (userAnswers.size() > 0) {
-            resultNumCorrect.setText("Correct answers: " + correct + "/" + userAnswers.size() + " (" + ((correct / userAnswers.size()) * 100) + "%)");
+            resultNumCorrect.setText("Correct answers: " + correct + "/" + userAnswers.size() + " (" + Math.round(correct * 100 / userAnswers.size())  + "%)");
         }
     }
 
