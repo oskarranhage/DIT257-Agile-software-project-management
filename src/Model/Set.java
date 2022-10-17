@@ -31,9 +31,9 @@ public class Set {
     }
 
     public Set(Set set) {
-        this.name = set.getName();
-        try {this.cards = set.getCards();} catch (Exception e) {}
-        try {this.thisSetType = set.getThisSetType();} catch (Exception e) {}
+        this.name = set.name;
+        try {this.cards = set.cards;} catch (Exception e) {}
+        try {this.thisSetType = set.thisSetType;} catch (Exception e) {}
     }
     public void addCard(int id,Card c){this.cards.add(id,c);}
     public void addCard(Card c){this.cards.add(c);}
