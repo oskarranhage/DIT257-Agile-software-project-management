@@ -88,6 +88,56 @@ When we are assigned a user story we should present how we are going to implemen
 happened with “multiple choices” this week.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
+
+SPRINT REVIEW WEEK 4:
+
+How did the sprint go?
+It went well. We completed most of our planned user stories and had time to catch up from last week's disturbances. 
+
+Did we complete our tasks?
+We completed almost all user stories, but we had a problem with merging. Causing the tasks as a whole not to be completed. The tasks still work 
+by themselves. Anthon got stuck on a specific error and therefore didn’t have the time to complete one of the user stories he was assigned.
+
+Did the members cooperate well?
+This week the backend programmers split up in groups of two and worked together on user stories with closer communication, this went well as we 
+were able to discuss ideas and implementations with each other more easily. 
+
+In this sprint one misunderstanding occurred, the group did not have the same visions for the “multiple choices” feature. This could be avoided 
+by more detailed communication among us. 
+
+Was the workload sufficinent and/or manageable?
+The workload this week was manageable for the most part, however we had some larger stories from last week that we had left over, for example the 
+MVC user story. But this still sufficed and did not overflow our work load. 
+
+What needs to change until the next sprint?
+Next week we will work on user stories in separate branches, and then merge those branches into the main branch when completely done.
+
+When we are assigned a user story we should present how we are going to implement that work in order to prevent misunderstanding such as what 
+happened with “multiple choices” this week.
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+SPRINT REVIEW WEEK 5:
+
+How did the sprint go?
+It went well.
+
+Did we complete our tasks?
+All members completed their tasks. 
+
+Did the members cooperate well?
+We had good communication this sprint, 
+
+Was the workload sufficinent and/or manageable?
+The workload was manageable, however the backend developers didn’t have much to do due to the backend being mostly complete. For most of the 
+group members, the stress level decreased this sprint. 
+
+What needs to change until the next sprint?
+We need to improve our ability to distribute work as well as understand how much work we are capable of achieving.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
 SPRINT REVIEW 6:
 
 How did the sprint go?
@@ -110,6 +160,27 @@ We need to improve our ability to distribute work as well as understand how much
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
+SPRINT REVIEW WEEK 7:
+
+How did the sprint go?
+It went well, we have developed a better understanding for how we as a team work in an agile way of working. 
+
+Did we complete our tasks?
+we completed all of our designated user stories starting with the ones with highest     priority.  
+
+Did the members cooperate well?
+Yes the members did cooperate well in this sprint. 
+
+Was the workload sufficinent and/or manageable?
+This week our user stories were manageable as we completed all of them. Regarding whether they were sufficient is a bit hard to tell 
+because we didn’t want to add too much for the recond to last sprint. The reason for this is that we predict the last sprint will be to fix the 
+bugs and small errors in the program. 
+
+What needs to change until the next sprint?
+The next sprint we should not add anything new, only fix bugs and remove excess code.
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
 Team Reflection:
 
 *Customer Value and Scope*
@@ -119,6 +190,18 @@ Team Reflection:
 WEEK 3: How we chose the scope of our application under the Scrum board meeting decided that the priority should be a playable version of
 flashcards, that would give our primary customer middle schoolers a tool that they can use in all of their courses. Later focusing on adding
 more functionality like a Spelling test, and multiple choice answers.
+
+WEEK 7:
+The primary customer group is still people in the school-age, mostly students around middle-school. 
+We first decided that the priority for the application should be a playable version of flashcards, with the ability to later add on more functionality 
+to the application. That could be things like a spelling-test and multiple choices-test. 
+We discovered quite quickly that we would have the time to extend our application with these features. Now we have all 3 features implemented
+in our application; spelling, multiple choices and flashcards, so that the user can choose their own way of learning. We even had the discussion
+to implement even more functionality, such as having a “folder” functionality. The idea behind that was that the user could sort their study tests in specific 
+folders. However, we felt like we were a little short on time to accomplish that, and since we did not think that the folder-feature would make a big difference 
+for the application (the priority was not so high), we chose to skip that. 
+
+
 
 *The success criteria for the team in terms of what you want to achieve within the project (this can include the application, but also your
 learning outcomes, your teamwork, or your effort)?:
@@ -132,6 +215,20 @@ Teamwork: Of course we would like to improve our teamwork. Which would include a
 the subject and their say on it.
 Effort: The amount of effort we would like to use for this project is enough for us to be proud of what we’ve done.
 
+WEEK 6:
+The success criteria has not changed much, we have minimal requirements for the product that was not previously mentioned. It needs to be runnable, 
+the program should be able to create flash sets consisting of flash cards, spelling sets consisting of spelling cards and multiple choice sets 
+consisting of multiple choice cards. The user should be able to run/play the sets he/she created and edit sets.
+Learning: We would like to learn more agile practices such as the multi layer cake model and how we as a group can work more vertically instead of horizontally.
+Teamwork: Our teamwork has improved since week 4, both our communication and cooperation, however we can still enhance it. 
+We have good teamwork between the members of the backend and good teamwork between the members in frontend, but we could further improve it between the two. 
+We could do so by giving more overviews of the code in backend to frontend and vice versa, so that everyone comprehends what everyone is working on and give 
+their opinion on it. Right now we don’t really have much insight into each other's work, if someone in backend were to modify the work of someone in frontend, 
+he wouldn’t be able to.
+Effort: We don’t need to put in an absurd amount of hours into our product, but enough for us to accomplish the minimal requirements that we now have and feel 
+pleased with ourselves.  
+
+
 *Your user stories in terms of using a standard pattern, acceptance criteria, task breakdown and effort estimation and how this influenced the
 way you worked and created value?:
 
@@ -142,6 +239,7 @@ been written in quite broad terms. In the future we would like to have smaller s
 reasonable to complete in the timespan of a sprint. This will be achieved by changing and adding more specific stories throughout the project
 when needed and adding them into the scrum board.
 
+
 *Your acceptance tests, such as how they were performed, with whom, and which value they provided for you and the other stakeholders:?
 WEEK 5:
 How we Demo finished user stories, is when they are runnable and able to be merged into the main branch. Our acceptance test is by 
@@ -149,6 +247,17 @@ following the acceptance criteria and only when the criteria is met, are you mov
 group at the end of the week, to see if what is done and what needs more work, and or if it needed to be split up into smaller parts, it 
 also helps our team with keeping the dividing. This helps us so when it is time at the sprint review to show our PO what we have done this 
 week.
+
+WEEK 7:
+We now use checklists on each item in trello to clearly show what acceptance criterias needs to be met for each story, and also what criteria
+have been completed. This way of listing acceotance criteria has made it easier for us to work on the same user stories together and for us
+to see what the others are working on. We would however need to be more distictive between how we define our user stories and our quick fixes.
+During our project we've run into a lot of smaller things that needs to be fixed, this has led to us creating objects in trello which are not
+user stories but are fixes that needs to be done in order to work towards a user story or even several user stories. We would need to openly
+discuss and distinguish between how the fixes should be written out. Our current method has worked but has led to confusion about which objects
+are user stories and which ones that are just fixes and how they should be written. When looking on our trello, we've had to deal with and
+rewrite objects so that they make sense for everyone, this would have been much easier had we discussed the rules of writing user stories 
+and fixes in more detail in the beginning.
 
 WEEK 6:
 When we as programmers deem a user story that we have worked in as “done”, it needs to meet the requirements for DoD (definition of done). 
@@ -347,6 +456,11 @@ not meet the requirements for the DoD (Definition of Done), it won’t progress 
 requirements it will progress further, probably all the way to the “done” state, where it’s completely finished. In our reviews we talked about
 the user stories we had worked upon in the previous sprint, and decided if they met the requirements of the DoD or not. If they did they will
 be reviewed by the PO or a TA, if they did not they are still in progress of being completed.
+
+WEEK 7:We now have a better understanding of how to use a PO. This week in specifically useful because it was the second to last sprint, 
+and made it clear what needed to be done until the presentation, fixing know bugs and such, Our DoD has not been changed so the PO have judged the same way after 
+every sprint but what has changed is what we have to present,  we got better at presenting a functional product and able to show of every User Story for that week, 
+and if not showed what needed to be done to make it Done. Our understanding of what the product should look like hasnt changed either.
 
 *best practices for learning and using new tools and technologies (IDEs, version control, scrum boards etc.; do not only describe which tools
 you used but focus on how you developed the expertise to use them) relation to literature and guest lectures (how do your reflections relate

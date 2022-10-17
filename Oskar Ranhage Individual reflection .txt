@@ -82,3 +82,13 @@ my team needs me because i know github best
 This week i was the Scrum Master and i was the person who held all the meetings as well as the rugular stuf
 * what is my contribution towards the team’s deliveries?
 this week me and lucas took the same userstorie (result screen), finished, randomization of all the diffrent types of learning game.
+
+Week 6:
+* what do I want to learn or understand better?
+This week was a sluggish and only fixed code so , i spent some time reading about github
+* how can I help someone else, or the entire team, to learn something new?
+And subsequently that my team about what a read
+* what is my contribution towards the team’s use of Scrum?
+Same as most weeks, where i was in the meetings and helped by writing some of the userstories
+* what is my contribution towards the team’s deliveries?
+This week me and alex spent on comenting on code aswell as cleaning up and fixing bugs

@@ -66,7 +66,7 @@ My contributions towards the team's deliveries is that I completed my 2 tasks. I
 
 
 --------------------------------------------------------------
-Week 4:
+Week 4: 23/9
 What do I want to learn or understand better?
 I would like to learn to be better at communicating. We noticed some communication releted problems in the leat sprint. 
 
@@ -86,7 +86,7 @@ I also completed my 2 tasks I had on the scrumboard.
 
 -----------------------------------------------------------
 
-Week 5:
+Week 5: 30/9
 
 
 What do I want to learn or understand better?
@@ -107,7 +107,7 @@ My contributions towards the team's deliveries is that I completed my 2 tasks. I
 
 --------------------------------------------------------------
 
-Week 5:
+Week 6: 7/10
 
 What do I want to learn or understand better?
 I want to learn how to estimate the workload better, so that I don´t have to get as stressed as I was this sprint. I still completed all my tasks, 
@@ -124,7 +124,7 @@ I completed my tasks that I had for this sprint.
 
 ---------------------------------------------------------------
 
-Week 6: 7/10
+Week 7: 14/10
 
 What do I want to learn or understand better?
 
@@ -133,16 +133,14 @@ How can I help someone else, or the entire team, to learn something new?
 
 
 What is my contribution towards the team’s use of scrum?
-I use our trello board and attended to every meeting. 
+I used our trello board and attended to every meeting. 
 
 
 What is my contribution towards the team’s deliveries?
 I completed my tasks on the scrumboard that I had for this sprint. I added icons in SceneBuilder so that the program looks a bit better, 
 but also so that the user can navigate better. It is easier to navigate if there is icons that describes where every button takes you. 
 
---------------------------------------------------------------
 
-Week 7:
 
 
 
