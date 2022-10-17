@@ -57,8 +57,8 @@ public class DataBase extends FileManager {
 
     // ------- Getters -------
 
-    public Set getSet(String setname) {return setHashMap.get(setname);}
+    public Set getSet(String setname) {return new Set(setHashMap.get(setname));}
 
-    public HashMap<String, Set> getSetHashMap() { return setHashMap; }
-    public ArrayList<CreateSetListItem> getCreateSetListItems() {return createSetListItems;}
+    public HashMap<String, Set> getSetHashMap() { return new HashMap<>(setHashMap); }
+    public ArrayList<CreateSetListItem> getCreateSetListItems() {return new ArrayList<>(createSetListItems);}
 }

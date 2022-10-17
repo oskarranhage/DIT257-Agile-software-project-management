@@ -4,11 +4,10 @@ package Model;
 import java.util.*;
 
 public class Set {
-    String name;
-    ArrayList<Card> cards = new ArrayList<Card>();
+    private String name;
+    private ArrayList<Card> cards = new ArrayList<Card>();
     private setType thisSetType;
-    static Random rand = new Random();
-    Scanner sc = new Scanner(System.in);
+    private static Random rand = new Random();
 
     public enum setType{FlashCard,Spelling,MultipleChoice,Null}
     public void setTypeFlashCard(){thisSetType = setType.FlashCard;}
@@ -31,6 +30,11 @@ public class Set {
         this.thisSetType = type;
     }
 
+    public Set(Set set) {
+        this.name = set.getName();
+        try {this.cards = set.getCards();} catch (Exception e) {}
+        try {this.thisSetType = set.getThisSetType();} catch (Exception e) {}
+    }
     public void addCard(int id,Card c){this.cards.add(id,c);}
     public void addCard(Card c){this.cards.add(c);}
     public void removeCard(Card c){
