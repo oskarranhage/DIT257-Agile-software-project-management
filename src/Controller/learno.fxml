@@ -636,7 +636,7 @@
                                     <Font size="24.0" />
                                  </font>
                               </Button>
-                              <Text fx:id="nextButtonTextMC" layoutX="1186.0" layoutY="436.0" onMouseClicked="#nextMultipleCard" strokeType="OUTSIDE" strokeWidth="0.0" text="Next" textAlignment="CENTER">
+                              <Text fx:id="nextButtonTextMC" layoutX="1186.0" layoutY="436.0" onMouseClicked="#confirmAnswer" strokeType="OUTSIDE" strokeWidth="0.0" text="Next" textAlignment="CENTER">
                                  <font>
                                     <Font size="36.0" />
                                  </font>

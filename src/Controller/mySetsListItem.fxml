@@ -34,7 +34,7 @@
                <children>
                   <ImageView fitHeight="30.0" fitWidth="32.0" layoutX="12.0" layoutY="13.0" onMouseClicked="#removeSet">
                      <image>
-                        <Image url="@../images/bin.png" />
+                        <Image url="@../images/x-mark.png" />
                      </image>
                   </ImageView>
                </children>

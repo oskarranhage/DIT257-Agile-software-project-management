@@ -55,6 +55,41 @@ public class DataBase extends FileManager {
         } catch (Exception e) {setHashMap.remove(fileName);} //remove the set from setHashMap if file is not readable.
     }
 
+    /**
+     * Gets the set size.
+     * @param setName The set name. In the format : (setName) without setType and without .txt
+     * @return The size of the list of cards inside the Set.
+     */
+    public int getSetSize(String setName){
+        return setHashMap.get(setName).getCards().size();
+    }
+
+    /**
+     * Gets the answers of the given set at the given index.
+     * @param setName The name of the set in format : (setName) without setType and without .txt
+     * @param cardIndex The index of the card in the set.
+     * @return Returns a list of answers.
+     */
+    public String[] getAnswers(String setName, int cardIndex){
+        return setHashMap.get(setName).getCardAtIndex(cardIndex).getAnswers();
+    }
+
+    public String getQuestion(String setName, int cardIndex){
+        return setHashMap.get(setName).getCardAtIndex(cardIndex).getQuestion();
+    }
+
+    public String getAnswer(String setName, int cardIndex) {
+        return setHashMap.get(setName).getAnswersOfCardAtIndex(cardIndex)[0];
+    }
+
+    public void addCreateSetListItem(CreateSetListItem c) {
+        createSetListItems.add(c);
+    }
+
+    public void clearCreateSetListItem () {createSetListItems.clear();}
+
+    public Card getCardAtIndex(String setName, int cardIndex){return setHashMap.get(setName).getCardAtIndex(cardIndex);}
+
     // ------- Getters -------
 
     public Set getSet(String setname) {return new Set(setHashMap.get(setname));}

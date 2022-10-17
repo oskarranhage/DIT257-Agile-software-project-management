@@ -96,5 +96,30 @@ public class Set {
         set.setCards(cardList);
         return set;
     }
+
+    /**
+     * Gets the list of answers of a specific card.
+     * @param cardIndex The index of the card inside the cards list. (Starts at 0)
+     * @return Returns the list of answers with length 4.
+     */
+    public String[] getAnswersOfCardAtIndex(int cardIndex) {
+        return cards.get(cardIndex).getAnswers();
+    }
+
+    /**
+     * Gets the question at the given card index.
+     * @param cardIndex The index of the card inside the cards list. (Starts at 0)
+     * @return Returns a string representing the answer.
+     */
+    public String getQuestionAtIndex(int cardIndex) {return cards.get(cardIndex).getQuestion();}
+
+    /**
+     * Gets the card at the given index.
+     * @param cardIndex The index of the card inside the cards list. (Starts at 0)
+     * @return Returns the card at index cardIndex.
+     */
+    public Card getCardAtIndex(int cardIndex){
+        return cards.get(cardIndex);
+    }
 }
 

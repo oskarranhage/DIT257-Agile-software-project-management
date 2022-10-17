@@ -52,9 +52,14 @@ public class CreateSetListItem extends AnchorPane {
         return termTextC.getText();
     }
 
+    public String getTermMCS() {return questionTextC.getText();}
+
     public String getDefinition(){
         return defTextC.getText();
     }
+    public String[] getDefinitionsMCS() {
+        String[] out = {answerText1.getText(),answerText2.getText(),answerText3.getText(),answerText4.getText()};
+        return out;}
 
 
     public void removeCreateListItem(){
