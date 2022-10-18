@@ -18,6 +18,7 @@ public class MySetsListItem extends AnchorPane {
     @FXML ImageView setImageFlash;
     @FXML ImageView setImageSpelling;
     @FXML ImageView setImageMul;
+    @FXML AnchorPane mySetListItem;
 
     /** Constructor for order with fxml */
     public MySetsListItem(FXController controller, Model.Set set) {
@@ -53,7 +54,7 @@ public class MySetsListItem extends AnchorPane {
             case FlashCard -> controller.openPlayFlashcard();
             case MultipleChoice -> controller.openPlayMultipleChoice();
             case Spelling -> controller.openPlaySpelling();
-      }
+        }
     }
 
     public void editSet(){
@@ -62,11 +63,19 @@ public class MySetsListItem extends AnchorPane {
     }
 
     public void removeSet(){
-
+        try {
+            controller.removeSet(set.getName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private Image newImage(String url){
         return new Image(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(url)));
+    }
+
+    public double getPaneHeight(){
+        return mySetListItem.getHeight();
     }
 }
 

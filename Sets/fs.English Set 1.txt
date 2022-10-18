@@ -2,3 +2,5 @@ Får.Sheep
 Hus.House
 Tyskland.Germany
 Bokhylla.Bookshelf
+Bror.Bruh
+Hej.Hello

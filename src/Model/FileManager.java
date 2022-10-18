@@ -58,6 +58,10 @@ public class FileManager {
         createTextFile(setFilePath.resolve(name + ".txt"));
     }
 
+    public void deleteTextFile(String setName) throws IOException {
+        Files.delete(setFilePath.resolve(setName+".txt"));
+    }
+
     /**
      * Creates textfile with given name inside /Sets/folderName/.
      * @param name The name of the set that should be created.
@@ -138,6 +142,7 @@ public class FileManager {
                 set.addCard(new Card(cardRepresent[0], listOfAnswers));
             }
         }
+        set.setName(fileName.split(regexSplitter)[1]);
         return set;
     }
 

@@ -22,6 +22,7 @@ public class ResultListItem extends AnchorPane {
     @FXML private ImageView wrongAnswerImage;
     @FXML private Pane borderPane;
     @FXML private Pane userInputPane;
+    @FXML private AnchorPane resultListItem;
 
     public ResultListItem(FXController controller, Card card, String userInput) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("resultListItem.fxml"));
@@ -60,5 +61,9 @@ public class ResultListItem extends AnchorPane {
     public void removeCreateListItem(){
         controller.db.getCreateSetListItems().removeIf(item -> id.equals(item.id));
         controller.updateCreateSingleFlowPane(controller.db.getCreateSetListItems());
+    }
+
+    public double getPaneSize(){
+        return resultListItem.getHeight();
     }
 }

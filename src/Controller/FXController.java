@@ -14,6 +14,7 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 import java.util.List;
@@ -25,12 +26,12 @@ public class FXController implements Initializable {
 
     /** Play flashcards variables */
     @FXML private AnchorPane playFlashcardView;
-    @FXML private Text flashCardText;
-    @FXML private Text currentFlashSetText;
+    @FXML private Text QnATextF;
+    @FXML private Text currentSetTextF;
     @FXML private Button prevButtonF;
-    @FXML private Button nextButtonF;
-    @FXML private AnchorPane tempFlashCardForAnimation;
-    @FXML private Pane flashCardPane;
+    @FXML private Button confirmButtonF;
+    @FXML private AnchorPane tempFlashCard;
+    @FXML private Pane flashCardBack;
 
     /** Play MultipleChoice variables */
     @FXML private AnchorPane playMultipleChoiceView;
@@ -39,37 +40,44 @@ public class FXController implements Initializable {
     @FXML private RadioButton answer3;
     @FXML private RadioButton answer4;
     @FXML private Text questionMC;
-    private List<RadioButton> answers;
-    @FXML private Text nextButtonMC;
-    @FXML private Text currentMultipleSetText;
+    private List<RadioButton> answerChoices;
+    @FXML private Text nextButtonTextMC;
+    @FXML private Text playingSetMultipleText;
 
     /** Start Menu variables */
     @FXML private AnchorPane startMenu;
     @FXML private AnchorPane introPage;
 
     /** Spelling variables */
-    @FXML private TextField definitionS;
+    @FXML private TextField definitionAnswerS;
     @FXML private Text termS;
-    @FXML private AnchorPane playSpellingView;
-    @FXML private Text currentSpellingSetText;
-    @FXML private Text nextButtonS;
+    @FXML private AnchorPane spellingView;
+    @FXML private Text playingSetTextSpelling;
+    @FXML private Text nextButtonTextS;
 
     /** Create set variables */
     @FXML private FlowPane createSetFlowPane;
     @FXML private TextField setNameC;
     @FXML private AnchorPane createSetView;
-    @FXML private AnchorPane chooseSetTypeView;
+    @FXML private AnchorPane choooseSetView;
     @FXML private Text creatingEditingTitleText;
     @FXML private AnchorPane setCreatedView;
-    @FXML private Text createSetName;
+    @FXML private Text createdSetName;
     @FXML private ScrollPane createSetScrollPane;
 
     /** Result variables */
     @FXML private Text resultSetText;
+    @FXML private Text resultPercentage;
     @FXML private Text resultNumCorrect;
     @FXML private FlowPane resultFlowPane;
     @FXML private AnchorPane resultPage;
     @FXML private ScrollPane resultsScrollPane;
+
+    /** Create folder variables */
+    @FXML private AnchorPane createFolderMenu;
+
+    /** My foldes variables */
+    @FXML private AnchorPane myFoldersView;
 
     /** My sets variables */
     @FXML private AnchorPane mySetsView;
@@ -85,6 +93,7 @@ public class FXController implements Initializable {
     private Model.Set.setType curSetType = null;
 
     public FXController() {
+        //bulbImage.setImage(new Image("C:/Programmering/DIT257-Agile-software-project-management/src/images/light-bulb.png"));
     }
 
     /**
@@ -92,10 +101,10 @@ public class FXController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        answers = List.of(answer1, answer2, answer3, answer4);
+        answerChoices = List.of(answer1, answer2, answer3, answer4);
         openIntroPage();
-        db.getSetHashMap().put("test spelling", new Set("test spelling", List.of(new Card("blue", "blå"), new Card("red", "röd"), new Card("green", "grön")), Model.Set.setType.Spelling));
-        db.getSetHashMap().put("test multiple", new Set("test multiple", List.of(new Card("4", new String[]{"7-3", "3-1", "5-2", "3-2"}), new Card("3", new String[]{"5-2", "3-1", "7-3", "3-2"}), new Card("1", new String[]{"3-2", "3-1", "7-3", "5-1"})), Model.Set.setType.MultipleChoice));
+        //db.getSetHashMap().put("test spelling", new Set("test spelling", List.of(new Card("blue", "blå"), new Card("red", "röd"), new Card("green", "grön")), Model.Set.setType.Spelling));
+        //db.getSetHashMap().put("test multiple", new Set("test multiple", List.of(new Card("4", new String[]{"7-3", "3-1", "5-2", "3-2"}), new Card("3", new String[]{"5-2", "3-1", "7-3", "3-2"}), new Card("1", new String[]{"3-2", "3-1", "7-3", "5-1"})), Set.setType.MultipleChoice));
     }
 
 
@@ -111,21 +120,21 @@ public class FXController implements Initializable {
             case FlashCard:
                 prevButtonF.setVisible(false);
                 atQuestion = true;
-                flashCardText.setText(db.getQuestion(curSetName,0));
-                currentFlashSetText.setText("Playing flashcards: " + curSetName);
-                nextButtonF.setText("Next");
+                QnATextF.setText(db.getQuestion(curSetName,0));
+                currentSetTextF.setText("Playing flashcards: " + curSetName);
+                confirmButtonF.setText("Next");
                 break;
             case Spelling:
                 termS.setText(db.getQuestion(curSetName, atQuestionInd));
-                definitionS.clear();
-                currentSpellingSetText.setText("Playing spelling: " + curSetName);
-                nextButtonS.setText("Next");
+                definitionAnswerS.clear();
+                playingSetTextSpelling.setText("Playing spelling: " + curSetName);
+                nextButtonTextS.setText("Next");
                 break;
             case MultipleChoice:
                 setAnswers();
                 questionMC.setText(db.getQuestion(curSetName,atQuestionInd));
-                currentMultipleSetText.setText("Playing multiple choices: " + curSetName);
-                nextButtonMC.setText("Next");
+                playingSetMultipleText.setText("Playing multiple choices: " + curSetName);
+                nextButtonTextMC.setText("Next");
         }
     }
     public void nextCard(Set.setType setType, Text nextButton){
@@ -136,20 +145,19 @@ public class FXController implements Initializable {
                 case FlashCard :
                     triggerSpinCardAnimation();
                     prevButtonF.setVisible(true);
-                    flashCardText.setText(db.getQuestion(curSetName, atQuestionInd));
+                    QnATextF.setText(db.getQuestion(curSetName, atQuestionInd));
                     atQuestion = true;
-                    if (atQuestionInd + 1 == setSize){
-                        nextButtonF.setText("Submit");}
+                    if (atQuestionInd + 1 == setSize){confirmButtonF.setText("Quit");}
                     break;
                 case Spelling :
                     termS.setText(db.getSet(curSetName).getCards().get(atQuestionInd).getQuestion());
-                    userAnswers.add(definitionS.getText());
-                    definitionS.setText("");
+                    userAnswers.add(definitionAnswerS.getText());
+                    definitionAnswerS.setText("");
                     break;
                 case MultipleChoice :
                     questionMC.setText(db.getQuestion(curSetName,atQuestionInd));
                     setAnswers();
-                    for (RadioButton rb : answers) {
+                    for (RadioButton rb : answerChoices) {
                         rb.setSelected(false);
                     }
                     break;
@@ -158,8 +166,9 @@ public class FXController implements Initializable {
                 nextButton.setText("Submit");
             }
         } else{
-            if (curSetType == Set.setType.Spelling){userAnswers.add(definitionS.getText());}
-            openResultPage();
+            if (curSetType == Set.setType.Spelling){userAnswers.add(definitionAnswerS.getText());}
+            if(curSetType == Set.setType.FlashCard){openMySets();}
+            else{openResultPage();}
         }
     }
 
@@ -183,8 +192,8 @@ public class FXController implements Initializable {
      * Triggers the flash card animation
      */
     private void triggerSpinCardAnimation(){
-        FlashcardAnimation flashcardAnimation = new FlashcardAnimation(this, flashCardText.getText());
-        tempFlashCardForAnimation.getChildren().add(flashcardAnimation);
+        FlashcardAnimation flashcardAnimation = new FlashcardAnimation(this, QnATextF.getText());
+        tempFlashCard.getChildren().add(flashcardAnimation);
         flashcardAnimation.setLayoutX(511);
         flashcardAnimation.setLayoutY(355);
         flashcardAnimation.toFront();
@@ -196,9 +205,9 @@ public class FXController implements Initializable {
      */
     public void previousFlashCard(){
         if (atQuestionInd != 0){
-            nextButtonF.setText("Next");
+            confirmButtonF.setText("Next");
             atQuestionInd -= 1;
-            flashCardText.setText(db.getQuestion(curSetName, atQuestionInd));
+            QnATextF.setText(db.getQuestion(curSetName, atQuestionInd));
             atQuestion = true;
         }
         if (atQuestionInd < 1){
@@ -216,17 +225,17 @@ public class FXController implements Initializable {
      */
     public void turnCard(){
         if (atQuestion){
-            flashCardText.setText(db.getAnswer(curSetName, atQuestionInd));
+            QnATextF.setText(db.getAnswer(curSetName, atQuestionInd));
             atQuestion = false;
         } else{
-            flashCardText.setText(db.getQuestion(curSetName, atQuestionInd));
+            QnATextF.setText(db.getQuestion(curSetName, atQuestionInd));
             atQuestion = true;
         }
         triggerFlipCardAnimation();
     }
 
     private void triggerFlipCardAnimation(){
-        ScaleTransition stShowBack = new ScaleTransition(Duration.millis(1000), flashCardPane);
+        ScaleTransition stShowBack = new ScaleTransition(Duration.millis(1000), flashCardBack);
         stShowBack.setFromX(0);
         stShowBack.setToX(1);
         stShowBack.play();
@@ -248,7 +257,9 @@ public class FXController implements Initializable {
      */
     public void updateCreateSingleFlowPane(List<CreateSetListItem> items){
         createSetFlowPane.getChildren().clear();
+        createSetFlowPane.setPrefHeight(10);
         for (CreateSetListItem item : items) {
+            createSetFlowPane.setPrefHeight(createSetFlowPane.getPrefHeight() + item.getPaneSize());
             item.id = "CS" + createItemID;
             createItemID++;
             createSetFlowPane.getChildren().add(item);
@@ -278,34 +289,30 @@ public class FXController implements Initializable {
      */
     public void saveCreatedSet(){
         if (!setNameC.getText().equals("")) {
-            if(db.getSetHashMap().containsKey(setNameC.getText())) { // If set already exists
-                out.println("Error : A set with that name already exists. Choose another name.");
-            } else {
-                List<Card> cards = new ArrayList<>();
-                if (curSetType == Set.setType.FlashCard || curSetType == Set.setType.Spelling){
-                    for (CreateSetListItem item : db.getCreateSetListItems()) {
-                        cards.add(new Card(item.getTerm(), item.getDefinition()));
-                    }
-                } else if(curSetType == Set.setType.MultipleChoice) {
-                    for (CreateSetListItem item : db.getCreateSetListItems()) {
-                        cards.add(new Card(item.getTermMCS(), item.getDefinitionsMCS()));
-                    }
-                } else if (curSetType == Set.setType.Null){out.println("Error : setType is null.");}
-                else{out.println("Error : Invalid setType.");}
+            List<Card> cards = new ArrayList<>();
+            if (curSetType == Set.setType.FlashCard || curSetType == Set.setType.Spelling){
+                for (CreateSetListItem item : db.getCreateSetListItems()) {
+                    cards.add(new Card(item.getTerm(), item.getDefinition()));
+                }
+            } else if(curSetType == Set.setType.MultipleChoice) {
+                for (CreateSetListItem item : db.getCreateSetListItems()) {
+                    cards.add(new Card(item.getTermMCS(), item.getDefinitionsMCS()));
+                }
+            } else if (curSetType == Set.setType.Null){out.println("Error : setType is null.");}
+            else{out.println("Error : Invalid setType.");}
 
-                Set newSet = new Set(setNameC.getText(), cards, curSetType);
+            Set newSet = new Set(setNameC.getText(), cards, curSetType);
 
-                try {
-                    FileManager fm = new FileManager();
-                    fm.saveSet(newSet);
-                } catch (Exception e) {e.printStackTrace();}
-                db.updateAll();
-                setCreatedView.toFront();
-                curSetName = setNameC.getText();
-                createSetName.setText(curSetName);
-                createSetFlowPane.getChildren().clear();
-                db.clearCreateSetListItem();
-            }
+            try {
+                FileManager fm = new FileManager();
+                fm.saveSet(newSet);
+            } catch (Exception e) {e.printStackTrace();}
+            db.updateAll();
+            setCreatedView.toFront();
+            curSetName = setNameC.getText();
+            createdSetName.setText(curSetName);
+            createSetFlowPane.getChildren().clear();
+            db.clearCreateSetListItem();
         }
         else {System.out.println("Error : setNameC field is empty");} // If name is ""
     }
@@ -325,8 +332,8 @@ public class FXController implements Initializable {
         List<String> answersShuffled = new ArrayList<>(Arrays.asList(db.getAnswers(curSetName,atQuestionInd)));
         Collections.shuffle(answersShuffled);
 
-        for (int i = 0; i < answers.size(); i++) {
-            answers.get(i).setText(answersShuffled.get(i));
+        for (int i = 0; i < answerChoices.size(); i++) {
+            answerChoices.get(i).setText(answersShuffled.get(i));
         }
     }
 
@@ -334,7 +341,7 @@ public class FXController implements Initializable {
      * Checks whether the answer chosen by the user is right or wrong
      */
     public void confirmAnswer(){
-        for (RadioButton rb : answers) {
+        for (RadioButton rb : answerChoices) {
             if (rb.isSelected()) {
                 userAnswers.add(rb.getText());
                 nextMultipleCard();
@@ -344,11 +351,11 @@ public class FXController implements Initializable {
     }
 
     public void nextMultipleCard(){
-        nextCard(Set.setType.MultipleChoice, nextButtonMC);
+        nextCard(Set.setType.MultipleChoice, nextButtonTextMC);
     }
 
     public void selectAnswer(RadioButton choice){
-        for (RadioButton rb : answers) {
+        for (RadioButton rb : answerChoices) {
             rb.setSelected(rb.getText().equals(choice.getText()));
         }
     }
@@ -364,10 +371,13 @@ public class FXController implements Initializable {
     /** ____________RESULT SCREEN____________ */
     public void presentResult(){
         int correct = 0;
+        resultFlowPane.setPrefHeight(10);
         resultSetText.setText("Result of " + curSetName);
         for (int i = 0; i < userAnswers.size(); i++) {
             Card curCard = db.getCardAtIndex(curSetName,i);
-            resultFlowPane.getChildren().add(new ResultListItem(this, curCard, userAnswers.get(i)));
+            ResultListItem item = new ResultListItem(this, curCard, userAnswers.get(i));
+            resultFlowPane.setPrefHeight(resultFlowPane.getPrefHeight() + item.getPaneSize());
+            resultFlowPane.getChildren().add(item);
             if (curCard.getCorrectAnswer().equals(userAnswers.get(i))){
                 correct++;
             }
@@ -388,7 +398,7 @@ public class FXController implements Initializable {
     /** ____________EDIT SET____________ */
 
     public void editSet(Model.Set set){
-        setNameC.setText(set.getName());
+        setNameC.setText(curSetName);
         curSetType = set.getThisSetType();
         switch (curSetType){
             case Spelling -> creatingEditingTitleText.setText("Editing spelling: " + set.getName());
@@ -401,15 +411,17 @@ public class FXController implements Initializable {
             createItemID++;
             db.getCreateSetListItems().add(item);
         }
+        createSetFlowPane.setPrefHeight(10);
         createSetFlowPane.getChildren().clear();
         for (CreateSetListItem item : db.getCreateSetListItems()) {
+            createSetFlowPane.setPrefHeight(createSetFlowPane.getPrefHeight() + item.getPaneSize());
             createSetFlowPane.getChildren().add(item);
         }
         createSetView.toFront();
     }
 
     public void editCurrentSet(){
-        db.updateAll();
+        //db.updateAll();
         editSet(db.getSet(curSetName));
     }
 
@@ -426,16 +438,19 @@ public class FXController implements Initializable {
      * Switches to the next Spelling unless the last is currently played
      */
     public void nextSpellingTerm(){
-        nextCard(Set.setType.Spelling, nextButtonS);
+        nextCard(Set.setType.Spelling,nextButtonTextS);
     }
 
     /** ____________MY SETS____________ */
     public void updateMySetsFlowPane(){
         mySetsFlowPane.getChildren().clear();
+        mySetsFlowPane.setPrefHeight(10);
         ArrayList<Set> sets = new ArrayList<>(db.getSetHashMap().values());
 
         for (Set set : sets) {
-            mySetsFlowPane.getChildren().add(new MySetsListItem(this, set));
+            MySetsListItem item = new MySetsListItem(this, set);
+            mySetsFlowPane.setPrefHeight(mySetsFlowPane.getPrefHeight() + item.getPaneHeight());
+            mySetsFlowPane.getChildren().add(item);
         }
     }
 
@@ -445,13 +460,31 @@ public class FXController implements Initializable {
         curSetName = name;
     }
 
+    public void removeSet(String setName) throws Exception {
+        Set set;
+        set = db.getSet(setName);
+        switch (set.getThisSetType()) {
+            case FlashCard :
+                db.deleteSet(db.getFlashSetStringRepresentation() + db.getSplitterChar() + setName);
+                break;
+            case Spelling:
+                db.deleteSet(db.getSpellingSetStringRepresentation() + db.getSplitterChar() + setName);
+                break;
+            case MultipleChoice:
+                db.deleteSet(db.getMultipleChoiceSetStringRepresentation() + db.getSplitterChar() + setName);
+                break;
+        }
+        updateMySetsFlowPane();
+
+    }
+
     /** -------------- Methods to open pages -------------- */
     public void openPlayFlashcard(){
         setUpFlashcardPlay();
         playFlashcardView.toFront();
     }
     public void openPlaySpelling(){
-        playSpellingView.toFront();
+        spellingView.toFront();
         setUpSpellingPlay();
     }
     public void openPlayMultipleChoice(){
@@ -464,7 +497,7 @@ public class FXController implements Initializable {
         updateMySetsFlowPane();
         mySetsView.toFront(); }
     public void openChooseSet(){
-        chooseSetTypeView.toFront();
+        choooseSetView.toFront();
     }
     public void openIntroPage(){ introPage.toFront(); }
 

@@ -1,4 +1,6 @@
 package Controller;
+import Model.Card;
+import Model.Set;
 import Model.Set.setType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,34 +20,42 @@ public class CreateSetListItem extends AnchorPane {
     @FXML private TextField answerText2;
     @FXML private TextField answerText3;
     @FXML private TextField answerText4;
+    @FXML private AnchorPane multipleListItem;
+    @FXML private AnchorPane singleListItem;
+    private final setType type;
 
     /** Constructor for order with fxml */
     public CreateSetListItem(FXController controller, String id, setType type) {
+        this.type = type;
+        this.controller = controller;
+        this.id = id;
+
         switch (type){
             case Spelling, FlashCard -> loadFxml("createSetSingle.fxml");
             case MultipleChoice -> loadFxml("createSetMultiple.fxml");
         }
-        this.controller = controller;
-        this.id = id;
     }
 
     public CreateSetListItem(FXController controller, String id, setType type, String term, String[] answers) {
-        switch (type){
-            case FlashCard, Spelling:
+        this.type = type;
+        this.controller = controller;
+        this.id = id;
+
+        switch (type) {
+            case FlashCard, Spelling -> {
                 loadFxml("createSetSingle.fxml");
                 termTextC.setText(term);
                 defTextC.setText(answers[0]);
-            case MultipleChoice:
+            }
+            case MultipleChoice -> {
+                loadFxml("createSetMultiple.fxml");
                 questionTextC.setText(term);
                 answerText1.setText(answers[0]);
                 answerText2.setText(answers[1]);
                 answerText3.setText(answers[2]);
                 answerText4.setText(answers[3]);
-                loadFxml("createSetMultiple.fxml");
+            }
         }
-
-        this.controller = controller;
-        this.id = id;
     }
 
     public String getTerm(){
@@ -57,9 +67,9 @@ public class CreateSetListItem extends AnchorPane {
     public String getDefinition(){
         return defTextC.getText();
     }
+
     public String[] getDefinitionsMCS() {
-        String[] out = {answerText1.getText(),answerText2.getText(),answerText3.getText(),answerText4.getText()};
-        return out;}
+        return new String[]{answerText1.getText(),answerText2.getText(),answerText3.getText(),answerText4.getText()};}
 
 
     public void removeCreateListItem(){
@@ -78,5 +88,13 @@ public class CreateSetListItem extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+    }
+
+    public double getPaneSize(){
+        return switch (type) {
+            case FlashCard, Spelling -> singleListItem.getPrefHeight();
+            case MultipleChoice -> multipleListItem.getPrefHeight();
+            default -> 0;
+        };
     }
 }
