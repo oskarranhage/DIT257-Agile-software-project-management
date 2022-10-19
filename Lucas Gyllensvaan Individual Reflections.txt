@@ -96,7 +96,11 @@ This sprint I have made it so that after a user has played a set he/she can play
 
 Week 8:
 
-* what do I want to learn or understand better?
-* how can I help someone else, or the entire team, to learn something new?
-* what is my contribution towards the team’s use of Scrum?
-* what is my contribution towards the team’s deliveries?
+what do I want to learn or understand better?
+multi layer cake model, other agile practices and how we as a group can implement such practices into our work ethic. 
+how can I help someone else, or the entire team, to learn something new?
+Bring forth new found knowledge. Keep great communication with team members and share overviews of my code to them, so that they understand it and what I’m working on. This ensures that if members need to connect their section of code to mine, that it will go smoothly and easy.
+what is my contribution towards the team’s use of Scrum?
+We’ve had meaningful meetings, sprint planning and sprint review.   
+what is my contribution towards the team’s deliveries?
+We received errors when trying to edit an existing set, this sprint I have debugged and searched for what causes this and fixed the problems that I identified. For example there was an error within a switch where the cases lacked an enclosure which we apply using break, so I added the break statements at the end of every case. Other sprints we have done much more, but since this was the last one, we spent much time merging and polishing the project such as getting rid of any error within the code. 
