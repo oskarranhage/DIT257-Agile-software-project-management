@@ -239,6 +239,11 @@ been written in quite broad terms. In the future we would like to have smaller s
 reasonable to complete in the timespan of a sprint. This will be achieved by changing and adding more specific stories throughout the project
 when needed and adding them into the scrum board.
 
+Week 7: The structure for our user stories has changed from Henrik Knibergs definition. We decided to divide the stories into multiple ones covering different work 
+assignments. This is mainly for the group to more easily see the structure of the work and who’s responsible for what. They were divided into prog, view and FX. 
+Prog being the backend, view is the visuals and FX being the backend. As long as we did all of the divided stories in the same sprint then we could follow a vertical 
+workflow. We also have “stories” in the scrum board that aren't qualified as user stories since these are either bug fixes or small changes to previous user stories. 
+
 
 *Your acceptance tests, such as how they were performed, with whom, and which value they provided for you and the other stakeholders:?
 WEEK 5:
