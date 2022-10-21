@@ -83,7 +83,7 @@ This week i was the Scrum Master and i was the person who held all the meetings 
 * what is my contribution towards the team’s deliveries?
 this week me and lucas took the same userstorie (result screen), finished, randomization of all the diffrent types of learning game.
 
-Week 6:
+Week 7:
 * what do I want to learn or understand better?
 This week was a sluggish and only fixed code so , i spent some time reading about github
 * how can I help someone else, or the entire team, to learn something new?
@@ -92,3 +92,14 @@ And subsequently that my team about what a read
 Same as most weeks, where i was in the meetings and helped by writing some of the userstories
 * what is my contribution towards the team’s deliveries?
 This week me and alex spent on comenting on code aswell as cleaning up and fixing bugs
+
+
+Week 8:
+* what do I want to learn or understand better?
+This week was the last week, so i spent sometime reflecting on the course
+* how can I help someone else, or the entire team, to learn something new?
+Nothing to teach my fellow students more than that i thaught 
+* what is my contribution towards the team’s use of Scrum?
+This week was also time for presentation. Same as most weeks, where i was in the meetings and helped by writing some of the userstories, 
+* what is my contribution towards the team’s deliveries?
+This week we continued with linking code and cleaning up and fixing bugs Also fixed The github so it looks nicer.
