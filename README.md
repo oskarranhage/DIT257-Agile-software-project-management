@@ -4,7 +4,9 @@ Agile software project management:
 How To run: 
 Download the Project and open it in Intellji.
 We have JavaFX in files in side the project so you only need to fix Application options for the CLass Controller.Learno. 
+
 We need to add a VM option: --module-path (insert personal Path to the Fx Lib) --add-modules javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media
+
 Example:--module-path C:\Users\ORanh\OneDrive\Desktop\javafx-sdk-19\lib --add-modules javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media
 
 Then you should be able to run the program.
