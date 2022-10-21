@@ -314,6 +314,12 @@ more efficient. We have made points that we can relate to during the meetings, b
 them in one specific place. We think that the meeting schedule has worked well, meetings on monday, wednesday and friday. However, we do
 think that we need to update the social contract one more time. We believe that the backend-group needs one more planned meeting on tuesdays.
 
+Week 8
+We still rely on the social contract we created from the very first sprint, however we have made some additional updates to it since last time.
+All code pushed to git must be runnable and commented.
+The pushed code must be runnable, even after merge conflicts have been resolved.
+At the end of each sprint, all classes should have 100% javadoc coverage (all methods should be commented, variables and such doesn’t have to be)
+
 *There is a survey (Links to an external site.) you can use for evaluating how the team is perceiving the process and if it is used by several
 teams it will also help you
 to assess if your team is following a general pattern or not.:?
