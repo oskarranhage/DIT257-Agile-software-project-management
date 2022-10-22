@@ -2,8 +2,8 @@
 Agile software project management:
 
 How To run: 
-Download the Project and open it in Intellji.
-We have JavaFX in files in side the project so you only need to fix Application options for the CLass Controller.Learno. 
+Download the Project and open it in Intellij.
+We have JavaFX in files in side the project so you only need to fix Application options for the Class Controller.Learno. 
 
 We need to add a VM option: --module-path (insert personal Path to the Fx Lib) --add-modules javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.media
 
@@ -17,10 +17,10 @@ These Are the links to everthing that we have used during the corse:
 MOCKUP FIGMA DESIGN:
 https://www.figma.com/file/EzX2V2YRR4EY0gK3YTSd4g/Agil-projekt?node-id=0%3A1
 
-
 This is a link to our Scrum Board:
 https://trello.com/b/8BXllQqL/dit257-agile-software-project-management
 
 Google Drive:
 https://drive.google.com/drive/folders/17ffJZmpHzQaJSibBl4RMj2cybAH23p_t?usp=sharing
 
+For more in depth project documentation, see the JavaDoc included in the download.
