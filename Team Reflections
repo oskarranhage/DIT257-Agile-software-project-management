@@ -181,6 +181,12 @@ The next sprint we should not add anything new, only fix bugs and remove excess 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
+SPRINT REVIEW WEEK 8:
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
 Team Reflection:
 
 *Customer Value and Scope*
@@ -373,6 +379,17 @@ text documents):?
 WEEK 3:
 We used a web application called Lucidchart to model an UML diagram over our Learno program. This UML is not yet complete and will be updated
 throughout the project. It’s a good way to work since it allows easy access to the UML for everyone to view and edit the UML.
+
+WEEK 8:
+During week 4 we implemented a change in the program which made the class structure much simpler using only 4 classes in the model. This 
+change made it less relevant to continue using Lucidchart. Using Lucidchart was an important step towards reaching the improved class 
+structure, but we stopped using it after week 4. We have now made a JavaDoc out of our project, but we mostly shared the functionality of 
+methods, classes and variables through the commented code (which was also used in the JavaDoc) and through communicating the functionalities 
+of important methods and classes through discord. A text document has been written containing instructions of how to run the program, this 
+document also contains information regarding some of the main classes. For a full documentation, the user is directed to the JavaDoc included 
+in the download. We could’ve been better and more consequent at commenting code. Some methods were not commented at the end of sprints like 
+they should be according to the social contract, but this was never addressed in any of our meetings. The solution to this was to later go 
+back and comment on uncommented methods.
 
 *how you use and update your documentation throughout the sprints
 
