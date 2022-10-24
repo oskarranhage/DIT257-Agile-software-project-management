@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<fx:root fx:id="multipleListItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="341.0" prefWidth="1103.0" stylesheets="@../View/learnoCSS.css" type="AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <Pane layoutX="32.0" layoutY="16.0" prefHeight="311.0" prefWidth="1039.0" style="-fx-background-color: #FFFFFF;" styleClass="cartItem">
+      <children>
+         <TextField fx:id="questionTextC" layoutX="22.0" layoutY="45.0" prefHeight="48.0" prefWidth="913.0" style="-fx-background-color: #FCF0FD;" styleClass="orderListItem">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </TextField>
+         <TextField fx:id="answerText1" layoutX="22.0" layoutY="142.0" prefHeight="48.0" prefWidth="448.0" style="-fx-background-color: #FCF0FD;" styleClass="orderListItem">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </TextField>
+         <Pane layoutX="960.0" layoutY="40.0" onMouseClicked="#removeCreateListItem" prefHeight="52.0" prefWidth="54.0" style="-fx-background-color: #FCF0FD;" styleClass="buttonsLarge">
+            <children>
+               <ImageView fitHeight="35.0" fitWidth="31.0" layoutX="12.0" layoutY="11.0" onMouseClicked="#removeCreateListItem" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../images/bin.png" />
+                  </image>
+               </ImageView>
+            </children>
+         </Pane>
+         <Text layoutX="22.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Question">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Text>
+         <Text layoutX="22.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correct answer">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Text>
+         <TextField fx:id="answerText2" layoutX="22.0" layoutY="236.0" prefHeight="48.0" prefWidth="448.0" style="-fx-background-color: #FCF0FD;" styleClass="orderListItem">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </TextField>
+         <Text layoutX="22.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong answer">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Text>
+         <TextField fx:id="answerText3" layoutX="552.0" layoutY="142.0" prefHeight="48.0" prefWidth="448.0" style="-fx-background-color: #FCF0FD;" styleClass="orderListItem">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </TextField>
+         <Text layoutX="552.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong answer">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Text>
+         <TextField fx:id="answerText4" layoutX="552.0" layoutY="236.0" prefHeight="48.0" prefWidth="448.0" style="-fx-background-color: #FCF0FD;" styleClass="orderListItem">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </TextField>
+         <Text layoutX="552.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wrong answer">
+            <font>
+               <Font size="24.0" />
+            </font>
+         </Text>
+      </children>
+   </Pane>
+</fx:root>

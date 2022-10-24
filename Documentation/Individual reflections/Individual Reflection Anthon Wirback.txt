@@ -1,0 +1,62 @@
+Week 1
+ 
+What do I want to learn or understand better?
+Git and how to be a part of the team without feeling the need to take on a leading role.
+
+How can I help someone else, or the entire team, to learn something new?
+Communication and understanding is key. I would need to know how much they know about the subject in order to not waste time on talking about things that they already know or are beyond their current scope of knowledge. It is also important to not give them any unnecessary information since this could confuse them. It’s also important to not just give the person the solution but to rather guide them to find it themselves.
+
+What is my contribution towards the team’s use of Scrum?
+I don’t think I used Scrumb enough, especially during the Lego tasks. I would probably fit more into the role of Scrumb Master, but I need to work on not having such a role. 
+
+What is my contribution towards the team’s deliveries?
+I think I prevented some conflicts within the team. During the puzzle task I tried to create some structure regarding to get us to focus on the sub-tasks instead of with limited success. At the end of the lego-session I didn’t contribute that much to the project since I was a bit exhausted.
+
+
+
+
+Week 2
+ 
+What do I want to learn or understand better?
+I want to learn Scrum better! Since the project hasn't started I'm not sure what needs improving.
+
+How can I help someone else, or the entire team, to learn something new?
+Same answer as the first week!
+
+What is my contribution towards the team’s use of Scrum?
+I had an idea about how the project work should be distributed but it didn't follow scrum. Even though I still think my idea would be more effective I listened to my project group and let it go.
+
+What is my contribution towards the team’s deliveries?
+I kept the group orginized and focused during the making of the business plan. I also did the extensions part of the presentation. I "blanked" so didn't say much about how the application could be expanded upon.
+
+
+
+Week 3
+
+What do I want to learn or understand better?
+I want to learn to distribute our workload better as well as improving the time planning of my own work.
+
+How can I help someone else, or the entire team, to learn something new?
+---
+
+What is my contribution towards the team’s use of Scrum?
+I think I at points engaged and the group at meetings and got them to focus on the tasks at hand. I've contributed to make the group and the work more structured.
+
+What is my contribution towards the team’s deliveries?
+I worked on connecting the backend to the design in Scenebuilder.
+
+
+
+Week 4
+
+What do I want to learn or understand better?
+I want to learn vertical and horizontal better and improve our work with git
+
+How can I help someone else, or the entire team, to learn something new?
+---
+
+What is my contribution towards the team’s use of Scrum?
+I've contributed to changes in future sprints and meetings that will make it easier for us.
+
+What is my contribution towards the team’s deliveries?
+I translated all code to Java FX and in doing so made what the backend created work with the view. I did all my assigned work this week.

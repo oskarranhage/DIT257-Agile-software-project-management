@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<fx:root fx:id="resultListItem" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="115.0" prefWidth="1012.0" type="AnchorPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <Pane fx:id="borderPane" layoutX="11.0" layoutY="8.0" prefHeight="98.0" prefWidth="986.0" style="-fx-background-color: #FFFFFF;" styleClass="cartItem" stylesheets="@../View/learnoCSS.css">
+      <children>
+         <Text layoutX="432.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correct answer:">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Text>
+         <Text layoutX="18.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Term: ">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Text>
+         <Text layoutX="737.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You answered:">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Text>
+         <Pane layoutX="367.0" layoutY="38.0" prefHeight="44.0" prefWidth="252.0" style="-fx-background-color: #FFFFFF;" styleClass="cartItem" stylesheets="@../View/learnoCSS.css">
+            <children>
+               <Text fx:id="defTextC" layoutX="9.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blå" textAlignment="CENTER" wrappingWidth="234.46875">
+                  <font>
+                     <Font size="20.0" />
+                  </font>
+               </Text>
+            </children>
+         </Pane>
+         <Pane fx:id="userInputPane" layoutX="649.0" layoutY="38.0" prefHeight="44.0" prefWidth="292.0" style="-fx-background-color: #FFFFFF;" styleClass="cartItem" stylesheets="@../View/learnoCSS.css">
+            <children>
+               <Text fx:id="userInputText" layoutX="5.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blå" textAlignment="CENTER" wrappingWidth="281.46875">
+                  <font>
+                     <Font size="25.0" />
+                  </font>
+               </Text>
+            </children>
+         </Pane>
+         <Pane layoutX="332.0" prefHeight="98.0" prefWidth="5.0" style="-fx-background-color: #FFFFFF;" styleClass="cartItem" stylesheets="@../View/learnoCSS.css" />
+         <Text fx:id="termTextC" layoutX="43.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blue" textAlignment="CENTER" wrappingWidth="234.46875">
+            <font>
+               <Font size="25.0" />
+            </font>
+         </Text>
+      </children>
+   </Pane>
+</fx:root>
