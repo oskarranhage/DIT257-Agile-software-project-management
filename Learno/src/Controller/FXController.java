@@ -102,8 +102,6 @@ public class FXController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         answerChoices = List.of(answer1, answer2, answer3, answer4);
         openIntroPage();
-        //db.getSetHashMap().put("test spelling", new Set("test spelling", List.of(new Card("blue", "blå"), new Card("red", "röd"), new Card("green", "grön")), Model.Set.setType.Spelling));
-        //db.getSetHashMap().put("test multiple", new Set("test multiple", List.of(new Card("4", new String[]{"7-3", "3-1", "5-2", "3-2"}), new Card("3", new String[]{"5-2", "3-1", "7-3", "3-2"}), new Card("1", new String[]{"3-2", "3-1", "7-3", "5-1"})), Set.setType.MultipleChoice));
     }
 
 
