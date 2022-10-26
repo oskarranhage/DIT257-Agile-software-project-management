@@ -212,11 +212,6 @@ public class FXController implements Initializable {
         }
     }
 
-    // TODO Flashcards
-    //  * If at card, grey out the "previous" button or make it not visible
-    //  * If at last card, make this known visually to the user (maybe change the "next" button text)
-
-
     /**
      Reveals the answer or the question/term
      */
