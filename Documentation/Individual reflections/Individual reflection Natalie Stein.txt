@@ -72,8 +72,7 @@ I would like to learn to be better at communicating. We noticed some communicati
 
 
 How can I help someone else, or the entire team, to learn something new?
-Same as last week. 
-
+I can help somebody by beeing a good listener and communicator. Try to listen to my teammates questions and try to help whenever I can.
 
 What is my contribution towards the team’s use of scrum?
 In this sprint it was my turn to be the scrum-master. We came up with an idea, that we should have specific monday-meeting points, and friday-meeting points, to facilitate our meetings. It was not the easiest task, but it was a fun experience. 
@@ -88,13 +87,12 @@ I also completed my 2 tasks I had on the scrumboard.
 
 Week 5: 30/9
 
-
 What do I want to learn or understand better?
-I would like to learn to plan our work better. To organize our meetings a bit more. 
+I would like to learn to plan our work better, to organize our meetings a bit more. Sometimes our meetings have been unstructured, even though we have rules regarding meetin structure in our social contract. That is something I would like to improve. 
 
 
 How can I help someone else, or the entire team, to learn something new?
-Same as last week. 
+By structuring up the meetings a bit more. It would help the entire team to work better as a whole group, and would make our meetings more efficient and less time consuming. 
 
 
 What is my contribution towards the team’s use of scrum?
@@ -140,10 +138,21 @@ What is my contribution towards the team’s deliveries?
 I completed my tasks on the scrumboard that I had for this sprint. I added icons in SceneBuilder so that the program looks a bit better, 
 but also so that the user can navigate better. It is easier to navigate if there is icons that describes where every button takes you. 
 
+---------------------------------------------------------------
+Week 8: 21/10
+ 
+What do I want to learn or understand better?
+I would like to be better at updating the changes in figma (the design-mockup application). Figma is the place where everybody can get an idea of what the design-part should look like. I was very good at updating figma in the beginning, but not in this sprint. This could lead to misunderstandings, so it is better to be precise - even with every little change. 
 
 
+How can I help someone else, or the entire team, to learn something new?
 
 
+What is my contribution towards the team’s use of scrum?
+I used our trello board and attended to every meeting. 
 
+
+What is my contribution towards the team’s deliveries?
+I completed my tasks on the scrumboard that I had for this sprint. And we completed our project to the plan. I also contributed by attending the final presentation. 
 
 
