@@ -1,6 +1,5 @@
 package Model;
 
-
 import java.io.File;
 import java.nio.file.Files;
 import java.io.IOException;
@@ -9,6 +8,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+/**
+ * FileManager is responsible for managing the reading and writing of files and also handles the string representations
+ * when saving files.
+ */
 public class FileManager {
 
     private Path setFilePath;
@@ -32,6 +35,10 @@ public class FileManager {
      */
     private final char splitterChar = '.';
 
+    /**
+     * Sets the setFilePath to the path where the program is run in. This is why running the program from a terminal
+     * based in another folder does not work.
+     */
     public FileManager(){
         setFilePath = Paths.get(".").toAbsolutePath().resolve("Sets"); //Dynamically sets the path according to
     }
@@ -58,6 +65,11 @@ public class FileManager {
         createTextFile(setFilePath.resolve(name + ".txt"));
     }
 
+    /**
+     * Deletes the textfile with the name setName. (setType.setName)
+     * @param setName
+     * @throws IOException
+     */
     public void deleteTextFile(String setName) throws IOException {
         Files.delete(setFilePath.resolve(setName+".txt"));
     }
@@ -98,7 +110,6 @@ public class FileManager {
     public void writeFile(String fileName, String content) throws Exception {
         writeFile(setFilePath.resolve(fileName + ".txt"), content);
     }
-
 
     /**
      * Writes a string to a text file in the default sets folder.
@@ -167,7 +178,6 @@ public class FileManager {
         return readFile(setFilePath.resolve(folderName + "/" + textFileName + ".txt"));
     }
 
-
     //SAVING A SET AS A TEXTFILE
     // ----------------------------------------------------------------------------------------------------
     /**
@@ -201,8 +211,6 @@ public class FileManager {
         saveSet(set, setFilePath.resolve(getTypeStringRepresentation(set)+splitterChar+set.getName()+".txt"));
     }
 
-    // GETTING LIST OF NAMES OF AVAILABLE SETS
-    // ----------------------------------------------------------------------------------------------------
     /**
      * Returns an ArrayList of the names of all sets in the given folder, this method is recursive and
      * also returns the names of the sets in folders. NO TAIL RECURSION
@@ -253,6 +261,10 @@ public class FileManager {
         return listOfSets;
     }
 
+    /**
+     * Runs getAllSets with setFilePath as argument.
+     * @return Returns all sets from the Sets folder in an array.
+     */
     public ArrayList<Set> getAllSets() {
         return getAllSets(setFilePath);
     }
@@ -265,6 +277,11 @@ public class FileManager {
         return getNamesOfSets(setFilePath);
     }
 
+    /**
+     * Gets the string representation of the given set. ("fs" = flash set, "ss" = spelling set, "mcs" = multiple choice set)
+     * @param set The set to get the type of.
+     * @return Returns the string representation of the type of the set.
+     */
     public String getTypeStringRepresentation(Set set){
         if(set.getThisSetType() == Set.setType.FlashCard){return flashSetStringRepresentation;}
         else if(set.getThisSetType() == Set.setType.FlashCard){return spellingSetStringRepresentation;}
@@ -275,10 +292,13 @@ public class FileManager {
     //GETTERS
     // ----------------------------------------------------------------------------------------------------
 
+    /**Getter.*/
     public String getFlashSetStringRepresentation() {return flashSetStringRepresentation;}
+    /**Getter.*/
     public String getSpellingSetStringRepresentation() {return spellingSetStringRepresentation;}
+    /**Getter.*/
     public String getMultipleChoiceSetStringRepresentation() {return multipleChoiceSetStringRepresentation;}
-    public String getRegexSplitter() {return regexSplitter;}
+    /**Getter.*/
     public char getSplitterChar() {return splitterChar;}
-    public Path getSetFilePath() {return setFilePath;}
+
 }

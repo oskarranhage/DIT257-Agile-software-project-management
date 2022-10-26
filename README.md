@@ -5,6 +5,8 @@ How to run :
 To run the program, simply run the bat file Learno.bat
 
 Note that you need to be running windows and have Java installed on your computer.
+If Learno.bat does not work, a terminal based version of the program is avaliable
+and can be run through running Learno-Terminal.bat.
 
 These Are the links to everthing that we have used during the course:
 

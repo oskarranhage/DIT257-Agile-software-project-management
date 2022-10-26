@@ -10,6 +10,9 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 
+/**
+ * ResultListItem represents the panes that appear in the result screen.
+ */
 public class ResultListItem extends AnchorPane {
 
     FXController controller;
@@ -24,6 +27,12 @@ public class ResultListItem extends AnchorPane {
     @FXML private Pane userInputPane;
     @FXML private AnchorPane resultListItem;
 
+    /**
+     * Constructor fpr ResultListItem.
+     * @param controller Passes down the FXController object.
+     * @param card The card that should be displayed in the pane.
+     * @param userInput The answer that the user gave.
+     */
     public ResultListItem(FXController controller, Card card, String userInput) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("resultListItem.fxml"));
 
@@ -49,20 +58,16 @@ public class ResultListItem extends AnchorPane {
         userInputText.setText(userInput);
     }
 
+    /**Getter*/
     public String getTerm(){
         return termTextC.getText();
     }
-
+    /**Getter*/
     public String getDefinition(){
         return defTextC.getText();
     }
 
-
-    public void removeCreateListItem(){
-        controller.db.getCreateSetListItems().removeIf(item -> id.equals(item.id));
-        controller.updateCreateSingleFlowPane(controller.db.getCreateSetListItems());
-    }
-
+    /**Getter for pane size*/
     public double getPaneSize(){
         return resultListItem.getHeight();
     }

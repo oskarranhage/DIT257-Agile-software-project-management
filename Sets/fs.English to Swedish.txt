@@ -1,0 +1,6 @@
+Table.Bord
+Cloud.Moln
+Ice cream.Glass
+Roof.Tak
+Tool.Verktyg
+Toilet.Toalett

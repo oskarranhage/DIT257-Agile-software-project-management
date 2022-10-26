@@ -6,6 +6,9 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 
+/**
+ * CreateSetListItem represents the panel that is displayed when creating a new set.
+ */
 public class CreateSetListItem extends AnchorPane {
 
     FXController controller;
@@ -34,6 +37,15 @@ public class CreateSetListItem extends AnchorPane {
         }
     }
 
+    /**
+     * Constructor for creating a create set list item. Uses a switch implementation for showing different
+     * looking panes depending on the setType.
+     * @param controller Passes down the FXController object.
+     * @param id The id of the pane. All panes have different ids.
+     * @param type The type of the current set. This decides if the pane should have one or more answers.
+     * @param term The term on the pane, will be set to a value when editing a set.
+     * @param answers The list of answers of the pane. Will be set to a value when editing a set.
+     */
     public CreateSetListItem(FXController controller, String id, setType type, String term, String[] answers) {
         this.type = type;
         this.controller = controller;
@@ -56,25 +68,31 @@ public class CreateSetListItem extends AnchorPane {
         }
     }
 
+    /**Getter*/
     public String getTerm(){
         return termTextC.getText();
     }
-
+    /**Getter*/
     public String getTermMCS() {return questionTextC.getText();}
 
-    public String getDefinition(){
-        return defTextC.getText();
-    }
+    /**Getter, used when playing a flash and a spelling set.*/
+    public String getDefinition(){return defTextC.getText();}
 
+    /**Getter, used when playing a multiple choice set.*/
     public String[] getDefinitionsMCS() {
         return new String[]{answerText1.getText(),answerText2.getText(),answerText3.getText(),answerText4.getText()};}
 
-
+    /**
+     * Removes createSetListItem.
+     */
     public void removeCreateListItem(){
         controller.db.getCreateSetListItems().removeIf(item -> id.equals(item.id));
         controller.updateCreateSingleFlowPane(controller.db.getCreateSetListItems());
     }
 
+    /**
+     * loads Fxml
+     */
     private void loadFxml(String url){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(url));
 
@@ -88,6 +106,10 @@ public class CreateSetListItem extends AnchorPane {
         }
     }
 
+    /**
+     * Gets the panel size.
+     * @return Returns the panel size.
+     */
     public double getPaneSize(){
         return switch (type) {
             case FlashCard, Spelling -> singleListItem.getPrefHeight();

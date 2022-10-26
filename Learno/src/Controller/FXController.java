@@ -20,6 +20,9 @@ import java.util.List;
 
 import static java.lang.System.out;
 
+/**
+ * FXController manages the visual presentation of the program.
+ */
 public class FXController implements Initializable {
     public DataBase db = new DataBase();
 
@@ -91,10 +94,6 @@ public class FXController implements Initializable {
     public int createItemID = 1;
     private Model.Set.setType curSetType = null;
 
-    public FXController() {
-        //bulbImage.setImage(new Image("C:/Programmering/DIT257-Agile-software-project-management/src/images/light-bulb.png"));
-    }
-
     /**
      * Initialize is called at runtime, this is separate from the method start() in the main class Learno
      */
@@ -107,6 +106,11 @@ public class FXController implements Initializable {
 
     /** ____________GENERAL METHODS_____________*/
 
+    /**
+     * Method for setting up the different play menus. Uses a switch implementation to do different things
+     * depending on the current setType.
+     * @param setType
+     */
     public void setUpPlay(Set.setType setType) {
         curSetType = setType;
         atQuestionInd = 0;
@@ -134,6 +138,13 @@ public class FXController implements Initializable {
                 nextButtonTextMC.setText("Next");
         }
     }
+
+    /**
+     * Method for displaying the next card when playing a set. Uses a switch implementation to do different things
+     * depending on the current set type.
+     * @param setType The type of the set that is being played.
+     * @param nextButton The text object of the nextButton. This is used to generalize the code.
+     */
     public void nextCard(Set.setType setType, Text nextButton){
         atQuestionInd += 1;
         int setSize = db.getSetSize(curSetName);
@@ -226,6 +237,9 @@ public class FXController implements Initializable {
         triggerFlipCardAnimation();
     }
 
+    /**
+     * Method for flip flash card animation.
+     */
     private void triggerFlipCardAnimation(){
         ScaleTransition stShowBack = new ScaleTransition(Duration.millis(1000), flashCardBack);
         stShowBack.setFromX(0);
@@ -312,6 +326,9 @@ public class FXController implements Initializable {
 
     /** ____________MULTIPLE CHOICES____________ */
 
+    /**
+     * Sets up menu for playing multiple choice set.
+     */
     public void setUpMultiplePlay(){
         setUpPlay(Set.setType.MultipleChoice);
     }
@@ -342,10 +359,17 @@ public class FXController implements Initializable {
         }
     }
 
+    /**
+     * Method for bringing up the next card when playing multiple choice set.
+     */
     public void nextMultipleCard(){
         nextCard(Set.setType.MultipleChoice, nextButtonTextMC);
     }
 
+    /**
+     * Handles the buttons when playing a multiple choice set.
+     * @param choice
+     */
     public void selectAnswer(RadioButton choice){
         for (RadioButton rb : answerChoices) {
             rb.setSelected(rb.getText().equals(choice.getText()));
@@ -361,6 +385,9 @@ public class FXController implements Initializable {
     public void selectFourthAnswer(){ selectAnswer(answer4); }
 
     /** ____________RESULT SCREEN____________ */
+    /**
+     * Handles the presentation of the result of the recently played set.
+     */
     public void presentResult(){
         int correct = 0;
         resultFlowPane.setPrefHeight(10);
@@ -379,6 +406,9 @@ public class FXController implements Initializable {
         }
     }
 
+    /**
+     * Handles the play again button.
+     */
     public void playAgain(){
         switch (curSetType){
             case Spelling -> openPlaySpelling();
@@ -389,7 +419,11 @@ public class FXController implements Initializable {
 
     /** ____________EDIT SET____________ */
 
-    public void editSet(Model.Set set){
+    /**
+     * Handles the edit set manu.
+     * @param set The set that should be edited.
+     */
+    public void editSet(Set set){
         setNameC.setText(curSetName);
         curSetType = set.getThisSetType();
         switch (curSetType){
@@ -412,8 +446,10 @@ public class FXController implements Initializable {
         createSetView.toFront();
     }
 
+    /**
+     * Handles the edit current set menu.
+     */
     public void editCurrentSet(){
-        //db.updateAll();
         editSet(db.getSet(curSetName));
     }
 
@@ -434,6 +470,9 @@ public class FXController implements Initializable {
     }
 
     /** ____________MY SETS____________ */
+    /**
+     * Updates the my sets flow pane.
+     */
     public void updateMySetsFlowPane(){
         mySetsFlowPane.getChildren().clear();
         mySetsFlowPane.setPrefHeight(10);
@@ -448,10 +487,19 @@ public class FXController implements Initializable {
 
     /** -------------- General methods -------------- */
 
+    /**
+     * Sets the name of the current set to the given string.
+     * @param name The name of the new set.
+     */
     public void setCurSetName(String name){
         curSetName = name;
     }
 
+    /**
+     * Removes the set with the given name.
+     * @param setName The name of the set that should be removed.
+     * @throws Exception Throws an exception if delete set or get sail fails.
+     */
     public void removeSet(String setName) throws Exception {
         Set set;
         set = db.getSet(setName);
@@ -467,44 +515,82 @@ public class FXController implements Initializable {
                 break;
         }
         updateMySetsFlowPane();
-
     }
 
     /** -------------- Methods to open pages -------------- */
+    /**
+     * Opens the play flashcard page.
+     */
     public void openPlayFlashcard(){
         setUpFlashcardPlay();
         playFlashcardView.toFront();
     }
+
+    /**
+     * Opens the play spelling page
+     */
     public void openPlaySpelling(){
         spellingView.toFront();
         setUpSpellingPlay();
     }
+
+    /**
+     * Opens the play multiple choice page.
+     */
     public void openPlayMultipleChoice(){
         setUpMultiplePlay();
         playMultipleChoiceView.toFront();
     }
+
+    /**
+     * Opens the start menu.
+     */
     public void openStartMenu(){ startMenu.toFront(); }
 
+    /**
+     * Opens the my sets page.
+     */
     public void openMySets(){
         updateMySetsFlowPane();
         mySetsView.toFront(); }
+
+    /**
+     * Opens the choose set page.
+     */
     public void openChooseSet(){
         choooseSetView.toFront();
     }
+
+    /**
+     * Opens the intro page.
+     */
     public void openIntroPage(){ introPage.toFront(); }
 
+    /**
+     * Opens the result page.
+     */
     public void openResultPage(){
         presentResult();
         resultPage.toFront();
     }
+
+    /**
+     * Opens the create flashcard set page.
+     */
     public void openCreateSetFlashCards(){
         openCreateSet(Set.setType.FlashCard);
     }
 
+    /**
+     * Opens the crate spelling set page.
+     */
     public void openCreateSetSpelling(){
         openCreateSet(Set.setType.Spelling);
     }
 
+    /**
+     * Opens the create multiple choice set page.
+     */
     public void openCreateSetMultiple(){
         openCreateSet(Set.setType.MultipleChoice);
     }

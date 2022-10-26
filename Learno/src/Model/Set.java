@@ -3,95 +3,105 @@ package Model;
 
 import java.util.*;
 
+/**
+ * A set object represents a collection of cards with a name and a type.
+ */
 public class Set {
+    /**
+     * The name of the set represented by a string.
+     */
     String name;
+    /**
+     * The list of cards.
+     */
     ArrayList<Card> cards = new ArrayList<Card>();
+    /**
+     * The type of the set, this type is represented by the enum setType.
+     */
     private setType thisSetType;
-    static Random rand = new Random();
-    Scanner sc = new Scanner(System.in);
 
+    /**
+     * Enum setType. (FlashCard, Spelling, MultipleChoice, Null)
+     */
     public enum setType{FlashCard,Spelling,MultipleChoice,Null}
+
+    /**
+     * Sets thisSetType to FlashCard.
+     */
     public void setTypeFlashCard(){thisSetType = setType.FlashCard;}
+    /**
+     * Sets thisSetType to Spelling.
+     */
     public void setTypeSpelling(){thisSetType = setType.Spelling;}
+    /**
+     * Sets thisSetType to MultipleChoice.
+     */
     public void setTypeMultipleChoice(){thisSetType = setType.MultipleChoice;}
+    /**Getter for setType*/
     public setType getThisSetType() {return thisSetType;}
 
+    /**
+     * Constructor for creating a set object with a given name, setType is left as null.
+     * @param name The name of the set.
+     */
     public Set(String name){
         this.name = name;
     }
 
+    /**
+     * Constructor for creating a set object with a given name and a given setType.
+     * @param name The name of the set.
+     * @param type The type of the set.
+     */
     public Set(String name, setType type){
         this.name = name;
         this.thisSetType = type;
     }
 
+    /**
+     * Constructor for creating a set object with a given name, a given setType and a given list of cards.
+     * @param name The name of the set.
+     * @param cardList The list of cards that should be included in the set.
+     * @param type The type of the set.
+     */
     public Set(String name, List<Card> cardList, setType type){
         this.name = name;
         cards.addAll(cardList);
         this.thisSetType = type;
     }
 
-    public void addCard(int id,Card c){this.cards.add(id,c);}
+    /**
+     * Adds a card to the list of cards.
+     * @param c The card that should be added.
+     */
     public void addCard(Card c){this.cards.add(c);}
+
+    /**
+     * Removes the given card from the set.
+     * @param c The card that should be removed.
+     */
     public void removeCard(Card c){
         this.cards.remove(c);
     }
+
+    /**
+     * Updates the card at the given index.
+     * @param id The id of the card that should be updated.
+     * @param card The new card.
+     */
     public void updateCard(int id, Card card){
         cards.remove(id-1);
         cards.add(id-1,card);
     }
 
-    public String getName() {
-        return name;
-    }
-
+    /**Getter*/
+    public String getName() {return name;}
+    /**Setter*/
     public void setName(String name) {this.name = name;}
-
+    /**Getter*/
     public ArrayList<Card> getCards() {return cards;}
-
+    /**Setter*/
     public void setCards(ArrayList<Card> cards) {this.cards = cards;}
-
-    public static Model.Set shuffleSet(Set set) {
-        ArrayList<Model.Card> cardList = new ArrayList<>();
-        ArrayList<Model.Card> tmp = set.cards;
-        int amountOfCards = tmp.size();
-        int int_random;
-        int int_random2;
-        Model.Card pickedCard;
-
-        String[] alt;
-        String[] newAlt;
-        List<String> l;
-        //for (Card card : tmp) {
-        for (int i = 0; i < amountOfCards;) {
-            int_random = rand.nextInt(amountOfCards);
-            pickedCard = tmp.get(int_random);
-
-            //shuffle alternatives
-            alt = pickedCard.getAnswers();
-            newAlt = new String[alt.length];
-            l = Arrays.asList(alt);
-
-            ArrayList<String> alternatives = new ArrayList<>(l);
-
-            for (int j = 0; j < alt.length; j++) {
-                int_random2 = rand.nextInt(alternatives.size());
-
-                String pickedAlternative = alternatives.get(int_random2);
-                newAlt[j] = pickedAlternative;
-                alternatives.remove(pickedAlternative);
-            }
-
-            tmp.remove(pickedCard);
-            cardList.add(pickedCard);
-            amountOfCards--;
-            pickedCard.setAnswers(newAlt);
-
-        }
-        System.out.println(cardList);
-        set.setCards(cardList);
-        return set;
-    }
 
     /**
      * Gets the list of answers of a specific card.

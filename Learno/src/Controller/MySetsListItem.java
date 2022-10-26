@@ -10,6 +10,9 @@ import javafx.scene.text.TextAlignment;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * MySetsListItem is the panes that represents available sets in the my sets menu.
+ */
 public class MySetsListItem extends AnchorPane {
 
     FXController controller;
@@ -48,6 +51,9 @@ public class MySetsListItem extends AnchorPane {
         }
     }
 
+    /**
+     * Method for playing set.
+     */
     public void openSet(){
         controller.setCurSetName(set.getName());
         switch (set.getThisSetType()){
@@ -57,11 +63,17 @@ public class MySetsListItem extends AnchorPane {
         }
     }
 
+    /**
+     * Method for editing set.
+     */
     public void editSet(){
         controller.setCurSetName(set.getName());
         controller.editCurrentSet();
     }
 
+    /**
+     * Method for removing set.
+     */
     public void removeSet(){
         try {
             controller.removeSet(set.getName());
@@ -70,10 +82,14 @@ public class MySetsListItem extends AnchorPane {
         }
     }
 
+    /**
+     * newImage
+     */
     private Image newImage(String url){
         return new Image(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(url)));
     }
 
+    /**Getter for pane height*/
     public double getPaneHeight(){
         return mySetListItem.getHeight();
     }

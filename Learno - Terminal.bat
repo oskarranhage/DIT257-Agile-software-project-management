@@ -1,0 +1,1 @@
+java --module-path javafx-sdk-19/lib --add-modules=javafx.base --add-modules=javafx.controls --add-modules=javafx.fxml --add-modules=javafx.graphics --add-modules=javafx.media -jar DIT257-Agile-software-project-management.jar "cmdView"

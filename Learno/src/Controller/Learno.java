@@ -1,4 +1,5 @@
 package Controller;
+import View.View;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,8 +11,14 @@ import static javafx.application.Application.launch;
 public class Learno extends Application {
 
     public static void main(String[] args) {
-
-        launch(args);
+        if(args.length != 0){
+            if(args[0].equals("cmdView")){
+                View view = new View();
+                view.startMenu();
+            }
+        }
+        else{
+        launch(args);}
     }
 
     @Override
