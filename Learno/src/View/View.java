@@ -51,33 +51,28 @@ public class View {
     private void chooseSet(){
         while(true){
             System.out.println("Type the name of the set you want to run.");
-
             ArrayList<Set> allSets = db.getAllSets();
-            String[] setNames = new String[allSets.size()];
-            String[] setTypes = new String[allSets.size()];
+            System.out.println(allSets.get(1).getThisSetType());
             for(int i = 0 ; i < allSets.size() ; i++){
-                setNames[i] = allSets.get(i).getName();
-                setTypes[i] = db.getTypeStringRepresentation(allSets.get(i));
                 System.out.println(allSets.get(i).getName());
             }
-            for (String name : setNames) {System.out.println(name);}
             String input = sc.nextLine();
-            int indexof = Arrays.asList(setNames).indexOf(input);
-
-            if(setTypes[indexof].equals(db.getFlashSetStringRepresentation())){
-                try {runFlashSet(db.readFile(db.getFlashSetStringRepresentation() + db.getSplitterChar() + input));
-                } catch (Exception e) {System.out.println("Error reading file " + db.getFlashSetStringRepresentation() + db.getSplitterChar() + input);}
-                break;
-            }
-            else if (setTypes[indexof].equals("ss")){
-                try {runSpelling(db.readFile("ss." + input));
-                } catch (Exception e) {System.out.println("Error reading file " + db.getSpellingSetStringRepresentation() + db.getSplitterChar() + input);}
-                break;
-            }
-            else if (setTypes[indexof].equals("mcs")) {
-                try {runMultipleChoiceSet(db.readFile("mcs." + input));
-                } catch (Exception e) {System.out.println("Error reading file " + db.getMultipleChoiceSetStringRepresentation() + db.getSplitterChar() + input);}
-                break;
+            if (db.getSet(input) != null) {
+                if(db.getSet(input).getThisSetType() == Set.setType.FlashCard){
+                    try {runFlashSet(db.readFile(db.getFlashSetStringRepresentation() + db.getSplitterChar() + input));
+                    } catch (Exception e) {System.out.println("Error reading file " + db.getFlashSetStringRepresentation() + db.getSplitterChar() + input);}
+                    break;
+                }
+                else if (db.getSet(input).getThisSetType() == Set.setType.Spelling){
+                    try {runSpelling(db.readFile("ss." + input));
+                    } catch (Exception e) {System.out.println("Error reading file " + db.getSpellingSetStringRepresentation() + db.getSplitterChar() + input);}
+                    break;
+                }
+                else if (db.getSet(input).getThisSetType() == Set.setType.MultipleChoice) {
+                    try {runMultipleChoiceSet(db.readFile("mcs." + input));
+                    } catch (Exception e) {System.out.println("Error reading file " + db.getMultipleChoiceSetStringRepresentation() + db.getSplitterChar() + input);}
+                    break;
+                }
             }
         }
     }
