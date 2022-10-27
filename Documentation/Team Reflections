@@ -183,7 +183,22 @@ The next sprint we should not add anything new, only fix bugs and remove excess 
 
 SPRINT REVIEW WEEK 8:
 
+How did the sprint go?
+This sprint went well, we had a successfull presentation this wednesday and have started working on our final report.
 
+Did we complete our tasks?
+We completed all planned tasks. We still need to prepare for our git hand in.
+
+Did the members cooperate well?
+We maintained tight communication and had meetings leading up to the presentation where everyone participated so communication was good this
+week!
+
+Was the workload sufficient and/or manageable?
+We didn't have much to do other than fix some small things in the porgram for the presentation and preparing the actual presentation. The
+workload was evenly spread and not that demanding at all this week.
+
+What needs to change until the next sprint?
+This is the last sprint. Our reflection on what can be done better in the future will be featured in our final report.
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -206,8 +221,6 @@ in our application; spelling, multiple choices and flashcards, so that the user 
 to implement even more functionality, such as having a “folder” functionality. The idea behind that was that the user could sort their study tests in specific 
 folders. However, we felt like we were a little short on time to accomplish that, and since we did not think that the folder-feature would make a big difference 
 for the application (the priority was not so high), we chose to skip that. 
-
-
 
 *The success criteria for the team in terms of what you want to achieve within the project (this can include the application, but also your
 learning outcomes, your teamwork, or your effort)?:
@@ -232,7 +245,7 @@ We could do so by giving more overviews of the code in backend to frontend and v
 their opinion on it. Right now we don’t really have much insight into each other's work, if someone in backend were to modify the work of someone in frontend, 
 he wouldn’t be able to.
 Effort: We don’t need to put in an absurd amount of hours into our product, but enough for us to accomplish the minimal requirements that we now have and feel 
-pleased with ourselves.  
+pleased with ourselves.
 
 
 *Your user stories in terms of using a standard pattern, acceptance criteria, task breakdown and effort estimation and how this influenced the
@@ -245,30 +258,20 @@ been written in quite broad terms. In the future we would like to have smaller s
 reasonable to complete in the timespan of a sprint. This will be achieved by changing and adding more specific stories throughout the project
 when needed and adding them into the scrum board.
 
-Week 7: The structure for our user stories has changed from Henrik Knibergs definition. We decided to divide the stories into multiple ones covering different work 
-assignments. This is mainly for the group to more easily see the structure of the work and who’s responsible for what. They were divided into prog, view and FX. 
-Prog being the backend, view is the visuals and FX being the backend. As long as we did all of the divided stories in the same sprint then we could follow a vertical 
-workflow. We also have “stories” in the scrum board that aren't qualified as user stories since these are either bug fixes or small changes to previous user stories. 
-
+Week 7: The structure for our user stories has changed from Henrik Knibergs definition. We decided to divide the stories into smaller, more 
+concrete tasks. This change was done to make it clearer who is responsible for what. Our user stories are now divided into prog, view, FX and fix. 
+Prog being the backend, view being the visuals and FX being the backend of javafx. As long as we did all of the divided stories in the same sprint 
+then we could follow a vertical workflow. We also have “stories” in the scrum board that aren't qualified as user stories since these are either 
+bug fixes or small changes to previous user stories.
 
 *Your acceptance tests, such as how they were performed, with whom, and which value they provided for you and the other stakeholders:?
+
 WEEK 5:
 How we Demo finished user stories, is when they are runnable and able to be merged into the main branch. Our acceptance test is by 
 following the acceptance criteria and only when the criteria is met, are you moving the user story to done. These are performed with the 
 group at the end of the week, to see if what is done and what needs more work, and or if it needed to be split up into smaller parts, it 
 also helps our team with keeping the dividing. This helps us so when it is time at the sprint review to show our PO what we have done this 
 week.
-
-WEEK 7:
-We now use checklists on each item in trello to clearly show what acceptance criterias needs to be met for each story, and also what criteria
-have been completed. This way of listing acceotance criteria has made it easier for us to work on the same user stories together and for us
-to see what the others are working on. We would however need to be more distictive between how we define our user stories and our quick fixes.
-During our project we've run into a lot of smaller things that needs to be fixed, this has led to us creating objects in trello which are not
-user stories but are fixes that needs to be done in order to work towards a user story or even several user stories. We would need to openly
-discuss and distinguish between how the fixes should be written out. Our current method has worked but has led to confusion about which objects
-are user stories and which ones that are just fixes and how they should be written. When looking on our trello, we've had to deal with and
-rewrite objects so that they make sense for everyone, this would have been much easier had we discussed the rules of writing user stories 
-and fixes in more detail in the beginning.
 
 WEEK 6:
 When we as programmers deem a user story that we have worked in as “done”, it needs to meet the requirements for DoD (definition of done). 
@@ -282,6 +285,7 @@ and thus he shouldn’t be displeased that we are still in the time frame and ha
 
 
 *The three KPIs you use for monitoring your progress and how you use them to improve your process:?
+
 WEEK 5:
 We are using these three KPI´s:
 POs satisfaction
@@ -363,6 +367,7 @@ order of which they should be chosen is according to the list. Those who have sp
 *Design decisions and product structure*
 
 *How your design decisions (e.g., choice of APIs, architecture patterns, behaviour) support customer value?:
+
 WEEK 4:
 This week our main focus was restructuring our code into a MVC model, which will help our PO in easier seeing progress, as well as for the
 coders being able to demo separate parts. This will help us in the future when we add features that our PO wants later on and gives us a
@@ -372,6 +377,26 @@ is chosen so the customer will feel safe while learning. How we structure the fr
 with rounded buttons for a relaxed feeling for when the program is used. We want to make it easily traversable when going through the
 application. This can be something we change depending on how the application feels when we use it
 
+WEEK 8:
+A few weeks later we noticed that it was considerably harder than we thought to write the program according to the MVC design pattern,
+after contenplating whether to go through with it or not we decided to focus on working on the minimal requirements of the product 
+instead of pouring time into making the program code adaptable with MVC. Looking back, this desicion saved us from having a halfway
+done product. We would most certainly not have finished our minimal requirements had we pursued the MVC architecture.
+
+Regarding our visual design decisions of the view we used a color scheme that was easy on the eyes while not being distracting. We made almost 
+everything rounded since that, as stated before, creates a more relaxing and visually appealing product. We focused on a simple design for 
+a simple user experience that's fitting our target audience of gradeschool kids.
+
+The font-size was specifically larger and smaller depending on the importance of the text. For example the definition of the spelling-tool 
+has the largest font size on the page since it is the most important thing for the user to read. The same is true for the user-input text 
+field and the text on the “next” button which is a design decision used throughout the project.
+
+We used icons to easily signal what the different buttons and sets were since it is easier to learn images than placement of buttons as 
+well as letting the users who have a harder time reading look at the icons instead of reading the text.
+
+The animation when turning and going to the next flashcard was one of our extensions beyond the minimal requirements. This was to improve 
+pliancy and indicate user input. We wanted to integrate animations to all learning tools but the flashcard animations was the one we had 
+time for since our focus was on the minimal requirements.
 
 *Which technical documentation you use and why (e.g. use cases, interaction diagrams, class diagrams, domain models or component diagrams,
 text documents):?
@@ -381,15 +406,10 @@ We used a web application called Lucidchart to model an UML diagram over our Lea
 throughout the project. It’s a good way to work since it allows easy access to the UML for everyone to view and edit the UML.
 
 WEEK 8:
-During week 4 we implemented a change in the program which made the class structure much simpler using only 4 classes in the model. This 
-change made it less relevant to continue using Lucidchart. Using Lucidchart was an important step towards reaching the improved class 
-structure, but we stopped using it after week 4. We have now made a JavaDoc out of our project, but we mostly shared the functionality of 
-methods, classes and variables through the commented code (which was also used in the JavaDoc) and through communicating the functionalities 
-of important methods and classes through discord. A text document has been written containing instructions of how to run the program, this 
-document also contains information regarding some of the main classes. For a full documentation, the user is directed to the JavaDoc included 
-in the download. We could’ve been better and more consequent at commenting code. Some methods were not commented at the end of sprints like 
-they should be according to the social contract, but this was never addressed in any of our meetings. The solution to this was to later go 
-back and comment on uncommented methods.
+We have now made a JavaDoc of our project, which helps with getting a clear picture of the program as a whole, but we mostly shared the 
+functionality of methods, classes and variables through the commented code (which was also used in the JavaDoc) and through communicating the 
+functionalities of important methods and classes through discord. A text document has been written containing instructions of how to run the 
+program. Other tools haven't been relevant, we don't feel that this is something we could improve on further.
 
 *how you use and update your documentation throughout the sprints
 
@@ -397,6 +417,16 @@ WEEK 3:
 This sprint, we used Lucidchart to come up with a starting point for the project. It was changed a lot throughout the sprint.
 In the future we would like to follow design patterns when setting up the structure of the program. This can be achieved by having a meeting
 at the start of the sprint where we go over the project plan in Lucidchart.
+
+Week 8:
+During week 4 we implemented a change in the program which made the class structure much simpler using only 4 classes in the model. This 
+change made it less relevant to continue using Lucidchart. Using Lucidchart was an important step towards reaching the improved class 
+structure, but we stopped using it after week 4. It is now part of our social contract that we should comment all methods with JavaDoc
+comments. This makes methods readable for everyone. We could’ve been better and more consequent at commenting code. Some methods were 
+not commented at the end of sprints like they should be according to the social contract, but this was never addressed in any of our 
+meetings. The solution to this was to later go back and comment on uncommented methods, but a better alternative would be to look through 
+the code at the end of each sprint or the day before.
+
 
 *how you ensure code quality and enforce coding standards?:
 
@@ -452,21 +482,16 @@ WEEK 6:
 We’re still working according to scrum, which means we have a product backlog, a scrum board that gets updated each sprint during the planning 
 phase, and then a sprint review at the end of each sprint where we reflect over the passed sprint and where we may update the backlog. Our only 
 deviation from the formal scrum is that we don’t have daily scrum meetings, instead we have sprint planning on mondays, a lunch meeting on 
-wednesdays and a  sprint review meeting on fridays. All of these meetings now have concrete agendas that the scrum master makes sure is followed. 
+wednesdays and a sprint review meeting on fridays. All of these meetings now have concrete agendas that the scrum master makes sure is followed. 
 The way we structure our meetings has improved and it’s very noticeable in how much time we need to spend on each meeting. Friday meetings for 
 example used to go on for about 5 hours and most of that time was spent talking about things not relevant to the meeting and sometimes working 
-on the wrong things. Friday meetings after we implemented the meeting agendas now usually take 2 hours. This is one of the most valuable 
+on the wrong things. After we implemented the meeting agendas these Friday meetings now take about 2 hours. This is one of the most valuable 
 improvements we’ve made during the course of this class in terms of saving time and energy. 
 
-The manner in which we organize our scrum board is something that could be improved, it would’ve been helpful to save which week what stories 
+The manner in which we organize our scrum board is something that could be improved, it would’ve been helpful to save which week the stories 
 were completed, as it is now all completed user stories get bundled up into “done” which makes it harder to look back and compare each sprint. 
-This is however kind of documented in our KPIs “designated user stories“ and “completed user stories” where the number of user stories designated 
-and listed by each person is documented, but it would be nice to see what the user stories actually were and not only a number. Another 
-improvement would be to be more consistent in how we order the user stories so that the ones shown at the top are the ones of highest importance, 
-this is something we’ve been a bit sloppy with.
-
-It’s a bit too late to implement these improvements now as we are close to the end of our work and our scrum board is mostly empty. But if we were 
-to improve we would need to include the rule of always ordering user stories depending on importance as part of the social contract.
+Another improvement would be to be more consistent in how we order the user stories so that the ones shown at the top are the ones of highest i
+mportance, this is something we’ve been a bit sloppy with. Doing this could be a part of our social contract.
 
 *the sprint review and how it relates to your scope and customer value (Did you have a PO, if yes, who?, if no, how did you carry out the
 review? Did the review result in a re-prioritisation of user stories? How did the reviews relate to your DoD? Did the feedback change your
@@ -485,16 +510,18 @@ requirements it will progress further, probably all the way to the “done” st
 the user stories we had worked upon in the previous sprint, and decided if they met the requirements of the DoD or not. If they did they will
 be reviewed by the PO or a TA, if they did not they are still in progress of being completed.
 
-WEEK 7:We now have a better understanding of how to use a PO. This week in specifically useful because it was the second to last sprint, 
-and made it clear what needed to be done until the presentation, fixing know bugs and such, Our DoD has not been changed so the PO have judged the same way after 
-every sprint but what has changed is what we have to present,  we got better at presenting a functional product and able to show of every User Story for that week, 
-and if not showed what needed to be done to make it Done. Our understanding of what the product should look like hasnt changed either.
+WEEK 7:
+We now have a better understanding of how to use a PO. This week it was especially useful because it was the second to last sprint, 
+and presenting to a made up PO made it clear what needed to be done until the presentation. Our DoD has not been changed so the PO has 
+judged the same way after every sprint but what has changed is what we have to present, we got better at presenting 
+a functional product and showing every User Story of that week. We could still improve our presentation. An idea is to prepare a script for 
+each sprint review, this would make for a more realistic scenario.
 
 *best practices for learning and using new tools and technologies (IDEs, version control, scrum boards etc.; do not only describe which tools
 you used but focus on how you developed the expertise to use them) relation to literature and guest lectures (how do your reflections relate
 to what others have to say?)?:
 
-Week 5:
+Week 5 / 7:
 In this project we used github, a scrum board and lucidchart (UML).
 
 Scrum Board: The scrum board was used to keep track of our work. It served as an overview of the project, be it for one sprint or the entire 
@@ -524,4 +551,10 @@ is in the same way that Matthias have used, but with a few differences in manito
 such. In the beginning it was hard to visualize how to work with a PO, and the guest lecture helped with that “team is in control of its process 
 and tool -> we decided how we wanted to develop” this way it showed us that the PO is a guideline while we get to develope how we want just as 
 long it follows scrum and the stories gets done.
+
+WEEK 8:
+Now that we have worked agile for some time we have experienced the importance of communication when working agile in scrum. That's 
+because it would otherwise be a waterfall approach with extra steps if not for the communication and structure. But how we reflect on the weeks 
+have stayed the same since the lectures.
+
 ----
