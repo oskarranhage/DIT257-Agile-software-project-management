@@ -52,7 +52,6 @@ public class View {
         while(true){
             System.out.println("Type the name of the set you want to run.");
             ArrayList<Set> allSets = db.getAllSets();
-            System.out.println(allSets.get(1).getThisSetType());
             for(int i = 0 ; i < allSets.size() ; i++){
                 System.out.println(allSets.get(i).getName());
             }
